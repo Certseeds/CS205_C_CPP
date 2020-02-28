@@ -1,0 +1,551 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//http://cpp.sh/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//11111111111111111111111111111111111111111111
+//program example 1
+// limits.cpp -- some integer limits
+
+#include <iostream>
+#include <string>
+#include <climits>
+using namespace std;
+
+int main()
+{
+    int n_int = INT_MAX; // initialize n_int to max int value
+    short n_short = SHRT_MAX; // symbols defined in climits file
+    long n_long = LONG_MAX;
+    long long n_llong = LLONG_MAX;
+    // sizeof operator yields size of type or of variable
+    cout << "int is " << sizeof (int) << " bytes." << endl;
+    cout << "short is " << sizeof n_short << " bytes." << endl;
+    cout << "long is " << sizeof n_long << " bytes." << endl;
+    cout << "long long is " << sizeof n_llong << " bytes." << endl;
+    cout << endl;
+    cout << "Maximum values:" << endl;
+    cout << "int: " << n_int << endl;
+    cout << "short: " << n_short << endl;
+    cout << "long: " << n_long << endl;
+    cout << "long long: " << n_llong << endl << endl;
+    cout << "Minimum int value = " << INT_MIN << endl;
+    cout << "Bits per byte = " << CHAR_BIT << endl;
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//2222222222222222222222222222
+// Initialization.cpp-- with C++11
+// Program example 2
+
+
+#include<iostream>
+#include<climits>
+using namespace std;
+
+int main()
+{
+    cout<<sizeof(char)<<endl;
+    cout<<sizeof(int)<<endl;
+    
+    int n_int = INT_MAX;
+    cout<<n_int<<endl;
+    
+    //Initialization    C++11
+    int hamburgers = {24}; // set hamburgers to 24
+    cout<<hamburgers<<endl;
+    
+    int emus{7}; // set emus to 5
+    cout<<emus<<endl;
+    
+    int rheas = {12}; // set rheas to 12
+    cout<<rheas<<endl;
+    
+    int rocs = {}; // set rocs to 0
+    int psychics{}; // set psychics to 0
+    cout<<rocs<<endl;
+    cout<<psychics<<endl;
+        
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// exceed.cpp -- exceeding some integer limits
+// program example 3
+
+#include <iostream>
+#define ZERO 0 // makes ZERO symbol for 0 value
+#include <climits> // defines INT_MAX as largest int value
+using namespace std;
+
+int main()
+{
+    short sam = SHRT_MAX; // initialize a variable to max value
+    unsigned short sue = sam;// okay if variable sam already defined
+    cout << "Sam has " << sam << " dollars and Sue has " << sue;
+    cout << " dollars deposited." << endl
+    << "Add $1 to each account." << endl << "Now ";
+    sam = sam + 1;
+    sue = sue + 1;
+    cout << "Sam has " << sam << " dollars and Sue has " << sue;
+    cout << " dollars deposited.\nPoor Sam!" << endl;
+
+    sam = ZERO;
+    sue = ZERO;
+    cout << "Sam has " << sam << " dollars and Sue has " << sue;
+    cout << " dollars deposited." << endl;
+    cout << "Take $1 from each account." << endl << "Now ";
+    sam = sam - 1;
+    sue = sue - 1;
+    cout << "Sam has " << sam << " dollars and Sue has " << sue;
+    cout << " dollars deposited." << endl << "Lucky Sue!" << endl;
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// hexoct1.cpp -- shows hex and octal literals
+// program example 4
+
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+    int chest = 42; // decimal integer literal
+    int waist = 0x42; // hexadecimal integer literal
+    int inseam = 042; // octal integer literal
+    cout << "Monsieur cuts a striking figure!\n";
+    cout << "chest = " << chest << " (42 in decimal)\n";
+    cout << "waist = " << waist << " (0x42 in hex)\n";
+    cout << "inseam = " << inseam << " (042 in octal)\n";
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// hexoct2.cpp -- display values in hex and octal
+// Program example 5
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int chest = 42;
+    int waist = 42;
+    int inseam = 42;
+    cout << "Monsieur cuts a striking figure!" << endl;
+    cout << "chest = " << chest << " (decimal for 42)" << endl;
+    
+    cout << hex; // manipulator for changing number base
+    cout << "waist = " << waist << " (hexadecimal for 42)" << endl;
+    
+    cout << oct; // manipulator for changing number base
+    cout << "inseam = " << inseam << " (octal for 42)" << endl;
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// chartype.cpp -- the char type
+// Program example 6
+
+
+#include <iostream>
+using namespace std;
+
+int main( )
+{
+    char ch; // declare a char variable
+    cout << "Enter a character: " << endl;
+    cin >> ch;
+    cout << "Hola! ";
+    cout << "Thank you for the " << ch << " character." << endl;
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// morechar.cpp -- the char type and int type contrasted
+//Program example 7
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char ch = 'M'; // assign ASCII code for M to ch
+    int i = ch; // store same code in an int
+    cout << "The ASCII code for " << ch << " is " << i << endl;
+    cout << "Add one to the character code:" << endl;
+   
+    ch = ch + 1; // change character code in ch
+    i = ch; // save new character code in i
+    cout << "The ASCII code for " << ch << " is " << i << endl;
+    
+    // using the cout.put() member function to display a char
+    cout << "Displaying char ch using cout.put(ch): ";
+    cout.put(ch);
+    // using cout.put() to display a char constant
+    cout.put('!');
+    cout << endl << "Done" << endl;
+    
+    return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// bondini.cpp -- using escape sequences
+// Program example 8
+
+#include <iostream>
+int main()
+{
+    using namespace std;
+    cout << "\aOperation \"HyperHype\" is now activated!\n";
+    cout << "Enter your agent code:________\b\b\b\b\b\b\b\b";
+    long code;
+    cin >> code;
+    cout << "\aYou entered " << code << "...\n";
+    cout << "\aCode verified! Proceed with Plan Z3!\n";
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// floatnum.cpp -- floating-point types
+//program example 9
+
+
+#include <iostream>
+#include <cfloat>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    
+    cout.setf(ios_base::fixed, ios_base::floatfield); // fixed-point
+    
+    const float million = 1.0e6;
+    
+    float tub = 10.0 / 3.0; // good to about 6 places
+    double mint = 10.0 / 3.0; // good to about 15 places
+    
+    
+    cout << "tub = " << tub;
+    cout << ", a million tubs = " << million * tub;
+    cout << ",\nand ten million tubs = ";
+    cout << 10 * million * tub << endl;
+    cout << "mint = " << mint << " and ten million mints = ";
+    cout << 10*million * mint << endl;
+    
+    cout << pow(2,23) << endl;
+    cout << pow(2,52) << endl;
+    
+    cout << FLT_MANT_DIG << endl;
+    
+    return 0;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// fltadd.cpp -- precision problems with float
+//program example 10
+
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    using namespace std;
+    
+    float a = 2.34E+10f;//7 also causes a problem
+    float b = a + 1.0f;
+    cout << "a = " << a << endl;
+    cout << "b - a = " << b - a << endl;
+    
+    cout << pow(2,23) << endl;
+    float cc = (pow(2,24) -1);
+    cout << cc << endl;
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// modulus.cpp -- uses % operator to convert lbs to stone
+//program example 11
+
+#include <iostream>
+int main()
+{
+    using namespace std;
+    const int Lbs_per_stn = 14;
+    int lbs;
+    cout << "Enter your weight in pounds: ";
+    cin >> lbs;
+    int stone = lbs / Lbs_per_stn; // whole stone
+    int pounds = lbs % Lbs_per_stn; // remainder in pounds
+    cout << lbs << " pounds are " << stone
+    << " stone, " << pounds << " pound(s).\n";
+    
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// init.cpp -- type changes on initialization
+// program example 12
+
+#include <iostream>
+int main()
+{//two problems
+    using namespace std;
+    cout.setf(ios_base::fixed, ios_base::floatfield);
+
+    float tree = 3; // int converted to float
+    int guess(3.9832); // double converted to int
+    cout << "tree = " << tree << endl;
+    cout << "guess = " << guess << endl;
+
+    int debt = 7.2E12; // result not defined in C++, int unable to hold
+    cout << "debt = " << debt << endl;
+    
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// typecast.cpp -- forcing type changes
+// program example 13
+
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int auks, bats, coots;
+    // the following statement adds the values as double,
+    // then converts the result to int
+    auks = 19.99 + 11.99;
+    // these statements add values as int
+    bats = (int) 19.99 + (int) 11.99; // old C syntax
+    coots = int (19.99) + int (11.99); // new C++ syntax
+    cout << "auks = " << auks << ", bats = " << bats;
+    cout << ", coots = " << coots << endl;
+    
+    char ch = 'Z';
+    cout << "The code for " << ch << " is "; // print as char
+    cout << int(ch) << endl; // print as int
+    cout << "Yes, the code is ";
+    cout << static_cast<int>(ch) << endl; // using static_cast
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// arrayone.cpp -- small arrays of integers
+// program example 14
+
+
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int yams[3]; // creates array with three elements
+    yams[0] = 7; // assign value to first element
+    yams[1] = 8;    
+    yams[2] = 6;
+
+    int yamcosts[3] = {20, 30, 5}; // create, initialize array
+    // NOTE: If your C++ compiler or translator can't initialize
+    // this array, use static int yamcosts[3] instead of
+    // int yamcosts[3]
+    cout << "Total yams = ";
+    cout << yams[0] + yams[1] + yams[2] << endl;
+    cout << "The package with " << yams[1] << " yams costs ";
+    cout << yamcosts[1] << " cents per yam.\n";
+
+    int total = yams[0] * yamcosts[0] + yams[1] * yamcosts[1];
+
+    total = total + yams[2] * yamcosts[2];
+    cout << "The total yam expense is " << total << " cents.\n";
+
+    //----------------------------------------------------
+    cout << "\nSize of yams array = " << sizeof yams;
+    cout << " bytes.\n";
+    cout << "Size of one element = " << sizeof yams[0];
+    cout << " bytes.\n";
+    
+    return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Run program example 15
+// strings.cpp -- storing strings in an array
+
+#include <iostream>
+#include <cstring> // for the strlen() function
+int main()
+{   
+    //type feng
+    using namespace std;
+    const int Size = 15;
+    char name1[Size]; // empty array
+    char name2[Size] = "C++owboy"; // initialized array
+    // NOTE: some implementations may require the static keyword
+    // to initialize the array name2
+    cout << "Howdy! I'm " << name2;
+    cout << "! What's your name?\n";
+
+    cin >> name1;
+    cout << "Well, " << name1 << ", your name has ";
+
+    cout << strlen(name1) << " letters and is stored\n";
+    cout << "in an array of " << sizeof(name1) << " bytes.\n";
+
+    cout << "Your initial is " << name1[0] << ".\n";
+
+    name2[3] = '\0'; // set to null character
+    cout << "Here are the first 3 characters of my name: ";
+    cout << name2 << endl;
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// instr1.cpp -- reading more than one string
+#include <iostream>
+int main()
+{
+    // A big problem when typed feng zheng
+
+    using namespace std;
+    const int ArSize = 20;
+    char name[ArSize];
+    char dessert[ArSize];
+    cout << "Enter your name:\n";
+
+    cin >> name;
+    cout << "Enter your favorite dessert:\n";
+
+    cin >> dessert;
+    cout << "I have some delicious " << dessert;
+    cout << " for you, " << name << ".\n";
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// instr2.cpp -- reading more than one word with getline
+#include <iostream>
+int main()
+{
+    //solved when typed feng zheng using getline
+    using namespace std;
+    const int ArSize = 20;
+    char name[ArSize];
+    char dessert[ArSize];
+    cout << "Enter your name:\n";
+    
+    cin.getline(name, ArSize); // reads through newline
+    cout << "Enter your favorite dessert:\n";
+    
+    cin.getline(dessert, ArSize);
+    cout << "I have some delicious " << dessert;
+    cout << " for you, " << name << ".\n";
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// instr3.cpp -- reading more than one word with get() & get()
+#include <iostream>
+int main()
+{
+    //solved when typed feng zheng using get
+
+    using namespace std;
+    const int ArSize = 20;
+    char name[ArSize];
+    char dessert[ArSize];
+    cout << "Enter your name:\n";
+    cin.get(name, ArSize).get(); // read string, newline
+    cout << "Enter your favorite dessert:\n";
+    cin.get(dessert, ArSize).get();
+    cout << "I have some delicious " << dessert;
+    cout << " for you, " << name << ".\n";
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// numstr.cpp -- following number input with line input
+#include <iostream>
+int main()
+{
+    using namespace std;
+    cout << "What year was your house built?\n";
+    int year;
+    cin >> year;
+    
+    // cin.get(); //
+    
+    cout << "What is its street address?\n";
+    char address[80];
+    cin.getline(address, 80);
+    cout << "Year built: " << year << endl;
+    cout << "Address: " << address << endl;
+    cout << "Done!\n";
+    
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// limits.cpp -- some integer limits
+
+#include <iostream>
+#include <string>
+#include <climits>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int n_int = INT_MAX; // initialize n_int to max int value
+    short n_short = SHRT_MAX; // symbols defined in climits file
+    long n_long = LONG_MAX;
+    long long n_llong = LLONG_MAX;
+    // sizeof operator yields size of type or of variable
+    cout << "int is " << sizeof (int) << " bytes." << endl;
+    cout << "short is " << sizeof n_short << " bytes." << endl;
+    cout << "long is " << sizeof n_long << " bytes." << endl;
+    cout << "long long is " << sizeof n_llong << " bytes." << endl;
+    cout << endl;
+    cout << "Maximum values:" << endl;
+    cout << "int: " << n_int << endl;
+    cout << "short: " << n_short << endl;
+    cout << "long: " << n_long << endl;
+    cout << "long long: " << n_llong << endl << endl;
+    cout << "Minimum int value = " << INT_MIN << endl;
+    cout << "Bits per byte = " << CHAR_BIT << endl;
+    
+    //
+    cout.setf(ios_base::fixed, ios_base::floatfield); // fixed-point
+    cout << long(pow(2,31)-1)<< endl;
+    cout << long(pow(2,15)-1)<< endl;
+    //cout << long(pow(2,63)-1)<< endl;
+    
+    return 0;
+}
+
+
+
