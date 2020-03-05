@@ -11,14 +11,14 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#define hours_number 24 
+#define minute_number 60 
+#define second_number 60 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
 using std::string;
-const int seconds_minutes = 60;
-const int seconds_hour = 60 * seconds_minutes;
-const int seconds_day = 24 * seconds_hour;
 int main() {
     long long seconds = 0;
     while (0 == seconds || cin.fail()) {
@@ -31,12 +31,12 @@ int main() {
         cin.ignore(INT8_MAX, '\n');
         cin.sync();
     }
-    long long days = seconds / seconds_day;
-    seconds = seconds % seconds_day;
-    long long hours = seconds / seconds_hour;
-    seconds %= seconds_hour;
-    long long minutes = seconds / seconds_minutes;
-    seconds %= seconds_minutes;
+    long long days = seconds / (hours_number* minute_number* second_number);
+    seconds = seconds % (hours_number * minute_number * second_number);
+    long long hours = seconds / (minute_number * second_number);
+    seconds %= (minute_number * second_number);
+    long long minutes = seconds / second_number;
+    seconds %= second_number;
     cout << " " << "seconds = " << days << " days, " << hours;
     cout << " hours, " << minutes << " minutes, " << seconds <<" seconds" <<endl;
     return 0;

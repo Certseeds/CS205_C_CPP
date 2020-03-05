@@ -8,13 +8,11 @@
  */
 
 #include<iostream>
-#include<iomanip>
+#include<stdio.h>
 using std::cin;
 using std::cout;
 using std::endl;
 int main() {
-    cout << std::setiosflags(std::ios::fixed);  
-    cout << std::setprecision(8);
     char ch = '0';
     int in = -1;
     float fl = 0;
@@ -26,9 +24,11 @@ int main() {
     cin >> fl;
     cout << endl;
     cout << " The variables you entered were : \n";
-    cout << " The Character you entered is : " << ch << endl;
-    cout << " The Integer Value that you Entered is : " << in << endl;
-    cout << " The Float Value that you Entered is : " << fl << endl;
-
+    cout << " The Character Value that you Entered is : ";
+    printf("%c\n", ch);
+    cout << " The Integer Value that you Entered is : ";
+    printf("%d\n", in);
+    cout << " The Float Value that you Entered is : ";
+    printf("%f\n", fl);
     return 0;
 }
