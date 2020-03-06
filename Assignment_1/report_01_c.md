@@ -1,11 +1,32 @@
-/*
+<!--
  * @Github: https://github.com/Certseeds
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-03-05 21:56:08
+ * @Date: 2020-03-06 18:44:22
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-06 21:35:15
- */
+ * @LastEditTime: 2020-03-06 21:37:43
+ -->
+环境: Visual Studio 2019,MSVC.
+## Part 1 - Analysis
+1. 首先,这个问题整个流程可以被描述为"从控制台读入第一个城市名,经纬度,第二个城市名,经纬度,并计算输出两个城市之间的距离"
+2. 但是,由于格式输入不确定,所以需要对输入进行详细的讨论和分析.
+3. 处于方便管理换行符等问题,使用getline(buffer,1024)来解决.
+4. 由于城市名不能包括特殊字符,使用一个辅助函数遍历字符串来帮助判断
+5. 由于经纬度中,不能包括特殊字符,需要有两个参数(一个精度,一个纬度),不能有多于一个的`+ . -`,以及经纬度不能为0(没有经纬度为0的城市和防止错误读入),必须是符合实际逻辑的数值,所以需要分别进行判断.
+6. 不能包括特殊字符使用了遍历判断,需要两个参数使用了除去两侧space之后寻找字符串内部space的方式,不能有多余的`+ - .`使用了`std::cout`函数,经纬度不能为0和取值范围直接判断,并将读入城市名,经度纬度的部分设置成了一个函数,调用了两次,使用识别码进行异常处理.字符串转换成浮点数是使用了内置的`std::stof`
+7. 由于使用了catch2来进行单元测试,所以使用宏来将main()函数隐藏,正常运行中没有测试宏,main()函数正常.
+8. 数学原理参考了报告中给出的公式
+   ``` c 
+   phi1 = 90 - latitude1;
+   phi2 = 90 - latitude2;
+   theta1 = longitude1;
+   theta2 = longitude2;
+   c = sin(phi1) * sin(phi2) * cos(theta1-theta2) +cos(phi1) * cos(phi2)
+   d = R*cos(c)
+   ```
+   d即为所求.
+## Part 2 - Code
+``` cpp
 #include<iostream>
 #include <vector>
 #include <stdio.h>
@@ -30,7 +51,7 @@ double count_distance(vector<double>& dous);
 const int max_length = 1024;
 const int radius_earth = 6371;
 const double PI = 3.1415926535;
-//+ - . is �Ϸ�
+//+ - . is 合法
 #ifndef UNIT_TESTING_ASSIGNMENT_1
 #define UNIT_TESTING_ASSIGNMENT_1
 int main() {
@@ -150,7 +171,6 @@ bool check_double(const string& s) {
     }
     return true;
 }
-
 int give_two_double(string s,vector<double>& num,int order) {
     int middle = s.find_first_of(' ');
     string s1 = delete_space(s.substr(0, middle));
@@ -166,3 +186,115 @@ int give_two_double(string s,vector<double>& num,int order) {
     }
     return 0;
 }
+```
+## Part 3 - Result & Verification
+#### Test case #1:非法城市名
+```
+Input:Wrong City  or 1=1 #
+Output:return and output
+"City name should not contain special characters"
+```
+
+![picture_01](./picture_01.png)
+#### Test Case #2:参数过少
+```
+Input:
+Hong Kong,CN
+22.22113.167
+Output:return and output
+"bad input,longitude or latitude's middle should be space and both of them is needed"
+```
+![picture_02](./picture_02.png)
+#### Test Case #3:经纬度非法字符
+```
+Input:
+HongtKong,CN
+@22.22 @113.167
+Output:return and output
+"bad input,longitude or latitude should not contain special characters"
+```
+![picture_03](./picture_03.png)
+#### Test Case #4:经纬度过多+ - .
+```
+Input:
+HongtKong,CN
++-22.2.2 -.113.167
+Output:return and output
+"longitude or latitude contain too much + . -  or"
+```
+![picture_04](./picture_04.png)
+#### Test Case #5:经纬度格式错误
+```
+Input:
+HongtKong,CN
+.+0 0.-0
+Output:return and output
+"input should obey correct input format"
+```
+![picture_05](./picture_05.png)
+#### Test Case #6:经纬度为0
+```
+Input:
+HongtKong,CN
+.0 0
+Output:return and output
+"longitude or latitude should not be zero"
+```
+![picture_06](./picture_06.png)
+#### Test Case #7:经纬度范围问题
+```
+Input:
+HongtKong,CN
+114 514
+Output:return and output
+"latitude should belong to [-90,+90]"
+"longitude should belong to [-180,+180]"
+```
+![picture_07](./picture_07.png)
+#### Test Case #8:正常输入输出
+```
+Input:
+Shenzhen
+22.55 114.1
+Beijing
+39.9139 116.3917
+Output:
+"The distance between Shenzhen and Beijing is 1942.84 km"
+```
+![picture_08](./picture_08.png)
+#### Test Case #9:正常输入输出
+```
+Input:
+New York, USA
+40.7127 -74.0059
+London, UK
+51.5072 -0.1275
+Output:
+"The distance between New York, USA and London, UK is 5570.25 km"
+```
+![picture_09](./picture_09.png)
+#### Test Case #10:正常输入输出
+```
+Input:
+Rio de Janeiro, Brazi
+-22.9083 -43.1964
+San Francisco, USA
+37.7833 -122.4167
+Output:
+"The distance between Rio de Janeiro, Brazi and San Francisco, USA is 10660.6 km"
+```
+![picture_10](./picture_10.png)
+#### Test Case #11:正常输入输出
+```
+Input:
+Test City One
++.114 -0.514
+Test City Two
+-11.23 .91
+Output:
+"The distance between Test City One and Test City Two is 1271.17 km"
+```
+![picture_11](./picture_11.png)
+## Part 4 - Difficulties & Solutions
+1. 输入可能性较多,需要梳理的状态较多.
+2. catch2需要使用宏将main()隐藏来满足测试条件,找了很长时间解决方案.

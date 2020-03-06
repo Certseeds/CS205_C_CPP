@@ -1,11 +1,32 @@
-/*
+<!--
  * @Github: https://github.com/Certseeds
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-03-05 21:56:08
+ * @Date: 2020-03-06 18:44:22
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-06 21:35:15
- */
+ * @LastEditTime: 2020-03-06 21:43:25
+ -->
+Environment: Visual Studio 2019,MSVC.
+## Part 1 - Analysis
+1. First, the entire process of this problem can be described as "read the first city name, latitude and longitude, second city name, latitude and longitude from the console, and calculate and output the distance between the two cities" 
+2. However, because The format input is uncertain, so the input needs to be discussed and analyzed in detail.
+3. In order to facilitate the management of line breaks and other issues, use getline (buffer, 1024) to solve.
+4. Since the city name cannot include special characters, use an auxiliary function Traversing the string to help judge 
+5. Since special characters cannot be included in latitude and longitude, two parameters (one precision and one latitude) are required, more than one `+ .-`, and latitude and longitude cannot be 0 (no latitude and longitude) The city is 0 and prevent misreading), must be a value that is in line with the actual logic, so it needs to be judged separately. 
+6. It is not possible to include special characters to use traversal judgment, two parameters are required to find the string after removing the space on both sides The way of internal space, there can be no extra `+-.` using the` std :: cout` function, the latitude and longitude cannot be 0 and the value range is directly judged, and the city name is read, and the longitude and latitude are set to A function that is called twice and uses the identification code for exception handling. The string is converted to a floating point number using the built-in `std :: stof` 
+7. Because catch2 is used for unit testing, macros are used to convert main ( ) The function is hidden, there is no test macro in normal operation, and the main () function is normal. 
+8. The mathematical principle refers to the formula given in the report
+   ``` c 
+   phi1 = 90 - latitude1;
+   phi2 = 90 - latitude2;
+   theta1 = longitude1;
+   theta2 = longitude2;
+   c = sin(phi1) * sin(phi2) * cos(theta1-theta2) +cos(phi1) * cos(phi2)
+   d = R*cos(c)
+   ```
+   d is what we want.
+## Part 2 - Code
+``` cpp
 #include<iostream>
 #include <vector>
 #include <stdio.h>
@@ -30,7 +51,7 @@ double count_distance(vector<double>& dous);
 const int max_length = 1024;
 const int radius_earth = 6371;
 const double PI = 3.1415926535;
-//+ - . is ºÏ·¨
+//+ - . is legal
 #ifndef UNIT_TESTING_ASSIGNMENT_1
 #define UNIT_TESTING_ASSIGNMENT_1
 int main() {
@@ -150,7 +171,6 @@ bool check_double(const string& s) {
     }
     return true;
 }
-
 int give_two_double(string s,vector<double>& num,int order) {
     int middle = s.find_first_of(' ');
     string s1 = delete_space(s.substr(0, middle));
@@ -166,3 +186,115 @@ int give_two_double(string s,vector<double>& num,int order) {
     }
     return 0;
 }
+```
+## Part 3 - Result & Verification
+#### Test case #1:Illegal city name
+```
+Input:Wrong City  or 1=1 #
+Output:return and output
+"City name should not contain special characters"
+```
+
+![picture_01](./picture_01.png)
+#### Test Case #2:Too few parameters
+```
+Input:
+Hong Kong,CN
+22.22113.167
+Output:return and output
+"bad input,longitude or latitude's middle should be space and both of them is needed"
+```
+![picture_02](./picture_02.png)
+#### Test Case #3:Illegal characters in latitude and longitude
+```
+Input:
+HongtKong,CN
+@22.22 @113.167
+Output:return and output
+"bad input,longitude or latitude should not contain special characters"
+```
+![picture_03](./picture_03.png)
+#### Test Case #4:Too many latitudes and longitudes +-.
+```
+Input:
+HongtKong,CN
++-22.2.2 -.113.167
+Output:return and output
+"longitude or latitude contain too much + . -  or"
+```
+![picture_04](./picture_04.png)
+#### Test Case #5:Malformed latitude and longitude
+```
+Input:
+HongtKong,CN
+.+0 0.-0
+Output:return and output
+"input should obey correct input format"
+```
+![picture_05](./picture_05.png)
+#### Test Case #6:Latitude and longitude is 0
+```
+Input:
+HongtKong,CN
+.0 0
+Output:return and output
+"longitude or latitude should not be zero"
+```
+![picture_06](./picture_06.png)
+#### Test Case #7:Latitude and longitude range
+```
+Input:
+HongtKong,CN
+114 514
+Output:return and output
+"latitude should belong to [-90,+90]"
+"longitude should belong to [-180,+180]"
+```
+![picture_07](./picture_07.png)
+#### Test Case #8:Normal input and output
+```
+Input:
+Shenzhen
+22.55 114.1
+Beijing
+39.9139 116.3917
+Output:
+"The distance between Shenzhen and Beijing is 1942.84 km"
+```
+![picture_08](./picture_08.png)
+#### Test Case #9:Normal input and output
+```
+Input:
+New York, USA
+40.7127 -74.0059
+London, UK
+51.5072 -0.1275
+Output:
+"The distance between New York, USA and London, UK is 5570.25 km"
+```
+![picture_09](./picture_09.png)
+#### Test Case #10:Normal input and output
+```
+Input:
+Rio de Janeiro, Brazi
+-22.9083 -43.1964
+San Francisco, USA
+37.7833 -122.4167
+Output:
+"The distance between Rio de Janeiro, Brazi and San Francisco, USA is 10660.6 km"
+```
+![picture_10](./picture_10.png)
+#### Test Case #11:Normal input and output
+```
+Input:
+Test City One
++.114 -0.514
+Test City Two
+-11.23 .91
+Output:
+"The distance between Test City One and Test City Two is 1271.17 km"
+```
+![picture_11](./picture_11.png)
+## Part 4 - Difficulties & Solutions
+1. There are many input possibilities, and there are many states that need to be combed.
+2. Catch2 needs to use a macro to hide main () to meet the test conditions, and found a long time solution.
