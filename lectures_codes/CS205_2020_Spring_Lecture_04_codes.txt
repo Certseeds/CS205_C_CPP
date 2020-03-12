@@ -1,0 +1,711 @@
+//====================================================
+//http://cpp.sh/
+//https://www.onlinegdb.com/
+//====================================================
+
+
+//====================================================
+//Program example 6
+// address.cpp -- using the & operator to find addresses
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int donuts = 6;
+    double cups = 4.5;
+    
+    cout << "donuts value = " << donuts;
+    cout << " and donuts address = " << &donuts << endl;
+    
+    // NOTE: you may need to use unsigned (&donuts)
+    // and unsigned (&cups)
+    
+    cout << "cups value = " << cups;
+    cout << " and cups address = " << &cups << endl;
+    return 0;
+}
+
+//====================================================
+// pointer.cpp -- our first pointer variable
+// Program example 7
+
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int updates = 6; // declare a variable
+    int * p_updates; // declare a pointer to an int
+    
+    p_updates = &updates; // assign address of int to pointer
+    
+    // express values two ways
+    cout << "Values: updates = " << updates;
+    cout << ", *p_updates = " << *p_updates << endl;
+
+    // express address two ways
+    cout << "Addresses: &updates = " << &updates;
+    cout << ", p_updates = " << p_updates << endl;
+    
+    // use pointer to change value
+    
+    *p_updates = *p_updates + 1;
+    
+    cout << "Now updates = " << updates << endl;
+    return 0;
+}
+
+//====================================================
+// Program example 8
+// use_new.cpp -- using the new operator
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int nights = 1001;
+    int * pt = new int; // allocate space for an int
+    *pt = 1001; // store a value there
+    
+    cout << "nights value = ";
+    cout << nights << ": location " << &nights << endl;
+    cout << "int ";
+    cout << "value = " << *pt << ": location = " << pt << endl;
+    
+    double * pd = new double; // allocate space for a double
+    *pd = 10000001.0; // store a double there
+    
+    cout << "double ";
+    cout << "value = " << *pd << ": location = " << pd << endl;
+    cout << "location of pointer pd: " << &pd << endl;
+    
+    cout << "size of pt = " << sizeof(pt);
+    cout << ": size of *pt = " << sizeof(*pt) << endl;
+    cout << "size of pd = " << sizeof pd;
+    cout << ": size of *pd = " << sizeof(*pd) << endl;
+    
+    return 0;
+}
+//====================================================
+// Program example 9
+// arraynew.cpp -- using the new operator for arrays
+#include <iostream>
+using namespace std;
+int main()
+{
+    double * p3 = new double [3]; // space for 3 doubles
+    
+    p3[0] = 0.2; // treat p3 like an array name
+    p3[1] = 0.5;
+    p3[2] = 0.8;
+    
+    cout << "p3[1] is " << p3[1] << ".\n";
+    
+    p3 = p3 + 1; // increment the pointer
+    cout << "Now p3[0] is " << p3[0] << " and ";
+    cout << "p3[1] is " << p3[1] << ".\n";
+    
+    p3 = p3 - 1; // point back to beginning
+    delete [] p3; // free the memory
+    
+    return 0;
+}
+//====================================================
+// Program example 10
+// addpntrs.cpp -- pointer addition
+#include <iostream>
+int main()
+{
+    using namespace std;
+    double wages[3] = {10000.0, 20000.0, 30000.0};
+    short stacks[3] = {3, 2, 1};
+    
+    // Here are two ways to get the address of an array
+    double * pw = wages; // name of an array = address
+    short * ps = &stacks[0]; // or use address operator
+    
+    // with array element
+    cout << "pw = " << pw << ", *pw = " << *pw << endl;
+    
+    pw = pw + 1;
+    cout << "add 1 to the pw pointer:\n";
+    cout << "pw = " << pw << ", *pw = " << *pw << "\n\n";
+    cout << "ps = " << ps << ", *ps = " << *ps << endl;
+    
+    ps = ps + 1;
+    cout << "add 1 to the ps pointer:\n";
+    cout << "ps = " << ps << ", *ps = " << *ps << "\n\n";
+
+    cout << "access two elements with array notation\n";
+    cout << "stacks[0] = " << stacks[0]
+    << ", stacks[1] = " << stacks[1] << endl;
+    cout << "access two elements with pointer notation\n";
+    cout << "*stacks = " << *stacks
+    << ", *(stacks + 1) = " << *(stacks + 1) << endl;
+
+    cout << sizeof(wages) << " = size of wages array\n";
+    cout << sizeof(pw) << " = size of pw pointer\n";
+    
+    return 0;
+}
+
+
+//====================================================
+//Program example 11
+// addpntrs.cpp -- pointer addition
+#include <iostream>
+int main()
+{
+    using namespace std;
+    
+    short tell[10];  // tell an array of 10 bytes
+    cout << "short type is: " << sizeof(short) << endl;
+    
+    cout << tell << endl;           // displays &tell[0]
+    cout << &tell << endl;        // displays address of whole array   
+    cout << &tell[0] << endl;   // displays the address of first element  
+
+    cout << "tell + 1:     "<< tell + 1 << endl;    // move 2 bytes
+    cout << "&tell + 1:    "<< &tell + 1 << endl;   // move 20 bytes
+    cout << "&tell[0] + 1: "<< &tell[0] + 1 << endl;// move 2 bytes
+    
+    short (*pas)[10] = &tell;// try to replace 10 by 20
+    
+    cout << "pas:       "<< pas << endl;       // same to address of whole array  = &tell
+    cout << "pas + 1: "<< pas + 1 << endl;   // move 20 bytes
+    
+    cout << "*pas:     "<< *pas << endl;         // same to address of first element = tell
+    cout << "*pas + 1: "<< *pas + 1<< endl;  // move 2 bytes    
+    
+    cout << "&pas:     "<< &pas << endl;    
+    cout << "&pas + 1: "<< &pas + 1 << endl;
+        
+    return 0;
+}
+
+//====================================================
+//Program example 12
+// newstrct.cpp -- using new with a structure
+#include <iostream>
+struct inflatable // structure definition
+{
+    char name[20];
+    float volume;
+    double price;
+};
+
+int main()
+{
+    using namespace std;
+    inflatable * ps = new inflatable; // allot memory for structure
+    
+    cout << "Enter name of inflatable item: ";
+    cin.get(ps->name, 20); // method 1 for member access
+    
+    cout << "Enter volume in cubic feet: ";
+    cin >> (*ps).volume; // method 2 for member access
+   
+    cout << "Enter price: $";
+    cin >> ps->price;
+    cout << "Name: " << (*ps).name << endl; // method 2
+    cout << "Volume: " << ps->volume << " cubic feet\n"; // method 1
+    cout << "Price: $" << ps->price << endl; // method 1
+    
+    delete ps; // free memory used by structure
+    
+    return 0;
+}
+
+
+//====================================================
+//Program example 13
+// delete.cpp -- using the delete operator
+#include <iostream>
+#include <cstring> // or string.h
+using namespace std;
+
+char * getname(void); // function prototype
+
+int main()
+{
+    char * name; // create pointer but no storage
+
+    name = getname(); // assign address of string to name
+    cout << name << " at " << (int *) name << "\n";
+    delete [] name; // memory freed
+    
+    name = getname(); // reuse freed memory
+    cout << name << " at " << (int *) name << "\n";
+    delete [] name; // memory freed again
+    
+    return 0;
+}
+
+char * getname() // return pointer to new string
+{
+    char temp[80]; // temporary storage
+    cout << "Enter last name: ";
+    cin >> temp;
+    
+    char * pn = new char[strlen(temp) + 1];
+    strcpy(pn, temp); // copy string into smaller space
+    
+    return pn; // temp lost when function ends
+}
+
+//====================================================
+//Program example 14
+// mixtypes.cpp -- some type combinations
+#include <iostream>
+struct antarctica_years_end
+{
+    int year;
+    /* some really interesting data, etc. */
+};
+
+int main()
+{
+    antarctica_years_end s01, s02, s03;
+    s01.year = 1998;
+    
+    antarctica_years_end * pa = &s02;
+    pa->year = 1999;
+    
+    antarctica_years_end trio[3]; // array of 3 structures
+    trio[0].year = 2003;
+    
+    std::cout << trio->year << std::endl;
+    
+    const antarctica_years_end * arp[3] = {&s01, &s02, &s03};
+    std::cout << arp[1]->year << std::endl;
+    
+    const antarctica_years_end ** ppa = arp;
+    auto ppb = arp; // C++11 automatic type deduction
+    // or else use const antarctica_years_end ** ppb = arp;
+    std::cout << (*ppa)->year << std::endl;
+    std::cout << (*(ppb+1))->year << std::endl;
+    
+    return 0;
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+//====================================================
+// Program example 1
+// choices.cpp -- array variations
+#include <iostream>
+#include <vector> // STL C++98
+#include <array> // C++11
+int main()
+{
+    using namespace std;
+    // C, original C++
+    double a1[4] = {1.2, 2.4, 3.6, 4.8};
+    // C++98 STL
+    vector<double> a2(4); // create vector with 4 elements
+    // no simple way to initialize in C98
+    
+    a2[0] = 1.0/3.0;
+    a2[1] = 1.0/5.0;
+    a2[2] = 1.0/7.0;
+    a2[3] = 1.0/9.0;
+    
+    // C++11 -- create and initialize array object    
+    array<double, 4> a3 = {3.14, 2.72, 1.62, 1.41};
+    array<double, 4> a4;
+    a4 = a3; // valid for array objects of same size
+    
+    // use array notation
+    cout << "a1[2]: " << a1[2] << " at " << &a1[2] << endl;
+    cout << "a2[2]: " << a2[2] << " at " << &a2[2] << endl;
+    cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+    cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
+    // misdeed
+    
+    a1[-2] = 20.2;
+    cout << "a1[-2]: " << a1[-2] <<" at " << &a1[-2] << endl;
+    cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+    cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
+    
+    return 0;
+}
+
+//====================================================
+// Program example 2
+// forloop.cpp -- introducing the for loop
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int i; // create a counter
+    
+    // initialize; test ; update
+    for (i = 0; i < 5; i++)
+         cout << "C++ knows loops.\n";
+    
+    cout << "C++ knows when to stop.\n";
+    return 0;
+}
+
+//====================================================
+// Program example 3
+// num_test.cpp -- use numeric test in for loop
+#include <iostream>
+int main()
+{
+    using namespace std;
+    cout << "Enter the starting countdown value: ";
+    int limit;
+    cin >> limit;
+    int i;
+    
+    for (i = limit; i; i--) // quits when i is 
+        cout << "i = " << i << "\n";
+        
+    cout << "Done now that i = " << i << "\n";
+    
+    return 0;
+}
+
+//====================================================
+// Program example 4
+// formore.cpp -- more looping with for
+#include <iostream>
+const int ArSize = 16; // example of external declaration
+int main()
+{   
+    long long factorials[ArSize];
+    
+    factorials[1] = factorials[0] = 1LL;
+    for (int i = 2; i < ArSize; i++) // i = 1 works as well
+       factorials[i] = i * factorials[i-1];
+    
+    for (int i = 0; i < ArSize; i++)
+       std::cout << i << "! = " << factorials[i] << std::endl;
+       
+    return 0;
+}
+
+//====================================================
+// Program example 5
+// bigstep.cpp -- count as directed
+#include <iostream>
+int main()
+{
+    using std::cout; // a using declaration
+    using std::cin;
+    using std::endl;
+    
+    cout << "Enter an integer: ";
+    
+    int by;
+    cin >> by;
+    cout << "Counting by " << by << "s:\n";
+    
+    for (int i = 0; i < 100; i = i + by)
+        cout << i << endl;
+       
+    return 0;
+}
+
+//====================================================
+// Program example 6
+// plus_one.cpp -- the increment operator
+#include <iostream>
+int main()
+{
+    using std::cout;
+    int a = 20;
+    int b = 20;
+    
+    cout << "a = " << a << ": b = " << b << "\n";
+    cout << "a++ = " << a++ << ": ++b = " << ++b << "\n";
+    cout << "a = " << a << ": b = " << b << "\n";
+    
+    return 0;
+}
+//====================================================
+// Program example 7
+// plus_one.cpp -- the increment operator
+#include <iostream>
+int main()
+{
+    using std::cout;
+    using std::endl;
+    
+    int b = 0;
+    
+    int y = (1 + (b++)) + (1 + b++);
+    cout << y << endl;
+    //=====================================
+    
+    double arr[5] = {21.1, 22.8, 23.7, 24.1, 25.4};
+    
+    double *pt = arr; // pt points to arr[0], i.e. to 21.1
+    ++pt; // pt points to arr[1], i.e. to 22.8
+    
+    double x = *++pt; // increment pointer, take the value; i.e., arr[2], or 23.7
+    
+    cout << "x is: " << x << endl;
+    
+    cout << ++*pt << endl; // increment the pointed to value; i.e., change 23.4 to 24.4
+    
+    cout << (*pt)++ << endl; // increment pointed-to value
+    
+    x = *pt++; // dereference original location, then increment pointer
+    
+    cout << "x is: " << x << endl;
+
+    return 0;
+}
+
+//====================================================
+// Program example 8
+#include <iostream>
+int main()
+{
+    using std::cout;
+    using std::endl;
+    
+    int x = 20; // original x
+    
+    { // block starts
+        cout << x << endl; // use original x
+        int x = 100; // new x
+        cout << x << endl; // use new x
+    } // block ends
+    
+    cout << x << endl; // use original x
+    
+    return 0;
+}
+
+//====================================================
+// Program example 9
+// equal.cpp -- equality vs assignment
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int quizscores[10] =
+       { 20, 20, 20, 20, 20, 19, 20, 18, 20, 20};
+    
+    cout << "Doing it right:\n";
+    int i;
+    for (i = 0; quizscores[i] == 20; i++)
+       cout << "quiz " << i << " is a 20\n";
+    
+    // Warning: you may prefer reading about this program
+    // to actually running it.
+    cout << "Doing it dangerously wrong:\n";
+    
+    for (i = 0; quizscores[i] = 20; i++)
+       cout << "quiz " << i << " is a 20\n";
+    
+    return 0;
+}
+//====================================================
+// Program example 10
+// compstr1.cpp -- comparing strings using arrays
+#include <iostream>
+#include <cstring> // prototype for strcmp()
+int main()
+{
+    using namespace std;
+    char word[5] = "?ate";
+    for (char ch = 'a'; strcmp(word, "mate"); ch++)
+    {
+        cout << word << endl;
+        word[0] = ch;
+    }
+    cout << "After loop ends, word is " << word << endl;
+    
+    return 0;
+}
+
+
+
+//====================================================
+// Program example 11
+// compstr2.cpp -- comparing strings using arrays
+#include <iostream>
+#include <string> // string class
+int main()
+{
+    using namespace std;
+    string word = "?ate";
+    for (char ch = 'a'; word != "mate"; ch++)
+    {
+        cout << word << endl;
+        word[0] = ch;
+    }
+    
+    cout << "After loop ends, word is " << word << endl;
+    
+    return 0;
+}
+
+//====================================================
+// Program example 12
+// while.cpp -- introducing the while loop
+#include <iostream>
+const int ArSize = 20;
+int main()
+{
+    using namespace std;
+    char name[ArSize];
+    cout << "Your first name, please: ";
+    cin >> name;
+    cout << "Here is your name, verticalized and ASCIIized:\n";
+    
+    int i = 0; // start at beginning of string
+    
+    //while (name[i])
+    while (name[i] != '\0') // process to end of string
+    {
+        cout << name[i] << ": " << int(name[i]) << endl;
+        i++; // don¡¯t forget this step
+    }
+    
+    return 0;
+}
+
+//====================================================
+// Program example 13
+// dowhile.cpp -- exit-condition loop
+#include <iostream>
+int main()
+{
+    using namespace std;
+    int n;
+    cout << "Enter numbers in the range 1-10 to find ";
+    cout << "my favorite number\n";
+    do
+    {
+        cin >> n; // execute body
+    } while (n != 7); // then test
+    
+    cout << "Yes, 7 is my favorite.\n" ;
+    
+    return 0;
+}
+
+
+//====================================================
+// Program example 14
+// range-based for loop
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double prices[5] = {4.99, 10.99, 6.87, 7.99, 8.49};
+    for (double x : prices)
+       cout << x << std::endl;
+       
+    int i = 0;
+    for (double &x : prices)
+    {
+       x = x * 0.80; //20% off sale
+       cout << x <<"  "<< prices[i++]<<endl;
+    }
+    
+    /* 
+    for (int x : {3, 5, 2, 8, 6})
+       cout << x << " ";
+    
+    cout << '\n';*/
+
+    return 0;
+}
+//====================================================
+// textin1.cpp -- reading chars with a while loop
+// Program example 15
+#include <iostream>
+int main()
+{
+    using namespace std;
+    char ch;
+    int count = 0; // use basic input
+    cout << "Enter characters; enter # to quit:\n";
+    cin >> ch; // get a character
+    while (ch != '#') // test the character
+    {
+        cout << ch; // echo the character
+        ++count; // count the character
+        cin >> ch; // get the next character
+    }
+    
+    cout << endl << count << " characters read\n";
+    
+    return 0;
+}
+//====================================================
+// Program example 16
+// textin2.cpp -- using cin.get(char)
+#include <iostream>
+int main()
+{
+    using namespace std;
+    char ch;
+    int count = 0;
+    cout << "Enter characters; enter # to quit:\n";
+    cin.get(ch); // use the cin.get(ch) function
+    while (ch != '#')
+    {
+        cout << ch;
+        ++count;
+        cin.get(ch); // use it again
+    }
+    cout << endl << count << " characters read\n";
+    return 0;
+}
+
+//====================================================
+// Program example 17
+// nested.cpp -- nested loops and 2-D array
+#include <iostream>
+const int Cities = 5;
+const int Years = 4;
+int main()
+{
+    using namespace std;
+    const char * cities[Cities] = // array of pointers
+    { // to 5 strings
+       "Gribble City",
+       "Gribbletown",
+       "New Gribble",
+       "San Gribble",
+       "Gribble Vista"
+    };
+    
+    int maxtemps[Years][Cities] = // 2-D array
+    {
+        {96, 100, 87, 101, 105}, // values for maxtemps[0]
+        {96, 98, 91, 107, 104}, // values for maxtemps[1]
+        {97, 101, 93, 108, 107}, // values for maxtemps[2]
+        {98, 103, 95, 109, 108} // values for maxtemps[3]
+        };
+    
+    cout << "Maximum temperatures for 2008 - 2011\n\n";
+    for (int city = 0; city < Cities; ++city)
+    {
+        cout << cities[city] << ":\t";
+        for (int year = 0; year < Years; ++year)
+            cout << maxtemps[year][city] << "\t";
+            
+        cout << endl;
+    }
+    
+    // cin.get();
+    return 0;
+}
+//====================================================
+
+
+//====================================================
+
+
+//====================================================
+
+
+
+/////////////////////////////////////////////////////////////////////////
