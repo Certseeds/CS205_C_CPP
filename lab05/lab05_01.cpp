@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2020-03-19 16:32:26
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2020-03-19 18:23:14
+ */
 #include<iostream>
 using std::cin;
 using std::cout;
@@ -13,5 +21,14 @@ int main() {
 }
 #endif // !_UNIT_TESTING_LAB_05_
 int32_t sub_main_05_01() {
+    int32_t value = 0;
+    int32_t sum = 0;
+    do {
+        cout << "Enter integer number : ";
+        cin >> value;
+        cin.sync();
+        sum += value;
+        cout << "The cumulative sum of the entries to data is :" << sum << endl;
+    } while (0 != value);
     return 0;
 }
