@@ -56,9 +56,7 @@
         "CheckFileChange": false
     },
     "fileheader.customMade": {
-        //"Description": "",
-        //"version": "",
-        "Github":"https://github.com/Certseeds",
+        "Github":"https://github.com/Certseeds/CS205_C_CPP",
         "Organization": "SUSTech",
         "Author": "nanoseeds",
         "Date": "Do not edit",
