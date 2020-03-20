@@ -45,7 +45,7 @@ int32_t while_fibonacci() {
 	cout << output_str;
 	int32_t zero = 0;
 	int32_t one = 1;
-	while (zero < range) {
+	while (zero <= range) {
 		cout << zero << " ";
 		int32_t test = zero;
 		zero = one;
@@ -71,7 +71,7 @@ int32_t do_while_fibonacci() {
 		int32_t test = zero;
 		zero = one;
 		one += test;
-	} while (zero < range);
+	} while (zero <= range);
 	cout << endl;
 	return 0;
 }
@@ -88,7 +88,7 @@ int32_t for_fibonacci() {
 	cout << output_str;
 	int32_t zero = 0;
 	int32_t one = 1;
-	for (; zero < range;) {
+	for (; zero <= range;) {
 		cout << zero << " ";
 		int32_t test = zero;
 		zero = one;
