@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-03-19 18:25:17
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-19 18:56:17
+ * @LastEditTime: 2020-03-20 16:51:31
  -->
 **Environment**:MSVC   
 # Lab05 Exercise: 2020_0319
@@ -171,7 +171,7 @@ int32_t while_fibonacci() {
 	cout << output_str;
 	int32_t zero = 0;
 	int32_t one = 1;
-	while (zero < range) {
+	while (zero <= range) {
 		cout << zero << " ";
 		int32_t test = zero;
 		zero = one;
@@ -197,7 +197,7 @@ int32_t do_while_fibonacci() {
 		int32_t test = zero;
 		zero = one;
 		one += test;
-	} while (zero < range);
+	} while (zero <= range);
 	cout << endl;
 	return 0;
 }
@@ -213,7 +213,7 @@ int32_t for_fibonacci() {
 	cout << output_str;
 	int32_t zero = 0;
 	int32_t one = 1;
-	for (; zero < range;) {
+	for (; zero <= range;) {
 		cout << zero << " ";
 		int32_t test = zero;
 		zero = one;
@@ -242,6 +242,21 @@ Output:
     1346269 2178309 3524578 5702887 9227465 14930352
 ```
 ![picture_03](./lab05_03.png)
+#### Test Case #2: equal to range.
+```
+Input:  
+    8
+    13
+    21
+Output:  
+    Enter a positive number: 8
+    Fibonacci Series: 0 1 1 2 3 5 8
+    Enter a positive number: 13
+    Fibonacci Series: 0 1 1 2 3 5 8 13
+    Enter a positive number: 21
+    Fibonacci Series: 0 1 1 2 3 5 8 13 21
+```
+![picture_05](./lab05_05.png)
 ## E4 Code & Result
 ### Code
 ``` cpp
