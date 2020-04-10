@@ -4,7 +4,8 @@
  * @Author: nanoseeds
  * @Date: 2020-03-06 18:44:22
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-06 23:43:13
+ * @LastEditTime: 2020-04-08 17:09:57
+ * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
 **环境**: Visual Studio 2019,MSVC.

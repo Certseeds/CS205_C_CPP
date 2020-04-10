@@ -4,7 +4,8 @@
  * @Author: nanoseeds
  * @Date: 2020-03-06 23:00:00
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-06 23:43:27
+ * @LastEditTime: 2020-04-08 17:10:33
+ * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 # Lab03 Exercise: 2020_0306
 
