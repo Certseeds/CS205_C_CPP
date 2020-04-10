@@ -1,0 +1,362 @@
+//====================================================
+//http://cpp.sh/
+//https://www.onlinegdb.com/
+//====================================================
+
+//====================================================
+//Program example 1
+// external.cpp -- external variables
+// compile with support.cpp
+#include <iostream>
+using namespace std;
+// external variable
+double warming = 0.3; // warming defined
+// function prototypes
+void update(double dt);
+void local();
+int main() // uses global variable
+{
+    cout << "Global warming is " << warming << " degrees.\n";
+    update(0.1); // call function to change warming
+    cout << "Global warming is " << warming << " degrees.\n";\
+    local(); // call function with local warming
+    cout << "Global warming is " << warming << " degrees.\n";
+    return 0;
+}
+//----------------------------------------------------------------------
+// support.cpp -- use external variable
+// compile with external.cpp
+#include <iostream>
+extern double warming; // use warming from another file
+// function prototypes
+void update(double dt);
+void local();
+using std::cout;
+void update(double dt) // modifies global variable
+{
+    extern double warming; // optional redeclaration
+    warming += dt; // uses global warming
+    cout << "Updating global warming to " << warming;
+    cout << " degrees.\n";
+}
+
+void local() // uses local variable
+{
+    double warming = 0.8; // new variable hides external one
+    cout << "Local warming = " << warming << " degrees.\n";
+    // Access global variable with the
+    // scope resolution operator
+    cout << "But global warming = " << ::warming;
+    cout << " degrees.\n";
+}
+
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 2
+
+// twofile1.cpp -- variables with external and internal linkage
+#include <iostream> // to be compiled with two file2.cpp
+
+int tom = 3; // external variable definition
+
+int dick = 30; // external variable definition
+
+static int harry = 300; // static, internal linkage
+
+// function prototype
+void remote_access();
+int main()
+{
+    using namespace std;
+    cout << "main() reports the following addresses:\n";
+    cout << &tom << " = &tom, " << &dick << " = &dick, ";
+    cout << &harry << " = &harry\n";
+    remote_access();
+    
+    return 0;
+}
+
+//-------------------------------
+// twofile2.cpp -- variables with internal and external linkage
+#include <iostream>
+
+extern int tom; // tom defined elsewhere
+
+static int dick = 10; // overrides external dick
+
+int harry = 200; // external variable definition,
+
+// no conflict with twofile1 harry
+void remote_access()
+{
+    using namespace std;
+    cout << "remote_access() reports the following addresses:\n";
+    cout << &tom << " = &tom, " << &dick << " = &dick, ";
+    cout << &harry << " = &harry\n";
+}
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 3
+
+// static.cpp -- using a static local variable
+#include <iostream>
+// constants
+const int ArSize = 10;
+// function prototype
+void strcount(const char * str);
+int main()
+{
+    using namespace std;
+    char input[ArSize];
+    char next;
+    cout << "Enter a line:\n";
+    cin.get(input, ArSize);
+    while (cin)
+    {
+        cin.get(next);
+        while (next != '\n') // string didn't fit!
+            cin.get(next); // dispose of remainder
+
+        strcount(input);
+        cout << "Enter next line (empty line to quit):\n";
+
+        cin.get(input, ArSize);
+    }
+    
+    cout << "Bye\n";
+    return 0;
+}
+
+void strcount(const char * str)
+{
+    using namespace std;
+
+    static int total = 0; // static local variable
+
+    int count = 0; // automatic local variable
+    cout << "\"" << str <<"\" contains ";
+    while (*str++) // go to end of string
+        count++;
+    
+    total += count;
+    cout << count << " characters\n";
+    cout << total << " characters total\n";
+}
+//====================================================
+//====================================================
+//====================================================
+//Program example 4
+
+// newplace.cpp -- using placement new
+#include <iostream>
+
+#include <new> // for placement new
+
+const int BUF = 512;
+const int N = 5;
+
+char buffer[BUF]; // chunk of memory
+int main()
+{
+    using namespace std;
+    double *pd1, *pd2;
+    int i;
+    
+    cout << "Calling new and placement new:\n";
+    pd1 = new double[N]; // use heap
+    
+    pd2 = new (buffer) double[N]; // use buffer array
+    
+    for (i = 0; i < N; i++)
+        pd2[i] = pd1[i] = 1000 + 20.0 * i;
+        
+    cout << "Memory addresses:\n" << " heap: " << pd1
+    << " static: " << (void *) buffer <<endl;
+    
+    cout << "Memory contents:\n";
+    for (i = 0; i < N; i++)
+    {
+        cout << pd1[i] << " at " << &pd1[i] << "; ";
+        cout << pd2[i] << " at " << &pd2[i] << endl;
+    }
+
+    //----------------------------------------------------------
+    cout << "\nCalling new and placement new a second time:\n";
+    double *pd3, *pd4;
+    
+    pd3= new double[N]; // find new address
+    pd4 = new (buffer) double[N]; // overwrite old data
+    
+    for (i = 0; i < N; i++)
+        pd4[i] = pd3[i] = 1000 + 40.0 * i;
+    
+    cout << "Memory contents:\n";
+    for (i = 0; i < N; i++)
+    {
+        cout << pd3[i] << " at " << &pd3[i] << "; ";
+        cout << pd4[i] << " at " << &pd4[i] << endl;
+    }
+    
+    //----------------------------------------------------------
+    cout << "\nCalling new and placement new a third time:\n";
+    delete [] pd1;
+    pd1= new double[N];
+    pd2 = new (buffer + N * sizeof(double)) double[N];
+    
+    for (i = 0; i < N; i++)
+        pd2[i] = pd1[i] = 1000 + 60.0 * i;
+        
+    cout << "Memory contents:\n";
+    for (i = 0; i < N; i++)
+    {
+        cout << pd1[i] << " at " << &pd1[i] << "; ";
+        cout << pd2[i] << " at " << &pd2[i] << endl;
+    }
+    
+    delete [] pd1;
+    delete [] pd3;
+    return 0;
+}
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 5
+
+// namesp.h
+#include <string>
+// create the pers and debts namespaces
+namespace pers
+{
+    struct Person
+    {
+        std::string fname;
+        std::string lname;
+    };
+    
+    void getPerson(Person &);
+    void showPerson(const Person &);
+}
+namespace debts
+{
+    using namespace pers;
+    struct Debt
+    {
+        Person name;
+        double amount;
+    };
+    
+    void getDebt(Debt &);
+    void showDebt(const Debt &);
+    double sumDebts(const Debt ar[], int n);
+}
+//-----------------------------------------------
+// namesp.cpp -- namespaces
+#include <iostream>
+#include "namesp.h"
+namespace pers
+{
+    using std::cout;
+    using std::cin;
+    
+    void getPerson(Person & rp)
+    {
+        cout << "Enter first name: ";
+        cin >> rp.fname;
+        cout << "Enter last name: ";
+        cin >> rp.lname;
+    }
+    
+    void showPerson(const Person & rp)
+    {
+        std::cout << rp.lname << ", " << rp.fname;
+        
+    }
+}
+
+
+namespace debts
+{
+    void getDebt(Debt & rd)
+    {
+        getPerson(rd.name);
+        std::cout << "Enter debt: ";
+        std::cin >> rd.amount;
+    }
+    
+    void showDebt(const Debt & rd)
+    {
+        showPerson(rd.name);
+        std::cout <<": $" << rd.amount << std::endl;
+    }
+    
+    double sumDebts(const Debt ar[], int n)
+    {
+        double total = 0;
+        for (int i = 0; i < n; i++)
+            total += ar[i].amount;
+        
+        return total;
+    }
+}
+
+//----------------------------------------
+// usenmsp.cpp -- using namespaces
+#include <iostream>
+#include "namesp.h"
+
+void other(void);
+void another(void);
+int main(void)
+{
+    using debts::Debt;
+    using debts::showDebt;
+    
+    Debt golf = { {"Benny", "Goatsniff"}, 120.0 };
+    
+    showDebt(golf);
+    other();
+    another();
+    return 0;
+}
+
+
+void other(void)
+{
+    using std::cout;
+    using std::endl;
+    using namespace debts;
+    
+    Person dg = {"Doodles", "Glister"};
+    showPerson(dg);
+    cout << endl;
+    Debt zippy[3];
+    int i;
+    
+    for (i = 0; i < 3; i++)
+        getDebt(zippy[i]);
+    
+    for (i = 0; i < 3; i++)
+        showDebt(zippy[i]);
+    
+    cout << "Total debt: $" << sumDebts(zippy, 3) << endl;
+    
+    return;
+}
+
+void another(void)
+{
+    using pers::Person;
+    Person collector = { "Milo", "Rightshift" };
+    pers::showPerson(collector);
+    std::cout << std::endl;
+}
+
+//====================================================
+//====================================================
+//====================================================
+/////////////////////////////////////////////////////////////////////////
