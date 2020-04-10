@@ -4,7 +4,8 @@
  * @Author: nanoseeds
  * @Date: 2020-03-26 23:23:19
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-26 23:55:09
+ * @LastEditTime: 2020-04-08 17:11:03
+ * @License: CC-BY-NC-SA_V4_0 or any later version 
  --> 
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
 # Lab06 Exercise: 2020_0326

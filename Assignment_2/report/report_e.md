@@ -5,6 +5,7 @@
  * @Date: 2020-03-15 23:05:30
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-03-23 17:11:06
+ * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 # CS205 C/C++ Assignment2
 
