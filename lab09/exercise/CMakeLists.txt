@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.10.2)
-project(Midterm LANGUAGES CXX)
+project(lab09_exercise LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 add_executable(${PROJECT_NAME}
-        #./question1.cpp
-        #./question2.cpp
-        ./question4.cpp
+        # ./main.cpp ./fun.cpp
+        ./main2.cpp ./candyBar.cpp
         )
