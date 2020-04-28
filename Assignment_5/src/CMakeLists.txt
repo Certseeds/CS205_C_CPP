@@ -3,10 +3,16 @@ cmake_minimum_required(VERSION 3.16.6)
 project(Assignment_5 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 14)
-#set(CMAKE_C_FLAGS "-std=c11")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 add_executable(${PROJECT_NAME}
-        ./test1.cpp
-
+        ./../../catch_main.cpp
+        ./test_catch_UTF8_String.cpp
+        #./testUTF8string.cpp
+        ./UTF8string.cpp
+        #./UTF8string.hpp
+        ./utf8.c
+        #./utf8.h
         )
