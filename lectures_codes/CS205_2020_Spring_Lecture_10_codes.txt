@@ -1,0 +1,584 @@
+//====================================================
+//http://cpp.sh/
+//https://www.onlinegdb.com/
+//====================================================
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 1
+// mytime1.h -- Time class before operator overloading
+#ifndef MYTIME1_H_
+#define MYTIME1_H_
+class Time
+{
+    private:
+    int hours;
+    int minutes;
+    
+    public:
+    Time();
+    Time(int h, int m = 0);
+
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+
+    Time operator+(const Time & t) const;
+
+    void Show() const;
+};
+#endif
+
+-------------------------------------
+// mytime1.cpp -- implementing Time methods
+#include <iostream>
+#include "mytime1.h"
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m )
+{
+    hours = h;
+    
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours += minutes / 60;
+    minutes %= 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time & t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    
+    return sum;
+}
+
+Time Time::Sum(const Time & t) const
+{    
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    
+    return sum;
+}
+
+void Time::Show() const
+{
+    std::cout << hours << " hours, " << minutes << " minutes";
+}
+
+--------------------------------------------
+
+// usetime1.cpp -- using the second draft of the Time class
+// compile usetime1.cpp and mytime1.cpp together
+#include <iostream>
+#include "mytime1.h"
+int main()
+{
+    using std::cout;
+    using std::endl;
+
+    Time planning;
+    Time coding(2, 40);
+    Time fixing(5, 55);
+    Time total;
+    
+    cout << "planning time = ";
+    planning.Show();    
+    cout << endl;
+    
+    cout << "coding time = ";    
+    coding.Show();
+    cout << endl;
+    
+    cout << "fixing time = ";
+    fixing.Show();
+    cout << endl;
+    
+    total = coding + fixing;
+    // operator notation
+    cout << "coding + fixing = ";
+    total.Show();
+    cout << endl;
+
+    Time morefixing(3, 28);
+    cout << "more fixing time = ";
+    morefixing.Show();
+    cout << endl;
+    total = morefixing.operator+(total);
+    
+    // function notation
+    cout << "morefixing.operator+(total) = ";
+    total.Show();
+    cout << endl;
+    
+    return 0;
+}
+
+
+//====================================================
+//====================================================
+//====================================================
+
+//Program example 2
+
+// mytime2.h -- Time class after operator overloading
+#ifndef MYTIME2_H_
+#define MYTIME2_H_
+class Time
+{
+    private:
+    int hours;
+    int minutes;
+    
+    public:
+    Time();
+    Time(int h, int m = 0);
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+
+    Time operator+(const Time & t) const;
+    Time operator-(const Time & t) const;
+    Time operator*(double n) const;
+
+    void Show() const;
+    //friend Time operator*( double mult, Time in) ;
+};
+#endif
+
+-----------------------------------------------
+// mytime2.cpp -- implementing Time methods
+#include <iostream>
+#include "mytime2.h"
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m )
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours += minutes / 60;
+    minutes %= 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time & t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    
+    return sum;
+}
+
+Time Time::operator-(const Time & t) const
+{
+    Time diff;
+    int tot1, tot2;
+    tot1 = t.minutes + 60 * t.hours;
+    tot2 = minutes + 60 * hours;
+    diff.minutes = (tot2 - tot1) % 60;
+    diff.hours = (tot2 - tot1) / 60;
+    
+    return diff;
+}
+
+Time Time::operator*(double mult) const
+{
+    Time result;
+    long totalminutes = hours * mult * 60 + minutes * mult;
+    result.hours = totalminutes / 60;
+    result.minutes = totalminutes % 60;
+    
+    return result;
+}
+
+void Time::Show() const
+{
+    std::cout << hours << " hours, " << minutes << " minutes";
+}
+
+Time operator*( double mult, Time in) 
+{
+    Time result;
+    long total.minutes = in.hours * mult * 60 + in.minutes * mult;
+    result.hours = total.minutes / 60;
+    result.minutes = total.minutes % 60;
+    
+    return result;
+}
+
+------------------------------------------------
+
+// usetime2.cpp -- using the third draft of the Time class
+// compile usetime2.cpp and mytime2.cpp together
+#include <iostream>
+#include "mytime2.h"
+
+//friend Time operator*( double mult, Time in);
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+
+    Time weeding(4, 35);
+    Time waxing(2, 47);
+    Time total;
+    Time diff;
+    Time adjusted;
+
+    cout << "weeding time = ";
+    weeding.Show();
+    cout << endl;
+
+    cout << "waxing time = ";
+    waxing.Show();
+    cout << endl;
+
+    cout << "total work time = ";
+    total = weeding + waxing; // use operator+()
+    total.Show();
+    cout << endl;
+
+    diff = weeding - waxing; // use operator-()
+    cout << "weeding time - waxing time = ";
+    diff.Show();
+    cout << endl;
+
+    adjusted = total * 1.5; // use operator+()
+    cout << "adjusted work time = ";
+    adjusted.Show();
+    cout << endl;
+    
+    return 0;
+}
+
+//-=------------------------------------
+
+
+
+
+//====================================================
+//====================================================
+//====================================================
+
+//Program example 3
+
+// mytime3.h -- Time class with friends
+#ifndef MYTIME3_H_
+#define MYTIME3_H_
+#include <iostream>
+class Time
+{
+    private:
+    int hours;
+    int minutes;
+    
+    public:
+    Time();
+    Time(int h, int m = 0);
+
+    void AddMin(int m);
+    void AddHr(int h);
+    void Reset(int h = 0, int m = 0);
+
+    Time operator+(const Time & t) const;
+    Time operator-(const Time & t) const;
+    Time operator*(double n) const;
+
+    friend Time operator*(double m, const Time & t)
+    { return t * m; } // inline definition
+    
+    friend std::ostream & operator<<(std::ostream & os, const Time & t);// friend keyword
+};
+#endif
+
+------------------------------------------
+
+// mytime3.cpp -- implementing Time methods
+#include "mytime3.h"
+Time::Time()
+{
+    hours = minutes = 0;
+}
+
+Time::Time(int h, int m )
+{
+    hours = h;
+    minutes = m;
+}
+
+void Time::AddMin(int m)
+{
+    minutes += m;
+    hours += minutes / 60;
+    minutes %= 60;
+}
+
+void Time::AddHr(int h)
+{
+    hours += h;
+}
+
+void Time::Reset(int h, int m)
+{
+    hours = h;
+    minutes = m;
+}
+
+Time Time::operator+(const Time & t) const
+{
+    Time sum;
+    sum.minutes = minutes + t.minutes;
+    sum.hours = hours + t.hours + sum.minutes / 60;
+    sum.minutes %= 60;
+    
+    return sum;
+}
+
+Time Time::operator-(const Time & t) const
+{
+    Time diff;
+    int tot1, tot2;
+    tot1 = t.minutes + 60 * t.hours;
+    tot2 = minutes + 60 * hours;
+    diff.minutes = (tot2 - tot1) % 60;
+    diff.hours = (tot2 - tot1) / 60;
+    
+    return diff;
+}
+
+Time Time::operator*(double mult) const
+{
+    Time result;
+    long totalminutes = hours * mult * 60 + minutes * mult;
+    result.hours = totalminutes / 60;
+    result.minutes = totalminutes % 60;
+    
+    return result;
+}
+
+//without ::
+std::ostream & operator<<(std::ostream & os, const Time & t)
+{
+    os << t.hours << " hours, " << t.minutes << " minutes";
+    return os;
+}
+
+-----------------------------------------------
+//usetime3.cpp -- using the fourth draft of the Time class
+// compile usetime3.cpp and mytime3.cpp together
+#include <iostream>
+#include "mytime3.h"
+int main()
+{
+    using std::cout;
+    using std::endl;
+    
+    Time aida(3, 35);
+    Time tosca(2, 48);
+    
+    Time temp;
+    cout << "Aida and Tosca:\n";
+    cout << aida<<"; " << tosca << endl;
+
+    temp = aida + tosca; // operator+()
+    cout << "Aida + Tosca: " << temp << endl;
+
+    temp = aida* 1.17; // member operator*()
+    cout << "Aida * 1.17: " << temp << endl;
+
+    cout << "10.0 * Tosca: " << 10.0 * tosca << endl;
+    
+    return 0;
+}
+
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 4
+
+// stonewt.h -- definition for the Stonewt class
+#ifndef STONEWT_H_
+#define STONEWT_H_
+class Stonewt
+{
+    private:
+    
+    //symbol const
+    enum {Lbs_per_stn = 14}; // pounds per stone
+
+    int stone; // whole stones
+    double pds_left; // fractional pounds
+    double pounds; // entire weight in pounds
+    
+    public:
+    
+    // use explicit to turn off automatic conversion
+    Stonewt(double lbs); // constructor for double pounds
+    Stonewt(int stn, double lbs); // constructor for stone, lbs
+    Stonewt(); // default constructor
+
+    ~Stonewt();
+
+    void show_lbs() const; // show weight in pounds format
+    void show_stn() const; // show weight in stone format
+
+    // conversion functions
+    operator int() const;
+    operator double() const;
+};
+#endif
+
+-------------------------------------------------------------
+// stonewt.cpp -- Stonewt methods
+#include <iostream>
+using std::cout;
+#include "stonewt.h"
+// construct Stonewt object from double value
+Stonewt::Stonewt(double lbs)
+{
+    stone = int (lbs) / Lbs_per_stn; // integer division
+    pds_left = int (lbs) % Lbs_per_stn + lbs - int(lbs);
+    pounds = lbs;
+}
+
+// construct Stonewt object from stone, double values
+Stonewt::Stonewt(int stn, double lbs)
+{
+    stone = stn;
+    pds_left = lbs;
+    pounds = stn * Lbs_per_stn +lbs;
+}
+
+Stonewt::Stonewt() // default constructor, wt = 0
+{
+    stone = pounds = pds_left = 0;
+}
+
+Stonewt::~Stonewt() // destructor
+{
+    
+}
+
+// show weight in stones
+void Stonewt::show_stn() const
+{
+    cout << stone << " stone, " << pds_left << " pounds\n";
+}
+
+// show weight in pounds
+void Stonewt::show_lbs() const
+{
+    cout << pounds << " pounds\n";
+}
+
+// conversion functions
+// no return type but has return value
+Stonewt::operator int() const
+{
+    return int (pounds + 0.5);
+}
+Stonewt::operator double()const
+{
+    return pounds;
+}
+---------------------------------------------------------
+
+// stone.cpp -- user-defined conversions
+// compile with stonewt.cpp
+#include <iostream>
+using std::cout;
+#include "stonewt.h"
+void display(const Stonewt & st, int n);
+int main()
+{
+    Stonewt incognito = 275; // uses constructor to initialize
+    Stonewt wolfe(285.7); // same as Stonewt wolfe = 285.7;
+    Stonewt taft(21, 8);
+    
+    cout << "The celebrity weighed ";
+    incognito.show_stn();
+    cout << "The detective weighed ";
+    wolfe.show_stn();
+    cout << "The President weighed ";
+    taft.show_lbs();
+
+    incognito = 276.8; // uses constructor for conversion
+    taft = 325;             // same as taft = Stonewt(325);
+
+    cout << "After dinner, the celebrity weighed ";
+    incognito.show_stn();
+    cout << "After dinner, the President weighed ";
+    taft.show_lbs();
+    display(taft, 2);
+    cout << "The wrestler weighed even more.\n";
+    display(422, 2);
+    cout << "No stone left unearned\n";
+    
+    Stonewt poppins(9,2.8); // 9 stone, 2.8 pounds
+
+    double p_wt = poppins; // implicit conversion
+    cout << "Convert to double => ";
+    cout << "Poppins: " << p_wt << " pounds.\n";
+
+    cout << "Convert to int => ";
+    cout << "Poppins: " << int (poppins) << " pounds.\n";
+    return 0;
+}
+
+void display(const Stonewt & st, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Wow! ";
+        st.show_stn();
+    }
+}
+
+//====================================================
+//====================================================
+//====================================================
+/////////////////////////////////////////////////////////////////////////
