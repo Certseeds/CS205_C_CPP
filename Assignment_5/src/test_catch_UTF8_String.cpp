@@ -36,17 +36,17 @@ TEST_CASE("test1") {
     CHECK(8 == test1.find("sont"));
     test1 += UTF8string("!!!");
     CHECK_THAT(test1.get_str(),
-            Equals("Mais où sont les neiges d'antan?!!!"));
+               Equals("Mais où sont les neiges d'antan?!!!"));
 }
 
 TEST_CASE("test 2") {
     UTF8string test1 = UTF8string("Mais où sont les neiges d'antan?");
     UTF8string test2 = UTF8string("Всё хорошо́, что хорошо́ конча́ется");
     CHECK_THAT(test2.get_str(),
-            Equals("Всё хорошо́, что хорошо́ конча́ется"));
+               Equals("Всё хорошо́, что хорошо́ конча́ется"));
     test2.replace("хорошо́", "просто");
     CHECK_THAT(test2.get_str(),
-            Equals("Всё просто, что просто конча́ется"));
+               Equals("Всё просто, что просто конча́ется"));
     CHECK_THAT((test1 + test2).get_str(),
                Equals("Mais où sont les neiges d'antan?Всё просто, что просто конча́ется"));
 }
@@ -116,4 +116,19 @@ TEST_CASE("test 12") {
     CHECK(0 == test12.find("空"));
     CHECK(3 == test12.find("く"));
     CHECK(7 == test12.find("う"));
+}
+
+TEST_CASE("test 13") {
+    auto lamb = [](UTF8string u) -> void {
+        cout << "Testing operator !: " << u << " -> " << !u << endl;
+    };
+    UTF8string test13("reinterpret_cast<const unsigned char *>");
+    lamb(test13);
+    CHECK_THAT(test13.get_str(),
+               Equals("reinterpret_cast<const unsigned char *>"));
+    lamb(" 鈥�UTF8string&&鈥�");
+    const UTF8string test13_2 = UTF8string("鈥�UTF8string::UTF8string(UTF8string&&)鈥�");
+    lamb(test13_2);
+    CHECK_THAT(test13_2.get_str(),
+               Equals("鈥�UTF8string::UTF8string(UTF8string&&)鈥�"));
 }
