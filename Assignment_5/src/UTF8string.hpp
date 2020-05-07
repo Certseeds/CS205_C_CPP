@@ -36,15 +36,55 @@ extern int utf8_bytes_to_charpos(unsigned char *s, int pos);
 }
 #endif
 
+#include <iostream>
 #include <string>
+#include <vector>
 
 using std::string;
 
 class UTF8string {
-public:
+private:
     string str;
+public:
+    const string &get_str() const;
 
+    // Constructor
+    // if add explicit ,need use .replace(UTF8string("1"),UTF8string("2"))
     UTF8string(const char *ch);
+
+    // 拷贝构造函数 Copy Constructor
+    UTF8string(const UTF8string &s);
+
+    // 移动构造函数
+    UTF8string(UTF8string &&s) noexcept;
+
+    //Copy Assignment operator
+    UTF8string &operator=(const UTF8string &) = delete;
+
+    //Move Assignment operator
+    UTF8string &operator=(UTF8string &&data) = delete;
+
+
+    int32_t length();
+
+    int32_t bytes();
+
+    int32_t find(const string &substr);
+
+    int32_t replace(const UTF8string &to_remove, const UTF8string &replacement);
+
+    UTF8string operator+(const UTF8string &str1) const;
+
+    UTF8string operator*(int32_t times);
+
+    friend UTF8string operator*(int32_t times, UTF8string &str);
+
+    UTF8string &operator+=(const UTF8string &str1);
+
+    friend std::ostream &operator<<(std::ostream &output, const UTF8string &str);
+
+    UTF8string operator!();
+
 };
 
 
