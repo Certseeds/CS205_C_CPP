@@ -1,0 +1,685 @@
+//====================================================
+//http://cpp.sh/
+//https://www.onlinegdb.com/
+//====================================================
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 1
+//Program example 1
+// tblt.h -- a table-tennis base class
+#ifndef TABTENN0_H_
+#define TABTENN0_H_
+#include <string>
+
+using std::string;
+// simple base class
+class TableTennisPlayer
+{
+    private:
+    string firstname;
+    string lastname;
+    bool hasTable;
+    
+    public:
+    TableTennisPlayer (const string & fn = "none", const string & ln = "none", bool ht = false);
+    
+    void Name() const;
+    bool HasTable() const { return hasTable; };
+    void ResetTable(bool v) { hasTable = v; };
+};
+#endif
+
+//-------------------------------------
+
+//tabtenn0.cpp -- simple base-class methods
+#include "tblt.h"
+#include <iostream>
+
+TableTennisPlayer::TableTennisPlayer (const string & fn,
+const string & ln, bool ht) : firstname(fn),
+lastname(ln), hasTable(ht) {}
+
+void TableTennisPlayer::Name() const
+{
+    std::cout << lastname << ", "<< firstname;
+}
+//-------------------------------------
+
+// usett0.cpp -- using a base class
+#include <iostream>
+#include "tblt.h"
+int main ( void )
+{
+    using std::cout;
+    TableTennisPlayer player1("Chuck", "Blizzard", true);
+    TableTennisPlayer player2("Tara", "Boomdea", false);
+
+    player1.Name();
+    if (player1.HasTable())
+        cout << ": has a table.\n";
+    else
+        cout << ": hasn't a table.\n";
+    
+    player2.Name();
+    if (player2.HasTable())
+        cout << ": has a table";
+    else
+        cout << ": hasn't a table.\n";
+    
+    return 0;
+}
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 2
+
+// tblt.h -- a table-tennis base class
+#ifndef TABTENN1_H_
+#define TABTENN1_H_
+#include <string>
+using std::string;
+// simple base class
+class TableTennisPlayer
+{
+    private:
+    string firstname;
+    string lastname;
+    bool hasTable;
+    
+    public:
+    TableTennisPlayer (const string & fn = "none", const string & ln = "none", bool ht = false);
+    void Name() const;
+    bool HasTable() const { return hasTable; };
+    void ResetTable(bool v) { hasTable = v; };
+};
+
+// simple derived class
+class RatedPlayer : public TableTennisPlayer
+{
+    private:    
+    unsigned int rating;
+    
+    public:
+    RatedPlayer(unsigned int r = 0, const string & fn = "none", const string & ln = "none", bool ht = false);
+    RatedPlayer(unsigned int r, const TableTennisPlayer & tp);
+    
+    unsigned int Rating() const 
+        { return rating; }
+    void ResetRating (unsigned int r) 
+        {rating = r;}
+};
+#endif
+
+//-----------------------------------------------------
+
+//tabtenn1.cpp -- simple base-class methods
+#include "tblt.h"
+#include <iostream>
+
+TableTennisPlayer::TableTennisPlayer (const string & fn,
+const string & ln, bool ht) : firstname(fn),
+lastname(ln), hasTable(ht) 
+{
+}
+
+void TableTennisPlayer::Name() const
+{ 
+    std::cout << lastname << ", " << firstname;
+}
+
+// RatedPlayer methods
+RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
+const string & ln, bool ht) 
+: TableTennisPlayer(fn, ln, ht)
+{
+    rating = r;
+}
+RatedPlayer::RatedPlayer(unsigned int r, const TableTennisPlayer & tp)
+: TableTennisPlayer(tp), rating(r)
+{
+
+}
+
+//-----------------------------------------------------
+
+// usett1.cpp -- using base class and derived class
+#include <iostream>
+#include "tblt.h"
+int main ( void )
+{
+    using std::cout;
+    using std::endl;
+
+    TableTennisPlayer player1("Tara", "Boomdea", false);
+    RatedPlayer rplayer1(1140, "Mallory", "Duck", true);
+
+    rplayer1.Name(); // derived object uses base method
+    if (rplayer1.HasTable())
+        cout << ": has a table.\n";
+    else
+        cout << ": hasn't a table.\n";
+        
+    player1.Name(); // base object uses base method
+    if (player1.HasTable())
+        cout << ": has a table";
+    else
+        cout << ": hasn't a table.\n";
+        
+    cout << "Name: ";
+    rplayer1.Name();
+    cout << "; Rating: " << rplayer1.Rating() << endl;
+    
+    // initialize RatedPlayer using TableTennisPlayer object
+    RatedPlayer rplayer2(1212, player1);
+
+    cout << "Name: ";
+    rplayer2.Name();
+    cout << "; Rating: " << rplayer2.Rating() << endl;
+    
+    return 0;
+}
+
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 3
+
+// brass.h -- bank account classes
+#ifndef BRASS_H_
+#define BRASS_H_
+#include <string>
+// Brass Account Class
+class Brass
+{
+    private:    
+    std::string fullName;
+    long acctNum;
+    double balance;
+    
+    public:
+    Brass(const std::string & s = "Nullbody", long an = -1,double bal = 0.0);
+    void Deposit(double amt);
+    virtual void Withdraw(double amt);
+    double Balance() const;
+    virtual void ViewAcct() const;
+    virtual ~Brass() {}
+};
+
+//Brass Plus Account Class
+class BrassPlus : public Brass
+{
+    private:
+    double maxLoan;
+    double rate;
+    double owesBank;
+    
+    public:
+    BrassPlus(const std::string & s = "Nullbody", long an = -1,double bal = 0.0, double ml = 500,double r = 0.11125);
+    
+    BrassPlus(const Brass & ba, double ml = 500,double r = 0.11125);
+    
+    virtual void ViewAcct()const;
+    virtual void Withdraw(double amt);
+    void ResetMax(double m) { maxLoan = m; }
+    void ResetRate(double r) { rate = r; };
+    void ResetOwes() { owesBank = 0; }
+};
+#endif
+
+//-----------------------------------------------------------
+// brass.cpp -- bank account class methods
+#include <iostream>
+#include "brass.h"
+using std::cout;
+using std::endl;
+using std::string;
+// formatting stuff
+typedef std::ios_base::fmtflags format;
+typedef std::streamsize precis;
+
+format setFormat();
+void restore(format f, precis p);
+
+// Brass methods
+Brass::Brass(const string & s, long an, double bal)
+{
+    fullName = s;
+    acctNum = an;
+    balance = bal;
+}
+
+void Brass::Deposit(double amt)
+{
+    if (amt < 0)
+        cout << "Negative deposit not allowed; " << "deposit is cancelled.\n";
+    else
+        balance += amt;
+}
+
+void Brass::Withdraw(double amt)
+{
+    // set up ###.## format
+    format initialState = setFormat();
+    precis prec = cout.precision(2);
+
+    if (amt < 0)
+        cout << "Withdrawal amount must be positive; "<< "withdrawal canceled.\n";
+    else if (amt <= balance)
+        balance -= amt;
+    else
+        cout << "Withdrawal amount of $" << amt<< " exceeds your balance.\n" << "Withdrawal canceled.\n";
+    
+    restore(initialState, prec);
+}
+
+double Brass::Balance() const
+{
+    return balance;
+}
+
+void Brass::ViewAcct() const
+{
+    // set up ###.## format
+    format initialState = setFormat();
+    precis prec = cout.precision(2);
+
+    cout << "Client: " << fullName << endl;
+    cout << "Account Number: " << acctNum << endl;
+    cout << "Balance: $" << balance << endl;
+
+    restore(initialState, prec); // restore original format
+}
+
+// BrassPlus Methods
+BrassPlus::BrassPlus(const string & s, long an, double bal,double ml, double r) 
+: Brass(s, an, bal)
+{
+    maxLoan = ml;
+    owesBank = 0.0;
+    rate = r;
+}
+
+BrassPlus::BrassPlus(const Brass & ba, double ml, double r) 
+: Brass(ba) // uses implicit copy constructor
+{
+    maxLoan = ml;
+    owesBank = 0.0;
+    rate = r;
+}
+
+// redefine how ViewAcct() works
+void BrassPlus::ViewAcct() const
+{
+    // set up ###.## format
+    format initialState = setFormat();    
+    precis prec = cout.precision(2);
+
+    Brass::ViewAcct(); // display base portion
+    cout << "Maximum loan: $" << maxLoan << endl;
+    cout << "Owed to bank: $" << owesBank << endl;
+    cout.precision(3); // ###.### format
+    cout << "Loan Rate: " << 100 * rate << "%\n";
+
+    restore(initialState, prec);
+}
+
+// redefine how Withdraw() works
+void BrassPlus::Withdraw(double amt)
+{
+    // set up ###.## format
+    format initialState = setFormat();
+    precis prec = cout.precision(2);
+    double bal = Balance();
+    if (amt <= bal)
+        Brass::Withdraw(amt);
+    else if ( amt <= bal + maxLoan - owesBank)
+    {
+        double advance = amt - bal;
+        owesBank += advance * (1.0 + rate);
+        cout << "Bank advance: $" << advance << endl;
+        cout << "Finance charge: $" << advance * rate << endl;
+        Deposit(advance);
+        Brass::Withdraw(amt);
+    }
+    else
+        cout << "Credit limit exceeded. Transaction cancelled.\n";
+    
+    restore(initialState, prec);
+}
+
+format setFormat()
+{
+    // set up ###.## format
+    return cout.setf(std::ios_base::fixed,std::ios_base::floatfield);
+}
+
+void restore(format f, precis p)
+{
+    cout.setf(f, std::ios_base::floatfield);
+    cout.precision(p);
+}
+
+//-----------------------------------------------------------
+// usebrass1.cpp -- testing bank account classes
+// compile with brass.cpp
+#include <iostream>
+#include "brass.h"
+int main()
+{
+    using std::cout;
+    using std::endl;
+    
+    Brass Piggy("Porcelot Pigg", 381299, 4000.00);
+    BrassPlus Hoggy("Horatio Hogg", 382288, 3000.00);
+    
+    Piggy.ViewAcct();
+    cout << endl;
+    
+    Hoggy.ViewAcct();
+    cout << endl;
+    
+    cout << "Depositing $1000 into the Hogg Account:\n";
+    Hoggy.Deposit(1000.00);
+    cout << "New balance: $" << Hoggy.Balance() << endl;
+
+
+    cout << "Withdrawing $4200 from the Pigg Account:\n";    
+    Piggy.Withdraw(4200.00);
+    cout << "Pigg account balance: $" << Piggy.Balance() << endl;
+
+    cout << "Withdrawing $4200 from the Hogg Account:\n";    
+    Hoggy.Withdraw(4200.00);
+
+    cout<<endl;
+    Hoggy.ViewAcct();
+    return 0;
+}
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 4
+
+// usebrass2.cpp -- polymorphic example
+// compile with brass.cpp
+#include <iostream>
+#include <string>
+#include "brass.h"
+const int CLIENTS = 2;
+int main()
+{
+    using std::cin;
+    using std::cout;
+    using std::endl;
+    Brass * p_clients[CLIENTS];
+    
+    std::string temp;
+    long tempnum;
+    double tempbal;
+    char kind;
+    for (int i = 0; i < CLIENTS; i++)
+    {
+        cout << "Enter client's name: ";
+        getline(cin,temp);
+        cout << "Enter client's account number: ";
+        cin >> tempnum;
+        cout << "Enter opening balance: $";
+        cin >> tempbal;
+        cout << "Enter 1 for Brass Account or "<< "2 for BrassPlus Account: ";
+        
+        
+        while (cin >> kind && (kind != '1' && kind != '2'))
+            cout <<"Enter either 1 or 2: ";
+    
+        if (kind == '1')
+            p_clients[i] = new Brass(temp, tempnum, tempbal);
+        else
+        {
+            double tmax, trate;
+            cout << "Enter the overdraft limit: $";
+            cin >> tmax;
+            cout << "Enter the interest rate "<< "as a decimal fraction: ";
+            cin >> trate;
+            p_clients[i] = new BrassPlus(temp, tempnum, tempbal,tmax, trate);
+        }
+        while (cin.get() != '\n')
+            continue;
+    }
+    
+    cout << endl;
+    
+    for (int i = 0; i < CLIENTS; i++)
+    {
+        p_clients[i]->ViewAcct();
+        cout << endl;
+    }
+    
+    for (int i = 0; i < CLIENTS; i++)
+    {
+        delete p_clients[i]; // free memor
+    }
+    
+    cout << "Done.\n";
+    return 0;
+}
+
+//====================================================
+//====================================================
+//====================================================
+//Program example 5
+// dma.h -- inheritance and dynamic memory allocation
+#ifndef DMA_H_
+#define DMA_H_
+#include <iostream>
+// Base Class Using DMA
+class baseDMA
+{
+    private:
+    char * label;
+    int rating;
+    
+    public:
+    baseDMA(const char * l = "null", int r = 0);
+    baseDMA(const baseDMA & rs);
+    virtual ~baseDMA();
+    baseDMA & operator=(const baseDMA & rs);
+    friend std::ostream & operator<<(std::ostream & os,const baseDMA & rs);
+};
+
+// derived class without DMA
+// no destructor needed
+// uses implicit copy constructor
+// uses implicit assignment operator
+class lacksDMA :public baseDMA
+{
+    private:
+    enum { COL_LEN = 40};
+    char color[COL_LEN];
+    
+    public:
+    lacksDMA(const char * c = "blank", const char * l = "null",int r = 0);
+    lacksDMA(const char * c, const baseDMA & rs);
+    friend std::ostream & operator<<(std::ostream & os,const lacksDMA & rs);
+};
+
+
+// derived class with DMA
+class hasDMA :public baseDMA
+{
+    private:
+    char * style;
+    
+    public:
+    hasDMA(const char * s = "none", const char * l = "null",int r = 0);
+    hasDMA(const char * s, const baseDMA & rs);
+
+    hasDMA(const hasDMA & hs);
+    ~hasDMA();
+    hasDMA & operator=(const hasDMA & rs);
+
+    friend std::ostream & operator<<(std::ostream & os,const hasDMA & rs);
+};
+#endif
+//------------------------------------------------------------------
+
+// dma.cpp --dma class methods
+#include "dma.h"
+#include <cstring>
+// baseDMA methods
+baseDMA::baseDMA(const char * l, int r)
+{
+    label = new char[std::strlen(l) + 1];
+    std::strcpy(label, l);
+    rating = r;
+}
+
+baseDMA::baseDMA(const baseDMA & rs)
+{
+    label = new char[std::strlen(rs.label) + 1];
+    std::strcpy(label, rs.label);
+    rating = rs.rating;
+}
+
+baseDMA::~baseDMA()
+{
+    delete [] label;
+}
+
+baseDMA & baseDMA::operator=(const baseDMA & rs)
+{
+    if (this == &rs)
+        return *this;
+    
+    delete [] label;
+    label = new char[std::strlen(rs.label) + 1];
+    std::strcpy(label, rs.label);
+    rating = rs.rating;
+    return *this;
+}
+
+std::ostream & operator<<(std::ostream & os, const baseDMA & rs)
+{
+    os << "Label: " << rs.label << std::endl;
+    os << "Rating: " << rs.rating << std::endl;
+    return os;
+}
+
+// lacksDMA methods
+lacksDMA::lacksDMA(const char * c, const char * l, int r)
+: baseDMA(l, r)
+{
+    std::strncpy(color, c, 39);
+    color[39] = '\0';
+}
+
+lacksDMA::lacksDMA(const char * c, const baseDMA & rs)
+: baseDMA(rs)
+{
+    std::strncpy(color, c, COL_LEN - 1);
+    color[COL_LEN - 1] = '\0';
+}
+
+std::ostream & operator<<(std::ostream & os, const lacksDMA & ls)
+{
+    os << (const baseDMA &) ls;
+    os << "Color: " << ls.color << std::endl;
+    return os;
+}
+
+// hasDMA methods
+hasDMA::hasDMA(const char * s, const char * l, int r)
+: baseDMA(l, r)
+{
+    style = new char[std::strlen(s) + 1];
+    std::strcpy(style, s);
+}
+
+hasDMA::hasDMA(const char * s, const baseDMA & rs)
+: baseDMA(rs)
+{
+    style = new char[std::strlen(s) + 1];
+    std::strcpy(style, s);
+}
+
+hasDMA::hasDMA(const hasDMA & hs)
+: baseDMA(hs) // invoke base class copy constructor
+{
+    style = new char[std::strlen(hs.style) + 1];
+    std::strcpy(style, hs.style);
+}
+
+hasDMA::~hasDMA()
+{
+    delete [] style;
+}
+
+hasDMA & hasDMA::operator=(const hasDMA & hs)
+{
+    if (this == &hs)
+        return *this;
+    
+    baseDMA::operator=(hs); // copy base portion
+    delete [] style; // prepare for new style
+    style = new char[std::strlen(hs.style) + 1];
+    std::strcpy(style, hs.style);
+    
+    return *this;
+}
+
+std::ostream & operator<<(std::ostream & os, const hasDMA & hs)
+{
+    os << (const baseDMA &) hs;
+    os << "Style: " << hs.style << std::endl;
+    
+    return os;
+}
+
+//----------------------------------------------------------------
+
+// usedma.cpp -- inheritance, friends, and DMA
+// compile with dma.cpp
+#include <iostream>
+#include "dma.h"
+int main()
+{
+    using std::cout;
+    using std::endl;
+    
+    baseDMA shirt("Portabelly", 8);
+    lacksDMA balloon("red", "Blimpo", 4);
+    hasDMA map("Mercator", "Buffalo Keys", 5);
+    
+    cout << "Displaying baseDMA object:\n";
+    cout << shirt << endl;
+    
+    cout << "Displaying lacksDMA object:\n";
+    cout << balloon << endl;
+    
+    cout << "Displaying hasDMA object:\n";
+    cout << map << endl;
+    
+    lacksDMA balloon2(balloon);
+    cout << "Result of lacksDMA copy:\n";
+    cout << balloon2 << endl;
+    
+    hasDMA map2;
+    map2 = map;
+    cout << "Result of hasDMA assignment:\n";
+    
+    cout << map2 << endl;
+    return 0;
+}
+
+
+
+
+
+
+//====================================================
+//====================================================
+//====================================================
+/////////////////////////////////////////////////////////////////////////
