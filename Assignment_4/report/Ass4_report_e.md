@@ -4,13 +4,13 @@
  * @Author: nanoseeds
  * @Date: 2020-04-11 23:44:09
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-25 12:20:37
+ * @LastEditTime: 2020-06-07 09:41:16
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
 # CS205 C/C++ Assignment4
 
-**环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04).C++14.
+**Environment**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04).C++14.
 
 ## Question 1
 ### Part 1 - Analysis
@@ -524,6 +524,7 @@ Don't use non-essential spaces in csv format.
 1. Use a loop, wait for reading, and switch the converted characters to the corresponding output.
 2. Use recieve_input to convert the reading into int32_t.
 3. Use trim to erase the white space around the string.
+4. Use str_lower to convert the string to lower case.
 
 ### Part 2 - Code
 ``` cpp
@@ -533,9 +534,10 @@ Don't use non-essential spaces in csv format.
 #include <algorithm>
 int32_t recieve_input();
 int32_t question5();
+std::string str_lower(std::string str);
 std::string trim(std::string str);
 // commands
-const std::vector<std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
+const std::vector <std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
 const int32_t exit_n = 5;
 const int32_t illegal = 6;
 int main() {
@@ -569,7 +571,18 @@ int32_t recieve_input() {
     // recieve input and return order.
     std::string input;
     std::cin >> input;
-    return std::distance(command.begin(), std::find(command.begin(), command.end(), trim(input)));
+    input = trim(input);
+    input = str_lower(input);
+    return std::distance(command.begin(), std::find(command.begin(), command.end(), input));
+}
+// 给分的时候,虽然没写要处理大小写,但是还是扣分了.
+std::string str_lower(std::string str) {
+    for (auto &item : str) {
+        if (item >= 'A' && item <= 'Z'){
+            item = item - ('A'-'a');
+        }
+    }
+    return str;
 }
 std::string trim(std::string str) {
     // delete spaces
@@ -603,6 +616,28 @@ Output:
     exit
 ```
 ![picture_07](./Ass4_picture_07.png)
+
+#### Test Case #2:
+``` log
+Input:
+    START
+    StOp
+    ReStaRt
+    shenmi
+    rEloaD
+    sTatuS
+    exIT
+Output:
+    command start recognized
+    command stop recognized
+    command restart recognized
+    Invalid command
+    command reload recognized
+    command status recognized
+    exit
+```
+![picture_08](./Ass4_picture_08.png)
+
 
 ### Part 4-Difficulties & Solutions
 #### Difficulties

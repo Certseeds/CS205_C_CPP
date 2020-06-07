@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41 
+ * @Date: 2020-04-20 08:50:41
  * @LastEditors  : nanoseeds
  */
 #include <string>
@@ -30,10 +30,12 @@ int32_t recieve_input();
 
 int32_t question5();
 
+std::string str_lower(std::string str);
+
 std::string trim(std::string str);
 
 // commands
-const std::vector<std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
+const std::vector <std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
 const int32_t exit_n = 5;
 const int32_t illegal = 6;
 
@@ -70,7 +72,19 @@ int32_t recieve_input() {
     // recieve input and return order.
     std::string input;
     std::cin >> input;
-    return std::distance(command.begin(), std::find(command.begin(), command.end(), trim(input)));
+    input = trim(input);
+    input = str_lower(input);
+    return std::distance(command.begin(), std::find(command.begin(), command.end(), input));
+}
+
+// 给分的时候,虽然没写要处理大小写,但是还是扣分了.
+std::string str_lower(std::string str) {
+    for (auto &item : str) {
+        if (item >= 'A' && item <= 'Z'){
+            item = item - ('A'-'a');
+        }
+    }
+    return str;
 }
 
 std::string trim(std::string str) {
