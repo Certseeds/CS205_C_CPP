@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-04-11 23:44:09
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-25 12:20:21
+ * @LastEditTime: 2020-06-07 09:39:40
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
@@ -524,6 +524,7 @@ csv格式中,不能忽略空格
 1. 使用一个循环,等待读入,并将读入转化的字符switch到对应的输出.
 2. 使用recieve_input,对读入进行转换,转换成int32_t.
 3. 使用trim将字符串前后的空白抹去.
+4. 使用str_lower将字符串转换为小写.
 
 ### Part 2 - Code
 ``` cpp
@@ -533,9 +534,10 @@ csv格式中,不能忽略空格
 #include <algorithm>
 int32_t recieve_input();
 int32_t question5();
+std::string str_lower(std::string str);
 std::string trim(std::string str);
 // commands
-const std::vector<std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
+const std::vector <std::string> command = {"start", "stop", "restart", "reload", "status", "exit"};
 const int32_t exit_n = 5;
 const int32_t illegal = 6;
 int main() {
@@ -569,7 +571,18 @@ int32_t recieve_input() {
     // recieve input and return order.
     std::string input;
     std::cin >> input;
-    return std::distance(command.begin(), std::find(command.begin(), command.end(), trim(input)));
+    input = trim(input);
+    input = str_lower(input);
+    return std::distance(command.begin(), std::find(command.begin(), command.end(), input));
+}
+// 给分的时候,虽然没写要处理大小写,但是还是扣分了.
+std::string str_lower(std::string str) {
+    for (auto &item : str) {
+        if (item >= 'A' && item <= 'Z'){
+            item = item - ('A'-'a');
+        }
+    }
+    return str;
 }
 std::string trim(std::string str) {
     // delete spaces
@@ -583,6 +596,7 @@ std::string trim(std::string str) {
 ```
 
 ### Part 3 - Result & Verification
+
 #### Test Case #1:
 ``` log
 Input:
@@ -603,6 +617,28 @@ Output:
     exit
 ```
 ![picture_07](./Ass4_picture_07.png)
+
+#### Test Case #2:
+``` log
+Input:
+    START
+    StOp
+    ReStaRt
+    shenmi
+    rEloaD
+    sTatuS
+    exIT
+Output:
+    command start recognized
+    command stop recognized
+    command restart recognized
+    Invalid command
+    command reload recognized
+    command status recognized
+    exit
+```
+![picture_08](./Ass4_picture_08.png)
+
 
 ### Part 4 - Difficulties & Solutions  
 #### Difficulties
