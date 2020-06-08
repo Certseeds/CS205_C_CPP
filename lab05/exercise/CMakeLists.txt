@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(lab05)
+project(lab05_exercise)
 set(CMAKE_CXX_STANDARD 14)
 
 # add_executable(${PROJECT_NAME} test_lab05.cpp)

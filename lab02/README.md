@@ -9,6 +9,7 @@
  -->
 ## CS205_C_CPP_Lab02
 1. Write a program to produce the output as shown below:
+
 ``` log
 Result:
 x value y value  Expressions     Result
