@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 add_executable(${PROJECT_NAME}
-        #./lab07_01.cpp
+        ./lab07_01.cpp
         #./lab07_02.cpp
-        ./lab07_03.cpp
+        #./lab07_03.cpp
         )
