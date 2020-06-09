@@ -4,10 +4,11 @@
  * @Author: nanoseeds
  * @Date: 2020-06-07 10:11:42
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-07 10:27:11
+ * @LastEditTime: 2020-06-09 08:30:56
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_Lab02
+
 1. Write a program to produce the output as shown below:
 
 ``` log

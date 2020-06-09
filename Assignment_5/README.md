@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-07 09:42:52
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-07 09:48:26
+ * @LastEditTime: 2020-06-09 10:18:49
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205 – Lab Assignment 5
@@ -44,12 +44,12 @@ extern ...
 Because rules for finding the right function (the technical name is "resolving") are different in C and C++, this is required to tell the linker that these are C,not C++, functions and that C rules should apply.
 
 You mustn't derive the class from the string class (which wasn't designed as a base class); however, you should use a string attribute to store the string. You are asked to write the four following methods:
-  + length(), that returns the length IN CHARACTERS of the UTF8string
-  + bytes(), that returns the number of bytes used for storing the UTF8string
-  + find(string substr), that returns the CHARACTER POSITION where substr starts.
-  For instance, in "Mais où sont les neiges d'antan", find() should find that "sont" starts at character 8, even if 'ù' is stored on two bytes.
-  + replace(UTF8string to_remove, UTF8string replacement), that replaces to_remove with replacement.
-You'll have to mix C (char *) strings with the C++ std::string type. It's fairly easy to switch between both; there is a constructor that constructs a string from achar * C string passed as parameter; and the method c_str() applied to a C++ std::string returns a pointer to a '\0' terminated sequence of C chars.
+  + `length()`, that returns the length IN CHARACTERS of the UTF8string
+  + `bytes()`, that returns the number of bytes used for storing the UTF8string
+  + `find(string substr)`, that returns the CHARACTER POSITION where substr starts.
+  For instance, in "Mais où sont les neiges d'antan", `find()` should find that "sont" starts at character 8, even if 'ù' is stored on two bytes.
+  + `replace(UTF8string to_remove, UTF8string replacement)`, that replaces to_remove with replacement.
+You'll have to mix C (char *) strings with the C++ std::string type. It's fairly easy to switch between both; there is a constructor that constructs a string from achar * C string passed as parameter; and the method `c_str()` applied to a C++ std::string returns a pointer to a '\0' terminated sequence of C chars.
 
 ### Part 2
 We'll extend the UTF8string class by adding overloaded operators. You are asked to redefine:  

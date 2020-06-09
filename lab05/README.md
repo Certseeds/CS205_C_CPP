@@ -4,9 +4,11 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:03:02
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 09:09:39
+ * @LastEditTime: 2020-06-09 08:31:14
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+## CS205_C_CPP_Lab05
+
 1. Write a program that asks the user to type in numbers.After each entry,the
 program should report the cumulative sum of the entries to date.The program
 should terminate when the user enters 0.
