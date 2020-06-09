@@ -4,9 +4,11 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:15:06
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 09:26:03
+ * @LastEditTime: 2020-06-09 08:31:31
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+## CS205_C_CPP_Lab07
+
 1. Write a program that will display the calculator menu. The program will prompt the user to choose the operation choice (from 1 to 5). Then it asks the user to input two integer values for the calculation. See the sample below. The program also asks the user to decide whether he/she wants to continue the operation. If he/she input ‘y’ , the program will prompt the user to choose the operation gain. Otherwise, the program will terminate.
 
 ``` log

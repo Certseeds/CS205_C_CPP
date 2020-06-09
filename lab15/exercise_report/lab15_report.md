@@ -85,6 +85,6 @@ Output:
 Input:
     80 90 110 80
 Output:
-    The parameter1 is -80 which out of range(0-100)
+    The parameter1 is 110 which out of range(0-100)
 ```
 ![picture_03](./lab15_03.png)

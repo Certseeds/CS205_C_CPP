@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-04-10 23:19:24
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-11 00:09:45
+ * @LastEditTime: 2020-06-09 08:21:34
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
@@ -12,7 +12,9 @@
 # Lab08 Exercise: 2020_0409
 
 ## E1 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 #include <algorithm>
@@ -27,21 +29,21 @@ struct CandyBar {
     int32_t calorie;
 };
 void set(CandyBar &cb);
-void set(CandyBar* const cb);
-void show(const CandyBar & cb);
-void show(const CandyBar* cb);
+void set(CandyBar *const cb);
+void show(const CandyBar &cb);
+void show(const CandyBar *cb);
 int32_t main() {
     CandyBar cd1{};
-    set(cd1);
-    show(cd1);
-    while ((getchar()) != '\n');
     set(&cd1);
     show(&cd1);
+    while ((getchar()) != '\n');
+    set(cd1);
+    show(cd1);
     return 0;
 }
 void set(CandyBar &cb) {
-    cout << "Call the function of passing by reference:" << endl;
-    char brand_input[brand_length*10 + 1];
+    cout << "Call the set function of passing by reference:" << endl;
+    char brand_input[brand_length * 10 + 1];
     double weight_input = 0.0f;
     int32_t calorie_input = 0;
     memset(brand_input, '\0', brand_length + 1);
@@ -51,13 +53,13 @@ void set(CandyBar &cb) {
     cin >> weight_input;
     cout << "Enter calories (an integer value) in the candy bar: ";
     cin >> calorie_input;
-    memcpy(cb.brand,brand_input,(brand_length+1)* sizeof(char));
+    memcpy(cb.brand, brand_input, (brand_length + 1) * sizeof(char));
     cb.weight = weight_input;
     cb.calorie = calorie_input;
 }
-void set(CandyBar* const cb) {
-    cout << "Call the function of passing by pointer:" << endl;
-    char brand_input[brand_length*10 + 1];
+void set(CandyBar *const cb) {
+    cout << "Call the set function of passing by pointer:" << endl;
+    char brand_input[brand_length * 10 + 1];
     double weight_input = 0.0f;
     int32_t calorie_input = 0;
     memset(brand_input, '\0', brand_length + 1);
@@ -67,24 +69,23 @@ void set(CandyBar* const cb) {
     cin >> weight_input;
     cout << "Enter calories (an integer value) in the candy bar: ";
     cin >> calorie_input;
-    memcpy(cb->brand,brand_input,(brand_length+1)* sizeof(char));
+    memcpy(cb->brand, brand_input, (brand_length + 1) * sizeof(char));
     cb->weight = weight_input;
     cb->calorie = calorie_input;
 }
-void show(const CandyBar& cb){
-    cout << "Call the show function of Passing by pointer: ";
+void show(const CandyBar &cb) {
+    cout << "Call the show function of Passing by reference: " << endl;
     cout << "Brand: " << cb.brand << endl;
     cout << "Weight: " << cb.weight << endl;
     cout << "calories: " << cb.calorie << endl;
 }
-void show(const CandyBar* cb){
-    cout << "Call the show function of Passing by pointer: ";
+void show(const CandyBar *cb) {
+    cout << "Call the show function of Passing by pointer: " << endl;
     cout << "Brand: " << cb->brand << endl;
     cout << "Weight: " << cb->weight << endl;
     cout << "calories: " << cb->calorie << endl;
 }
 ```
-
 
 ### Result
 #### Test Case #1:
@@ -94,27 +95,31 @@ Input:
     19
     26
     MIT
-    91
-    52
+    08
+    17
 Output:
     Enter brand name of a Candty bar: AGPL 3.0
     Enter weight of the candy bar: 19
     Enter calories (an integer value) in the candy bar: 26
-    Call the show function of Passing by pointer: Brand: AGPL 3.0
+    Call the show function of Passing by pointer: 
+    Brand: AGPL 3.0
     Weight: 19
     calories: 26
     Call the function of passing by pointer:
     Enter brand name of a Candty bar: MIT
     Enter weight of the candy bar: 91
     Enter calories (an integer value) in the candy bar: 52
-    Call the show function of Passing by pointer: Brand: MIT
-    Weight: 91
-    calories: 52
+    Call the show function of Passing by reference: 
+    Brand: MIT
+    Weight: 8
+    calories: 17
 ```
 ![picture_01](./lab08_01.png)
 
 ## E2 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 const int max_size = 5;

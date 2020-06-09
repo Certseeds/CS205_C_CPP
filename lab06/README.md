@@ -7,6 +7,8 @@
  * @LastEditTime: 2020-06-08 09:31:13
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+## CS205_C_CPP_Lab06
+
 1. Write a program to input an alphabet and check whether it is vowel or consonant using switch case. The program to check vowel or consonant using switch case.A sample run might look like this:.
 
 ``` log
