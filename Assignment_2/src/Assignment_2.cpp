@@ -26,24 +26,20 @@ double count_distance(vector<double> &dous);
 
 string trim(string str);
 
-#define LENGTH_OF_NAME 35
-#define LENGTH_OF_ARRAY 1000
-#define location_length 5
-#define longitude_max 90
-#define latitude_max 180
-#define FILE_NAME TO_STRING(./../../../Assignment_2/src/world_cities.csv)
-#define max_length 1024
-#define min_length 3
-#define radius_earth 6371
-#define PI 3.1415926535
-#define TO_STRING(x) #x
+const string FILE_NAME = "./../../../Assignment_2/src/world_cities.csv";
+constexpr int32_t LENGTH_OF_ARRAY = 1000;
+constexpr int32_t location_length = 5;
+constexpr int32_t longitude_max = 90;
+constexpr int32_t latitude_max = 180;
+constexpr int32_t max_length = 1024;
+constexpr int32_t min_length = 3;
+constexpr int32_t radius_earth = 6371;
+constexpr double_t PI = 3.1415926535f;
+
 #ifndef UNIT_TESTING_ASSIGNMENT_2
 #define UNIT_TESTING_ASSIGNMENT_2
 
 int main() {
-    char buf[114514];
-    getcwd(buf, sizeof(buf));
-    printf("current working directory : %s\n", buf);
     int will_return = sub_main_assignment_2();
     cin.get();
     cin.get();

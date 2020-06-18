@@ -90,9 +90,9 @@ Output:
 #include <string>
 #include <vector>
 #include <stdio.h>
-#define hours_number 24
-#define minute_number 60
-#define second_number 60
+constexpr int32_t hours_number = 24;
+constexpr int32_t minute_number = 60;
+constexpr int32_t second_number = 60;
 using std::cin;
 using std::cout;
 using std::endl;

@@ -24,76 +24,71 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <unistd.h>
-#include <cmath>
+#include <functional>
 
-using namespace std;
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
+using std::ifstream;
+using matrix_t = vector<vector<double>>;
 
-double matrix_determinant(const vector<vector<double>> &matrix);
+double matrix_determinant(const matrix_t &matrix);
 
-double matrix_trace(const vector<vector<double>> &matrix);
+double matrix_trace(const matrix_t &matrix);
 
-vector<vector<double>> matrix_add(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2);
+matrix_t matrix_add(const matrix_t &matrix1, const matrix_t &matrix2);
 
-vector<vector<double>> matrix_minus(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2);
+matrix_t matrix_minus(const matrix_t &matrix1, const matrix_t &matrix2);
 
-vector<vector<double>> matrix_sig_multiply(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2);
+matrix_t matrix_sig_multiply(const matrix_t &matrix1, const matrix_t &matrix2);
 
-vector<vector<double>> matrix_multiply(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2);
+matrix_t matrix_multiply(const matrix_t &matrix1, const matrix_t &matrix2);
 
-bool judge_sequre(const vector<vector<double>> &matrix);
+inline bool is_rectangle(const matrix_t &matrix);
 
-void get_matrix(vector<vector<double>> &matrix, ifstream &file);
+bool is_sequre(const matrix_t &matrix);
 
-void output_matrix(const string &str, const vector<vector<double>> &matrix);
+void get_matrix(matrix_t &matrix, ifstream &file);
+
+void output_matrix(const string &str, const matrix_t &matrix);
 
 int main() {
 //    char buf[114514];
 //    getcwd(buf, sizeof(buf));
 //    printf("current working directory : %s\n", buf);
-    std::ifstream file1("Matrix1.txt");
-    std::ifstream file2("Matrix2.txt");
+    std::ifstream file1("./Matrix1.txt");
+    std::ifstream file2("./Matrix2.txt");
     if (!file1.is_open() || !file2.is_open()) {
         return -1;
     }
-    vector<vector<double>> matrix1;
-    vector<vector<double>> matrix2;
+    matrix_t matrix1;
+    matrix_t matrix2;
     get_matrix(matrix1, file1);
     get_matrix(matrix2, file2);
     output_matrix("The first matrix is:", matrix1);
     output_matrix("The second matrix is:", matrix2);
-    if (matrix1.size() != matrix2.size()) {
-        cout << "matrix's size not equal" << endl;
+    if (!is_rectangle(matrix1) || !is_rectangle(matrix2) ||
+        matrix1.size() != matrix2.size() ||
+        matrix1.front().size() != matrix2.front().size()) {
+        cout << "matrix's size not equal or not sequre" << endl;
     }
-    for (uint32_t i = 0; i < matrix1.size(); ++i) {
-        if (matrix1[i].size() != matrix2[i].size()) {
-            cout << "matrix's size not equal" << endl;
-        }
-    }
-    vector<vector<double>> addition = matrix_add(matrix1, matrix2);
-    output_matrix("The addition of the two matrices is:", addition);
-    vector<vector<double>> minus = matrix_minus(matrix1, matrix2);
-    output_matrix("The subtraction of the two matrices is:", minus);
-    vector<vector<double>> multiply = matrix_multiply(matrix1, matrix2);
-    output_matrix("The matrix multiplication of the two matrices is:", multiply);
-    vector<vector<double>> single_multiply = matrix_sig_multiply(matrix1, matrix2);
+    matrix_t addi = matrix_add(matrix1, matrix2);
+    output_matrix("The addition of the two matrices is:", addi);
+    matrix_t minu = matrix_minus(matrix1, matrix2);
+    output_matrix("The subtraction of the two matrices is:", minu);
+    matrix_t multip = matrix_multiply(matrix1, matrix2);
+    output_matrix("The matrix multiplication of the two matrices is:", multip);
+    matrix_t single_multiply = matrix_sig_multiply(matrix1, matrix2);
     output_matrix("The element-wise multiplication of the two matrices is", single_multiply);
-    if (judge_sequre(matrix1)) {
+    if (is_sequre(matrix1)) {
         cout << "The first matrix is square!" << endl;
         cout << "The determinant of the first matrix is:" << matrix_determinant(matrix1) << endl;
         cout << "The trace of the first matrix is:" << matrix_trace(matrix1) << endl;
     } else {
         cout << "The first matrix is not square!" << endl;
     }
-    if (judge_sequre(matrix2)) {
+    if (is_sequre(matrix2)) {
         cout << "The second matrix is square!" << endl;
         cout << "The determinant of the second matrix is:" << matrix_determinant(matrix2) << endl;
         cout << "The  trace of the second matrix is:" << matrix_trace(matrix2) << endl;
@@ -104,12 +99,12 @@ int main() {
     return 0;
 }
 
-double matrix_determinant(const vector<vector<double>> &matrix) {
+double matrix_determinant(const matrix_t &matrix) {
     uint32_t size_m = matrix.size();
-    if (1 == size_m) {
-        return matrix[0][0];
+    if (size_m == 1) {
+        return matrix.front().front();
     }
-    vector<vector<double>> submatrix(size_m - 1, vector<double>(size_m - 1, 0.0f));
+    matrix_t submatrix(size_m - 1, vector<double>(size_m - 1, 0.0f));
     double sum = 0;
     for (uint32_t i = 0; i < size_m; ++i) {
         for (uint32_t j = 0; j < size_m - 1; ++j) {
@@ -117,12 +112,12 @@ double matrix_determinant(const vector<vector<double>> &matrix) {
                 submatrix[j][k] = matrix[(((i > j) ? 0 : 1) + j)][k + 1];
             }
         }
-        sum += ((i % 2) ? -1 : 1) * matrix[i][0] * matrix_determinant(submatrix);
+        sum += ((i % 2) ? -1 : 1) * matrix[i].front() * matrix_determinant(submatrix);
     }
     return sum;
 }
 
-double matrix_trace(const vector<vector<double>> &matrix) {
+double matrix_trace(const matrix_t &matrix) {
     double will_return = 0.0f;
     for (uint32_t i = 0; i < matrix.size(); ++i) {
         will_return += matrix[i][i];
@@ -130,111 +125,64 @@ double matrix_trace(const vector<vector<double>> &matrix) {
     return will_return;
 }
 
-vector<vector<double>> matrix_sig_multiply(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2) {
-    vector<vector<double>> will_return;
-    if (matrix1.size() != matrix2.size()) {
-        cout << "matrix's size not equal" << endl;
-        return will_return;
+matrix_t matrix_multiply(
+        const matrix_t &matrix1,
+        const matrix_t &matrix2) {
+    matrix_t will_return;
+    if (!is_sequre(matrix1) || !is_sequre(matrix2)) {
+        throw std::invalid_argument("matrix not sequre");
     }
-    for (uint32_t i = 0; i < matrix1.size(); ++i) {
-        if (matrix1[i].size() != matrix2[i].size()) {
-            cout << "matrix's size not equal" << endl;
-            return will_return;
-        }
-    }
-    for (uint32_t i = 0; i < matrix1.size(); ++i) {
-        vector<double> line(matrix1.size(), 0);
-        for (uint32_t j = 0; j < matrix1[j].size(); ++j) {
-            line[j] = matrix1[i][j] * matrix2[i][j];
-        }
-        will_return.push_back(line);
-    }
-    return will_return;
-}
-
-vector<vector<double>> matrix_multiply(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2) {
-    vector<vector<double>> will_return;
-    for (uint32_t i = 0; i < matrix1.size() - 1; ++i) {
-        if (matrix1[i].size() != matrix1[i + 1].size()) {
-            cout << "matrix's size not equal,can not multiply" << endl;
-            return will_return;
-        }
-    }
-    for (uint32_t i = 0; i < matrix2.size() - 1; ++i) {
-        if (matrix2[i].size() != matrix2[i + 1].size()) {
-            cout << "matrix's size not equal, can not multiply" << endl;
-            return will_return;
-        }
-    }
-    for (const auto &i : matrix1) {
-        if (i.size() != matrix2.size()) {
-            cout << "matirx's Shape make them can not multiply" << endl;
-            return will_return;
-        }
-    }
-    if (matrix1.empty() || matrix2.empty()) {
-        cout << "matirx's Shape make them can not multiply" << endl;
-        return will_return;
-    }
-    int32_t size1 = matrix1.size();
-    int32_t size2 = matrix2[0].size();
-    int32_t size3 = matrix1[0].size();
-    will_return = vector<vector<double>>(size1, vector<double>(size2, 0));
-    for (int32_t i = 0; i < size1; ++i) {
-        for (int32_t j = 0; j < size2; ++j) {
-            double count = 0;
-            for (int32_t k = 0; k < size3; ++k) {
-                count += (matrix1[i][k] * matrix2[k][j]);
+    // m*n,n*p -> m*p
+    int32_t m = matrix1.size();
+    int32_t n = matrix1.front().size();
+    int32_t p = matrix2.front().size();
+    will_return = matrix_t(m, vector<double>(p, 0.0f));
+    for (int32_t i = 0; i < m; ++i) {
+        for (int32_t j = 0; j < p; ++j) {
+            for (int32_t k = 0; k < n; ++k) {
+                will_return[i][j] += (matrix1[i][k] * matrix2[k][j]);
             }
-            will_return[i][j] = count;
         }
     }
     return will_return;
 }
 
-bool judge_sequre(const vector<vector<double>> &matrix) {
-    uint32_t size1 = matrix.size();
-    for (const auto &i:matrix) {
-        if (i.size() != size1) {
-            return false;
-        }
+inline matrix_t matrix_operator(
+        const matrix_t &mat1,
+        const matrix_t &mat2,
+        const std::function<double(const double &t1, const double &t2)> &func) {
+    if (!is_sequre(mat1) ||
+        !is_sequre(mat2) ||
+        mat1.size() != mat2.size()) {
+        throw std::invalid_argument("two matrix do not equal size");
     }
-    return true;
-}
-
-vector<vector<double>> matrix_add(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2) {
-    vector<vector<double>> will_return;
-    for (uint32_t i = 0; i < matrix1.size(); ++i) {
-        vector<double> line(matrix1.size(), 0);
-        for (uint32_t j = 0; j < matrix1[j].size(); ++j) {
-            line[j] = matrix1[i][j] + matrix2[i][j];
-        }
-        will_return.push_back(line);
+    matrix_t will_return(mat1);
+    for (uint32_t i = 0; i < mat1.size(); ++i) {
+        std::transform(mat1[i].cbegin(), mat1[i].cend(),
+                       mat2[i].cbegin(), will_return[i].begin(), func);
     }
     return will_return;
 }
 
-vector<vector<double>> matrix_minus(
-        const vector<vector<double>> &matrix1,
-        const vector<vector<double>> &matrix2) {
-    vector<vector<double>> will_return;
-    for (uint32_t i = 0; i < matrix1.size(); ++i) {
-        vector<double> line(matrix1.size(), 0);
-        for (uint32_t j = 0; j < matrix1[j].size(); ++j) {
-            line[j] = matrix1[i][j] - matrix2[i][j];
-        }
-        will_return.push_back(line);
-    }
-    return will_return;
+matrix_t matrix_add(
+        const matrix_t &matrix1,
+        const matrix_t &matrix2) {
+    return matrix_operator(matrix1, matrix2, std::plus<>());
 }
 
-void output_matrix(const string &str, const vector<vector<double>> &matrix) {
+matrix_t matrix_minus(
+        const matrix_t &matrix1,
+        const matrix_t &matrix2) {
+    return matrix_operator(matrix1, matrix2, std::minus<>());
+}
+
+matrix_t matrix_sig_multiply(
+        const matrix_t &matrix1,
+        const matrix_t &matrix2) {
+    return matrix_operator(matrix1, matrix2, std::multiplies<>());
+}
+
+void output_matrix(const string &str, const matrix_t &matrix) {
     cout << str << endl;
     for (uint32_t i = 0; i < matrix.size(); ++i) {
         for (uint32_t j = 0; j < matrix[0].size() - 1; ++j) {
@@ -244,7 +192,31 @@ void output_matrix(const string &str, const vector<vector<double>> &matrix) {
     }
 }
 
-void get_matrix(vector<vector<double>> &matrix, ifstream &file) {
+inline bool is_sequre(const matrix_t &matrix) {
+    if (matrix.size() == 0 || matrix.front().size() == 0) {
+        return false;
+    }
+    for (const auto &i:matrix) {
+        if (i.size() != matrix.size()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+inline bool is_rectangle(const matrix_t &matrix) {
+    if (matrix.size() == 0 || matrix.front().size() == 0) {
+        return false;
+    }
+    for (auto iter = matrix.cbegin(); iter != matrix.cend() - 1; ++iter) {
+        if (iter->size() != (iter + 1)->size()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void get_matrix(matrix_t &matrix, ifstream &file) {
     while (!file.eof()) {
         vector<double> line;
         string temp;

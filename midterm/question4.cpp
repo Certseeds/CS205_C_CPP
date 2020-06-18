@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,28 +18,33 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-16 14:06:45 
+ * @Date: 2020-04-16 14:06:45
  * @LastEditors  : nanoseeds
  */
+
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
-vector<int> encode(const vector<vector<int>> &matrix);
+string encode(const vector<vector<int32_t>> &matrix);
 
-vector<vector<int>> decode(vector<int> line);
+vector<vector<int32_t>> decode(const string &line);
+
+vector<int32_t> analysis_string(const string &str);
 
 int main() {
-    vector<vector<int>> matrix = {
+    vector<vector<int32_t>> matrix = {
             {1, 1, 1, 0},
             {0, 0, 0, 1},
             {1, 1, 1, 1},
             {1, 0, 0, 0}
     };
-    vector<int> middle = encode(matrix);
-    vector<vector<int>> after = decode(middle);
+    string middle = encode(matrix);
+    assert(middle == "4,4,3,4,6,3");
+    vector<vector<int32_t>> after = decode(middle);
     for (uint32_t i = 0; i < matrix.size(); ++i) {
         for (uint32_t j = 0; j < matrix[0].size(); ++j) {
             assert(matrix[i][j] == after[i][j]);
@@ -48,39 +53,75 @@ int main() {
     return 0;
 }
 
-vector<int> encode(const vector<vector<int>> &matrix) {
-    vector<int> will_return;
-    will_return.push_back(matrix.size());
-    will_return.push_back(matrix[0].size());
-    vector<int> temp;
-    for (const auto &i : matrix) {
-        for (const int &j : i) {
-            temp.push_back(j);
-        }
+string encode(const vector<vector<int32_t>> &matrix) {
+    string will_return = "";
+    if (matrix.empty() || matrix.front().empty()) {
+        return will_return;
     }
-    int count = 1;
-    temp.push_back(temp.back() ? 0 : 1);
-    for (uint32_t i = 1; i < temp.size(); i++) {
-        if (temp[i] != temp[i - 1]) {
-            will_return.push_back(count);
-            count = 1;
-        } else {
-            count++;
-        };
+    vector<int32_t> numbers{static_cast<int32_t>(matrix.size()), static_cast<int32_t>(matrix.front().size())};
+    vector<int32_t> orders;
+    orders.reserve(numbers[0] * numbers[1]);
+    for (const auto &i : matrix) {
+        orders.insert(orders.cend(), i.cbegin(), i.cend());
+    }
+    int32_t count = 1;
+    if (orders.front() == 0) {
+        numbers.push_back(0);
+    }
+    for (uint32_t i = 0; i < orders.size() - 1; i++) {
+        if (orders[i] != orders[i + 1]) {
+            numbers.push_back(count);
+            count = 0;
+        }
+        count++;
+    }
+    numbers.push_back(count);
+    for (auto num = numbers.cbegin(); num != numbers.cend() - 1; ++num) {
+        will_return.append(to_string(*num)).append(",");
+    }
+    will_return.append(to_string(numbers.back()));
+    return will_return;
+}
+
+vector<vector<int32_t>> decode(const string &line) {
+    vector<int32_t> numbers = analysis_string(line);
+    vector<int32_t> orders;
+    vector<vector<int32_t>> will_return;
+    orders.reserve(numbers.front() * numbers[1]);
+    will_return.reserve(numbers.front() * numbers[1]);
+    if (numbers.size() == 2) {
+        return will_return;
+    }
+    bool sign = (numbers[2] != 0);
+    for (uint32_t begin = 2 + !sign; begin < numbers.size(); begin++) {
+        orders.insert(orders.cend(), numbers[begin], sign);
+        sign = !sign;
+    }
+    for (int32_t i = 0; i < numbers.front(); ++i) {
+        will_return.emplace_back(orders.cbegin() + i * numbers[1], orders.cbegin() + (i + 1) * numbers[1]);
     }
     return will_return;
 }
 
-vector<vector<int>> decode(vector<int> line) {
-    vector<vector<int>> will_return(line[0], vector<int>(line[1], 0));
-    int count = 0;
-    bool sign = line[2];
-    for (uint32_t i = 2; i < line.size(); ++i) {
-        for (int j = 0; j < line[i]; ++j) {
-            will_return[count / line[0]][count % line[1]] = sign;
-            count++;
-        }
-        sign = !sign;
+vector<int32_t> analysis_string(const string &str) {
+    vector<int32_t> will_return;
+    if (str.empty()) {
+        return will_return;
     }
+    for (const auto &ch:str) {
+        if (ch != ',' && (ch < '0' || ch > '9')) {
+            return will_return;
+        }
+    }
+    int32_t number = 0;
+    for (const auto &ch:str) {
+        if (ch == ',') {
+            will_return.push_back(number);
+            number = 0;
+        } else {
+            number = number * 10 + (ch - '0');
+        }
+    }
+    will_return.push_back(number);
     return will_return;
 }
