@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-09 09:10:06
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 09:26:47
+ * @LastEditTime: 2020-06-18 21:52:30
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_MIDTERM
@@ -33,8 +33,7 @@ The function should finish in finite time. So it is OK if the time complexity is
 `int evaluate(const char* s, const int k) {}`
 Example:
 
-evaluate("jiu dang shi yi chang meng xing le hen jiu hai shi hen gan dong", 2)
-should return 1
+evaluate("jiu dang shi yi chang meng xing le hen jiu hai shi hen gan dong", 2) should return 1  
 evaluate("dan huang de chang qun peng song de tou fa", 4) should return 0
 
 ### Questions 2: Basic calculation of Matrix – Liu Zhu
@@ -118,7 +117,7 @@ If this student returns all the books today, he should pay: 23.5 RMB.
 
 ### Questions 4: Encoding and decoding a matrix – Xu Shuo
 
-Given a matrix 𝐴𝐴 of size 𝑚𝑚 × 𝑛𝑛, the element is either 1 or 0 and the upper left is fixed to 1, such as  
+Given a matrix $𝐴$ of size $𝑚 × 𝑛$, the element is either 1 or 0 and the upper left is fixed to 1, such as  
 $$ A=
 \left[
   \begin{matrix}
@@ -129,9 +128,12 @@ $$ A=
   \end{matrix}
   \right] \tag{4}
 $$
-By row expansion, it can be expressed as: 𝐴 = [1,1,1,0,0,0,0,1,1,1,1,1,1,0,0,0]. Then, we can count the adjacent repeating digits to represent the matrix as “three ones, four zeros, six ones and three zeros”. Furthermore, we can simply represent the matrix using a string 𝐵 = "4, 4, 3, 4, 6, 3", in which the first two numbers are the numbers of rows and columns, respectively. 
+By row expansion, it can be expressed as: 𝐴 = [1,1,1,0,0,0,0,1,1,1,1,1,1,0,0,0]. 
+Then, we can count the adjacent repeating digits to represent the matrix as “three ones, four zeros, six ones and three zeros”. 
+Furthermore, we can simply represent the matrix using a string 𝐵 = "4,4,3,4,6,3", 
+in which the first two numbers are the numbers of rows and columns, respectively. 
 
 You are required to implement the two following algorithms:
-1. Given a matrix 𝐴 of size 𝑚 × 𝑛, design a function `encode()` to obtain the
-string 𝐵𝐵.
+1. Given a matrix $𝐴$ of size $𝑚 × 𝑛$, design a function `encode()` to obtain the
+string $𝐵$.
 2.  Design a function `decode()` to decode the string 𝐵𝐵 into the original matrix 𝐴.

@@ -24,7 +24,7 @@
 #define _ASSIGNMENT_2_CITY_
 #include <string.h>
 #include <algorithm>
-#define LENGTH_OF_NAME 25
+constexpr int32_t LENGTH_OF_NAME = 25;
 struct city {
     char* city_name;
     char* country_name;
@@ -80,17 +80,15 @@ vector<int> matches(char* str, city** cities);
 bool judgement_equal_bye(string str);
 double count_distance(vector<double>& dous);
 string trim(string str);
-#define LENGTH_OF_NAME 35
-#define LENGTH_OF_ARRAY 1000
-#define location_length 5
-#define longitude_max 90
-#define latitude_max 180
-#define FILE_NAME TO_STRING(./world_cities.csv)
-#define max_length 1024
-#define min_length 3
-#define radius_earth 6371
-#define PI 3.1415926535
-#define TO_STRING(x) #x
+const string FILE_NAME = "./../../../Assignment_2/src/world_cities.csv";
+constexpr int32_t LENGTH_OF_ARRAY = 1000;
+constexpr int32_t location_length = 5;
+constexpr int32_t longitude_max = 90;
+constexpr int32_t latitude_max = 180;
+constexpr int32_t max_length = 1024;
+constexpr int32_t min_length = 3;
+constexpr int32_t radius_earth = 6371;
+constexpr double_t PI = 3.1415926535f;
 #ifndef UNIT_TESTING_ASSIGNMENT_2
 #define UNIT_TESTING_ASSIGNMENT_2
 int main() {
@@ -272,8 +270,8 @@ Output:
 ![picture_01](./picture_01.png)
 ### Test Case #2: Insufficient length
 ``` cpp
-    #define LENGTH_OF_NAME 25
-    #define LENGTH_OF_ARRAY 800
+    constexpr int32_t LENGTH_OF_NAME = 25;
+    constexpr int32_t LENGTH_OF_ARRAY = 800;
 Input:
     London
     manc
@@ -289,8 +287,8 @@ Output:
 ![picture_02](./picture_02.png)
 ### Test Case #3: Normal operation_1
 ``` cpp
-    #define LENGTH_OF_NAME 35
-    #define LENGTH_OF_ARRAY 1000
+    constexpr int32_t LENGTH_OF_NAME = 35;
+    constexpr int32_t LENGTH_OF_ARRAY = 1000;
     The following LENGTH_OF_NAME and LENGTH_OF_ARRAY are all the above definitions, and will not be described again.
 Input:
     Chiang

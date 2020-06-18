@@ -4,7 +4,7 @@
 #include <string.h>
 #include <algorithm>
 
-#define LENGTH_OF_NAME 25
+constexpr int32_t LENGTH_OF_NAME = 35;
 
 struct city {
     char *city_name;
