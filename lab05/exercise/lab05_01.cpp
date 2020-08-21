@@ -6,7 +6,7 @@
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-03-19 18:23:14
  */
-#include<iostream>
+#include <iostream>
 
 using std::cin;
 using std::cout;

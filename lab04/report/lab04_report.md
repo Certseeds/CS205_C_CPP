@@ -15,7 +15,7 @@
 ``` cpp
 #ifndef _LAB04_PIZZA_
 #define _LAB04_PIZZA_
-#include<iostream>
+#include <iostream>
 const int lab04_01_max_length = 1024;
 class pizza {
 public:
@@ -47,7 +47,7 @@ public:
 ```
 2. lab04_01.cpp    
 ``` cpp
-#include<iostream>
+#include <iostream>
 #include "./pizza.hpp"
 using std::cin;
 using std::cout;
@@ -135,7 +135,7 @@ struct CandyBar {
 ```
 2. lab04_02.cpp
 ``` cpp
-#include<iostream>
+#include <iostream>
 #include"./CandyBar.hpp"
 using std::cin;
 using std::cout;
@@ -209,7 +209,7 @@ Output:
 ## E3 Code & Result
 ### Code
 ``` cpp
-#include<iostream>
+#include <iostream>
 using std::cin;
 using std::cout;
 using std::endl;

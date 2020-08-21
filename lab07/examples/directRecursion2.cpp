@@ -1,7 +1,7 @@
 //
 // Created by lenovo on 2019/10/16.
 //
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 

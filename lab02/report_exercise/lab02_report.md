@@ -15,7 +15,7 @@
 ### Code
 
 ``` cpp
-#include<iostream>
+#include <iostream>
 #include <vector>
 #include <stdio.h>
 using std::cin;
@@ -86,7 +86,7 @@ Output:
 ### Code
 
 ``` cpp
-#include<iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <stdio.h>
@@ -157,8 +157,8 @@ Output:
 ### Code
 
 ``` cpp
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <cstdio>
 
 using std::cin;
 using std::cout;

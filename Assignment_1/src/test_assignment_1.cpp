@@ -1,7 +1,6 @@
 #define UNIT_TESTING_ASSIGNMENT_1
-#define CATCH_CONFIG_MAIN
 
-#include "./../../catch.hpp"
+#include "catch_main.hpp"
 #include "./assignment_1.cpp"
 #include <iostream>
 
@@ -64,7 +63,7 @@ TEST_CASE("test_check_double", "[test]") {
 TEST_CASE("test1", "[test]") {
 }
 
-TEST_CASE("mains", "[run]") {
+TEST_CASE("mains", "[run][.]") {
     CHECK(0 == sub_main());
     cin.get();
     cin.get();

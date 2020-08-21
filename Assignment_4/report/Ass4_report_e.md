@@ -21,7 +21,7 @@
 ### Part 2 - Code
 ``` cpp
 #include <vector>
-#include<iostream>
+#include <iostream>
 #include <unordered_map>
 #include <random>
 using std::cin;

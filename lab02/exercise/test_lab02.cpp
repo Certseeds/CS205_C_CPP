@@ -7,9 +7,8 @@
  */
 
 #define UNIT_TESTING_LAB_02
-#define CATCH_CONFIG_MAIN
 
-#include "./../../catch.hpp"
+#include "catch_main.hpp"
 #include "./lab02_01.cpp"
 #include "./lab02_02.cpp"
 #include "./lab02_03.cpp"
@@ -18,19 +17,19 @@
 using std::cout;
 using std::endl;
 
-TEST_CASE("test_lab03_01", "[run]") {
+TEST_CASE("test_lab03_01", "[run][.]") {
     sub_main_02_01();
     cin.get();
     cin.get();
 }
 
-TEST_CASE("test_lab03_02", "[run]") {
+TEST_CASE("test_lab03_02", "[run][.]") {
     sub_main_02_02();
     cin.get();
     cin.get();
 }
 
-TEST_CASE("test_lab03_03", "[run]") {
+TEST_CASE("test_lab03_03", "[run][.]") {
     sub_main_02_03();
     cin.get();
     cin.get();

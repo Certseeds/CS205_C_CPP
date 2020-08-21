@@ -6,7 +6,7 @@
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-03-19 18:23:18
  */
-#include<iostream>
+#include <iostream>
 #include<cstring>
 #include <vector>
 

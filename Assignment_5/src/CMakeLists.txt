@@ -8,11 +8,12 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 add_executable(${PROJECT_NAME}
-        ./../../catch_main.cpp
         ./test_catch_UTF8_String.cpp
-        #./testUTF8string.cpp
         ./UTF8string.cpp
-        #./UTF8string.hpp
         ./utf8.c
-        #./utf8.h
+        )
+add_executable(${PROJECT_NAME}_simple_test
+        ./testUTF8string.cpp
+        ./UTF8string.cpp
+        ./utf8.c
         )

@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include "CandyBar.h"
 
 using std::cin;

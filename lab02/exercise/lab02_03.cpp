@@ -6,8 +6,8 @@
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-02-28 16:19:07
  */
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <cstdio>
 
 using std::cin;
 using std::cout;
@@ -17,6 +17,7 @@ int sub_main_02_03();
 
 #ifndef UNIT_TESTING_LAB_02
 #define UNIT_TESTING_LAB_02
+
 int main() {
     int will_return = sub_main_02_03();
     cin.get();

@@ -1,7 +1,7 @@
 #ifndef _LAB04_PIZZA_
 #define _LAB04_PIZZA_
 
-#include<iostream>
+#include <iostream>
 #include<string.h>
 
 const int lab04_01_max_length = 1024;
