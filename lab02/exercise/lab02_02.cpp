@@ -7,10 +7,10 @@
  * @LastEditTime: 2020-02-28 16:19:14
  */
 
-#include<iostream>
+#include <iostream>
 #include <string>
 #include <vector>
-#include <stdio.h>
+#include <cstdio>
 
 constexpr int32_t hours_number = 24;
 constexpr int32_t minute_number = 60;

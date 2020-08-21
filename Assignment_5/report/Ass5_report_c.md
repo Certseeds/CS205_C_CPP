@@ -175,7 +175,7 @@ const string & UTF8string::get_str() const {
 ``` cpp
 #include "./catch.hpp"
 #include "UTF8string.hpp"
-#define CATCH_CONFIG_MAIN
+
 using std::cout;
 using std::endl;
 using Catch::Matchers::Equals;

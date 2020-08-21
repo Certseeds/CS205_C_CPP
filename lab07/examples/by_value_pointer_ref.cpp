@@ -2,7 +2,7 @@
 // Created by lenovo on 2019/8/28.
 //
 
-#include<iostream>
+#include <iostream>
 
 void swapr(int &a, int &b);     //a, b are aliases for ints
 void swapp(int *p, int *q);     // p, q are address of ints

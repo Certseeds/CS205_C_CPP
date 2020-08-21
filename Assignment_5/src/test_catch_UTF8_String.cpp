@@ -21,7 +21,7 @@
  * @Date: 2020-04-27 11:13:41 
  * @LastEditors  : nanoseeds
  */
-#include "./../../catch.hpp"
+#include "catch_main.hpp"
 #include "UTF8string.hpp"
 
 using std::cout;

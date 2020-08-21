@@ -41,7 +41,7 @@ int main()
 // Program example 2
 
 
-#include<iostream>
+#include <iostream>
 #include<climits>
 using namespace std;
 

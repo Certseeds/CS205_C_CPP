@@ -6,7 +6,7 @@
  * @LastEditors: nanoseeds
  * @LastEditTime: 2020-03-06 21:35:15
  */
-#include<iostream>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -30,7 +30,7 @@ bool judge_two_double(const string &s);
 
 string delete_space(string str);
 
-int give_two_double(string s, vector<double> &num, int order);
+int give_two_double(const string &s, vector<double> &num, int order);
 
 bool check_double(const string &s);
 
@@ -171,17 +171,17 @@ bool check_double(const string &s) {
     return true;
 }
 
-int give_two_double(string s, vector<double> &num, int order) {
+int give_two_double(const string &s, vector<double> &num, int order) {
     int middle = s.find_first_of(' ');
     string s1 = delete_space(s.substr(0, middle));
     string s2 = delete_space(s.substr(middle, s.size()));
-    if (check_double(s1) == false || check_double(s2) == false) {
+    if (!check_double(s1) || !check_double(s2)) {
         return -1;
     }
     try {
         num[order] = std::stof(s1);
         num[order + 1] = std::stof(s2);
-    } catch (std::invalid_argument e) {
+    } catch (const std::invalid_argument &e) {
         return -2;
     }
     return 0;
