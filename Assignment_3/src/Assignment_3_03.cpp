@@ -26,8 +26,10 @@
 #include <string>
 #include <sstream>
 #include <cstring>
+extern "C"
+{
 #include "utf8.h"
-
+}
 using std::cin;
 using std::cout;
 using std::endl;
@@ -49,7 +51,7 @@ int32_t hex_string_to_int32_t(const string &s);
 
 int32_t find_alphabeta(unicode_block *bl, int32_t length_of_blocks, int32_t ch);
 
-const int32_t unicode_part_number = 300;
+constexpr int32_t unicode_part_number = 300;
 #ifndef UNIT_TESTING_ASSIGNMENT_3
 #define UNIT_TESTING_ASSIGNMENT_3
 

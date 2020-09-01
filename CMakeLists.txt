@@ -1,13 +1,14 @@
 # header begin
 cmake_minimum_required(VERSION 3.10.2)
-project(CS205_C_CPP LANGUAGES CXX)
+project(CS205_C_CPP LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -Wall -Wextra")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
-include_directories(./include)
+
 include_directories(./third_party)
+include_directories(./include)
 # header end
 # add library begin
 #add_library(catch STATIC catch.hpp )
@@ -39,4 +40,4 @@ add_subdirectory(Assignment_3/src)
 add_subdirectory(Assignment_4/src)
 add_subdirectory(Assignment_5/src)
 add_subdirectory(midterm)
-#add_subdirectory(CS205_project_2020S/src)
+#add_subdirectory(CS205_project_2020S)
