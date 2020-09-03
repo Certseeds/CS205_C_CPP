@@ -4,9 +4,16 @@ project(lab11_exercise LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
-add_executable(${PROJECT_NAME}_01
-        ./CandyBar.cpp
-        ./lab11_01.cpp)
-add_executable(${PROJECT_NAME}_02
-        ./Rectangle.cpp
-        ./lab11_02.cpp)
+add_library(lab11_CandyBar
+        SHARED
+        CandyBar.cpp
+        CandyBar.h)
+add_library(lab11_Rectangle
+        SHARED
+        Rectangle.cpp
+        Rectangle.h)
+add_executable(${PROJECT_NAME}_01 ./lab11_01.cpp)
+target_link_libraries(${PROJECT_NAME}_01 lab11_CandyBar)
+
+add_executable(${PROJECT_NAME}_02 ./lab11_02.cpp)
+target_link_libraries(${PROJECT_NAME}_02 lab11_Rectangle)

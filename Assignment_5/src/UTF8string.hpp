@@ -24,21 +24,18 @@
 #ifndef CS205_C_CPP_ASSIGNMENT_5_SRC_UTF8STRING_HPP
 #define CS205_C_CPP_ASSIGNMENT_5_SRC_UTF8STRING_HPP
 
-#include "utf8.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-extern int utf8_charlen(unsigned char *p);
-extern int utf8_bytes_to_charpos(unsigned char *s, int pos);
-// extern ...
-#ifdef __cplusplus
-}
-#endif
 
 #include <iostream>
 #include <string>
 #include <vector>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include "utf8.h"
+#ifdef __cplusplus
+}
+#endif
 
 using std::string;
 

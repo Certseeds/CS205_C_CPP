@@ -33,13 +33,20 @@ public:
     int32_t uuid;
     double height;
     double length;
+
     Book();
-    explicit Book (int32_t uuid_in);
-    Book(int32_t uuid_in,double height_in,double length_in);
-    Book(const Book&) = delete;
-    Book& operator=(const Book&) = delete;
-    int Get_Uuid();
-    double Get_Area();
+
+    explicit Book(int32_t uuid_in);
+
+    Book(int32_t uuid_in, double height_in, double length_in);
+
+    Book(const Book &) = delete;
+
+    Book &operator=(const Book &) = delete;
+
+    int Get_Uuid() const;
+
+    double Get_Area() const;
 };
 
 
