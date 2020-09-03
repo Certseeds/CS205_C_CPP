@@ -21,7 +21,7 @@
  * @Date: 2020-03-26 18:10:42 
  * @LastEditors  : nanoseeds
  */
-#include <Book.h>
+#include "Book.h"
 
 Book::Book() :
         uuid(0), height(11.4f), length(51.4f) {}
@@ -33,10 +33,10 @@ Book::Book(int32_t uuid_in, double height_in, double length_in) :
         uuid(uuid_in), height(height_in), length(length_in) {}
 
 
-double Book::Get_Area() {
+double Book::Get_Area() const {
     return (this->height) * (this->length);
 }
 
-int Book::Get_Uuid() {
+int Book::Get_Uuid() const {
     return this->uuid;
 }
