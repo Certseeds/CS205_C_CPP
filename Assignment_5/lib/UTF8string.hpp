@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-26 17:58:29 
+ * @Date: 2020-04-26 17:58:29
  * @LastEditors  : nanoseeds
  */
 #ifndef CS205_C_CPP_ASSIGNMENT_5_SRC_UTF8STRING_HPP
@@ -29,13 +29,7 @@
 #include <string>
 #include <vector>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-#include "utf8.h"
-#ifdef __cplusplus
-}
-#endif
+#include "utf8.hpp"
 
 using std::string;
 
@@ -43,7 +37,7 @@ class UTF8string {
 private:
     string str;
 public:
-    const string &get_str() const;
+    [[nodiscard]] const string &get_str() const;
 
     // Constructor
     // if add explicit ,need use .replace(UTF8string("1"),UTF8string("2"))

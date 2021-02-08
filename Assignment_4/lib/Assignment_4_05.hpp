@@ -21,9 +21,20 @@
  * @Date: 2020-04-20 08:50:41
  * @LastEditors  : nanoseeds
  */
-#include <Assignment_4_05.hpp>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
-int main() {
-    question5();
-    return 0;
-}
+int32_t recieve_input();
+
+int32_t question5();
+
+std::string str_lower(std::string str);
+
+std::string trim(std::string str);
+
+// commands
+static constexpr const char* const command[] {"start", "stop", "restart", "reload", "status", "exit"};
+static constexpr const int32_t exit_n = 5;
+static constexpr const int32_t illegal = 6;

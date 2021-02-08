@@ -29,7 +29,7 @@ const char illegal_str[] = "Please input positive";
 
 int main() {
     // Path is
-    // 相对路径: /cmake-build-debug/lab05/src
+    // 相对路径: /cmake-build-debug/lab05/test
     int32_t will_return = sub_main_05_03();
     cin.get();
     cin.get();

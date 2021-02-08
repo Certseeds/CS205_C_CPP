@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-11 12:12:24 
+ * @Date: 2020-04-11 12:12:24
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -73,7 +73,7 @@ int32_t sub_main_assignment_3_02() {
 }
 
 void spiral(vector<vector<int32_t>> &matrix, int32_t begin) {
-    if (matrix.size() <= 0 || matrix[0].size() <= 0) {
+    if (matrix.empty() || matrix[0].empty()) {
         return;
         // illegal input or final of rec, should return
     } else if (1 == matrix.size() && matrix[0].size() > 1) {
@@ -84,8 +84,8 @@ void spiral(vector<vector<int32_t>> &matrix, int32_t begin) {
         return;
         //for one line matrix
     } else if (matrix.size() > 1 && 1 == matrix[0].size()) {
-        for (int32_t i = 0; i < static_cast<int32_t>(matrix.size()); ++i) {
-            matrix[i][0] = begin;
+        for (auto & i : matrix) {
+            i[0] = begin;
             begin++;
         }
         return;

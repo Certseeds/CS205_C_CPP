@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-02-08 22:48:30
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-02-08 22:49:10
+ */
 /*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
@@ -14,16 +22,20 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41
- * @LastEditors  : nanoseeds
- */
-#include <Assignment_4_05.hpp>
+#ifndef _ASSIGNMENT_2_CITY_
+#define _ASSIGNMENT_2_CITY_
 
-int main() {
-    question5();
-    return 0;
-}
+#include <cstring>
+#include <algorithm>
+
+static constexpr const int32_t LENGTH_OF_NAME = 35;
+struct city {
+    char *city_name{nullptr};
+    char *country_name{nullptr};
+    double *latitude{nullptr};
+    double *longitude{nullptr};
+    city();
+    city(char *ci_name, char *coun_name, double la, double lo);
+    ~city();
+};
+#endif

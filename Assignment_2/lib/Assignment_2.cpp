@@ -1,62 +1,36 @@
-#include <iostream>
-#include<fstream>
-#include<vector>
-#include<string>
-#include <cmath>
-#include <unistd.h>
-#include "./city.hpp"
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-01-05 18:49:03
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-02-08 22:52:02
+ */
+/*  CS205_C_CPP
+    Copyright (C) 2020  nanoseeds
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
+    CS205_C_CPP is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
 
-int sub_main_assignment_2();
+    CS205_C_CPP is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
 
-city *get_city(char *line);
-
-int input_city(string th, char *temp, city **cities);
-
-vector<int> matches(char *str, city **cities);
-
-bool judgement_equal_bye(string str);
-
-double count_distance(vector<double> &dous);
-
-string trim(string str);
-
-const string FILE_NAME = "./../../../Assignment_2/src/world_cities.csv";
-constexpr int32_t LENGTH_OF_ARRAY = 1000;
-constexpr int32_t location_length = 5;
-constexpr int32_t longitude_max = 90;
-constexpr int32_t latitude_max = 180;
-constexpr int32_t max_length = 1024;
-constexpr int32_t min_length = 3;
-constexpr int32_t radius_earth = 6371;
-constexpr double_t PI = 3.1415926535f;
-
-#ifndef UNIT_TESTING_ASSIGNMENT_2
-#define UNIT_TESTING_ASSIGNMENT_2
-
-int main() {
-    int will_return = sub_main_assignment_2();
-    cin.get();
-    cin.get();
-    return will_return;
-}
-
-#endif // !UNIT_TESTING_ASSIGNMENT_2
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    */
+#include "Assignment_2.hpp"
 
 int sub_main_assignment_2() {
     std::ifstream read_file(FILE_NAME);
     char temp[max_length];
     city *cities[LENGTH_OF_ARRAY];
-    city *choose_city[2];
-    choose_city[0] = nullptr;
-    choose_city[1] = nullptr;
-    for (int i = 0; i < LENGTH_OF_ARRAY; i++) {
-        cities[i] = new city();
+    city *choose_city[2]{nullptr,nullptr};
+    for (auto & citie : cities) {
+        citie = new city();
     }
     if (!read_file.is_open()) {
         cout << "Warning! fail to find file!" << endl;
@@ -112,7 +86,7 @@ city *get_city(char *line) {
     memset(location, 0, sizeof(char *) * location_length);
     uint32_t length = strlen(line);
     uint32_t count = 1;
-    for (int i = 0; i < length; i++) {
+    for (auto i = 0u;    i < length; i++) {
         location[0] = line;
         if (',' == (*(line + i))) {
             location[count] = (line + i + 1);
@@ -141,8 +115,8 @@ int input_city(string th, char *temp, city **cities) {
     vector<int> list = matches(temp, cities);
     if (list.size() > 1) {
         cout << "More than one city matches, please choose one from those cities using numbers begin at 0" << endl;
-        for (int i = 0; i < list.size(); i++) {
-            cout << cities[list[i]]->city_name << " , " << cities[list[i]]->country_name << endl;
+        for (auto i : list) {
+            cout << cities[i]->city_name << " , " << cities[i]->country_name << endl;
         }
         cin.getline(temp, max_length);
         string trim_temp = trim(temp);
@@ -150,13 +124,13 @@ int input_city(string th, char *temp, city **cities) {
         memcpy(temp, &trim_temp[0], trim_temp.size());
         int count = std::atoi(temp);
         memset(temp, '\0', max_length);
-        if (count >= 0 && count < list.size()) {
+        if (count >= 0 && count < static_cast<int32_t>(list.size())) {
             cout << "matches city " << cities[list[count]]->city_name << endl;
             return list[count];
         }
         cout << "Out of range,Please input once again." << endl;
         return -2;
-    } else if (0 == list.size()) {
+    } else if (list.empty()) {
         cout << "No city matches, please input once again " << endl;
         return -3;
     } else {
@@ -179,8 +153,8 @@ string trim(string str) {
     if (str.empty()) {
         return str;
     }
-    str.erase(0, str.find_first_not_of(" "));
-    str.erase(str.find_last_not_of(" ") + 1);
+    str.erase(0, str.find_first_not_of(' '));
+    str.erase(str.find_last_not_of(' ') + 1);
     return str;
 }
 

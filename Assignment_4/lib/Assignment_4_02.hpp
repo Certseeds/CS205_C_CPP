@@ -18,12 +18,10 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41
+ * @Date: 2020-04-19 22:23:46
  * @LastEditors  : nanoseeds
  */
-#include <Assignment_4_05.hpp>
+#include "Assignment_4_01.hpp"
+#include <algorithm>
 
-int main() {
-    question5();
-    return 0;
-}
+int32_t question2();

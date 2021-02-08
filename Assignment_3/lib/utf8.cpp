@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+#include <cstdio>
+#include <cstring>
+#include <cctype>
 
-#include "utf8.h"
+#include "utf8.hpp"
 
 extern unsigned char *codepoint_to_utf8(const unsigned int cp,
                                         unsigned char *val) {
@@ -70,7 +70,7 @@ extern int isutf8(const unsigned char *u) {
 extern unsigned char *decimal_to_utf8(const unsigned int d,
                                       unsigned char *val) {
     // Works like chr() in Oracle: convert to hex, then convert hex to
-    // character. Returns NULL if invalid UTF-8 character.
+    // character. Returns nullptr if invalid UTF-8 character.
     char hex[50];
     int len;
     int i;
@@ -78,7 +78,7 @@ extern unsigned char *decimal_to_utf8(const unsigned int d,
     sprintf(hex, "%X", d);
     len = strlen(hex);
     if ((len > 8) || (len % 2)) {
-        return NULL;  // Invalid UTF-8
+        return nullptr;  // Invalid UTF-8
     } else {
         for (i = 0; i < len / 2; i++) {
             val[i] = 16 * (isdigit(hex[2 * i]) ? hex[2 * i] - '0' :
@@ -89,7 +89,7 @@ extern unsigned char *decimal_to_utf8(const unsigned int d,
         val[i] = '\0';
     }
     if (isutf8(val) == 0) {
-        return NULL;
+        return nullptr;
     }
     return val;
 }
@@ -171,11 +171,11 @@ extern int utf8_charpos_to_bytes(unsigned char *s, int pos) {
     return bytecnt;
 }
 
-// strchr-like function for utf8 characters. Returns NULL if
+// strchr-like function for utf8 characters. Returns nullptr if
 // "needle" is an invalid utf8 character.
 extern unsigned char *utf8_search(const unsigned char *haystack,
                                   const unsigned char *needle) {
-    unsigned char *p = (unsigned char *) NULL;
+    auto *p = (unsigned char *) nullptr;
 
     if (haystack
         && needle
@@ -183,4 +183,4 @@ extern unsigned char *utf8_search(const unsigned char *haystack,
         p = (unsigned char *) strstr((char *) haystack, (char *) needle);
     }
     return p;
-} 
+}

@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-11 18:54:01 
+ * @Date: 2020-04-11 18:54:01
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -26,10 +26,8 @@
 #include <string>
 #include <sstream>
 #include <cstring>
-extern "C"
-{
-#include "utf8.h"
-}
+#include "utf8.hpp"
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -51,7 +49,7 @@ int32_t hex_string_to_int32_t(const string &s);
 
 int32_t find_alphabeta(unicode_block *bl, int32_t length_of_blocks, int32_t ch);
 
-constexpr int32_t unicode_part_number = 300;
+static constexpr const int32_t unicode_part_number = 300;
 #ifndef UNIT_TESTING_ASSIGNMENT_3
 #define UNIT_TESTING_ASSIGNMENT_3
 

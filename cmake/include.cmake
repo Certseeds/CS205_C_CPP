@@ -1,0 +1,5 @@
+function(Add_Sub_Dir_List _List PrePath PostPath)
+    foreach (element IN LISTS ${_List})
+        add_subdirectory(${PrePath}${element}${PostPath})
+    endforeach ()
+endfunction()

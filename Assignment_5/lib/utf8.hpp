@@ -31,10 +31,6 @@
       }                                      \
    }
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 extern int utf8_charlen(unsigned char *p);
 
 extern int utf8_bytes_to_charpos(unsigned char *s, int pos);
@@ -57,19 +53,15 @@ extern unsigned char *utf8_search(const unsigned char *haystack,
                                   const unsigned char *needle);
 
 // ------------------------------------------------------
-// The second argument to these functions must be an 
+// The second argument to these functions must be an
 // array of at least 5 elements (it will store a single
-// utf8 character). A pointer to this array will be 
+// utf8 character). A pointer to this array will be
 // returned if functions succeed.
 // ------------------------------------------------------
-extern unsigned char *decimal_to_utf8(const unsigned int d,
+extern unsigned char *decimal_to_utf8(unsigned int d,
                                       unsigned char *utf8);
 
-extern unsigned char *codepoint_to_utf8(const unsigned int cp,
+extern unsigned char *codepoint_to_utf8(unsigned int cp,
                                         unsigned char *utf8);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
