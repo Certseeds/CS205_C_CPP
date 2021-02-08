@@ -6,9 +6,9 @@
  *   Type UTF-8 characters or words on the command line, it will
  *   tell you what are the equivalent code points.
  */
-#include <stdio.h>
+#include <cstdio>
 
-#include "utf8.h"
+#include "utf8.hpp"
 
 int main(int argc, char **argv) {
     unsigned char *p;

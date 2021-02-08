@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-11 10:39:25 
+ * @Date: 2020-04-11 10:39:25
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -33,7 +33,7 @@ int32_t sub_main_assignment_3_01();
 
 void fill_grid(vector<vector<int8_t>> &grid, vector<int32_t> &bullet);
 
-static const vector<vector<int32_t>> possibility = {
+static const vector<vector<int32_t>> possibility{
         {1,  1},
         {1,  0},
         {1,  -1},

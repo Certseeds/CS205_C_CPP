@@ -18,12 +18,22 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41
+ * @Date: 2020-04-19 22:37:16
  * @LastEditors  : nanoseeds
  */
-#include <Assignment_4_05.hpp>
+#include <vector>
+#include <numeric>
+#include <fstream>
+#include <iostream>
+#include <algorithm>
 
-int main() {
-    question5();
-    return 0;
-}
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
+// lab number
+static constexpr const int32_t lab_number = 14;
+
+int32_t question4();
+
+std::pair<int32_t, vector<int32_t>> str_to_scores(const std::string &str_in);

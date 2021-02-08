@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-01-05 18:49:03
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-02-08 23:13:27
+ */
 /*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
@@ -14,16 +22,15 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41
- * @LastEditors  : nanoseeds
- */
-#include <Assignment_4_05.hpp>
+#include <catch_main.hpp>
+#include <Assignment_2.cpp>
+#include <iostream>
 
-int main() {
-    question5();
-    return 0;
+using std::cout;
+using std::endl;
+
+TEST_CASE("Assignment_2", "[run]") {
+    sub_main_assignment_2();
+    cin.get();
+    cin.get();
 }

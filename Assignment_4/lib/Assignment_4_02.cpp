@@ -18,12 +18,19 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-20 08:50:41
+ * @Date: 2020-04-19 22:23:46
  * @LastEditors  : nanoseeds
  */
-#include <Assignment_4_05.hpp>
+#include "Assignment_4_02.hpp"
 
-int main() {
-    question5();
+int32_t question2() {
+    // output
+    for (const auto &i:umap) {
+        // int32_t times = ;
+        if (std::count(i.second.begin(), i.second.end(), 0) >= 2) {
+            // cout << i.first << " " << "Absent " << times << " times" << endl;
+            cout << i.first << endl;
+        }
+    }
     return 0;
 }

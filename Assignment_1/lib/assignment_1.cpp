@@ -1,62 +1,32 @@
 /*
- * @Github: https://github.com/Certseeds
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
  * @Date: 2020-03-05 21:56:08
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-03-06 21:35:15
+ * @LastEditTime: 2021-02-08 22:04:31
  */
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <cmath>
+/*  CS205_C_CPP
+    Copyright (C) 2020  nanoseeds
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
+    CS205_C_CPP is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
 
-int sub_main();
+    CS205_C_CPP is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
 
-int get_city_itude(vector<double> &dous, vector<string> &strs, const string &num, int order);
-
-bool judge_legal(const string &s);
-
-bool judge_legal2(const string &s);
-
-bool judge_two_double(const string &s);
-
-string delete_space(string str);
-
-int give_two_double(const string &s, vector<double> &num, int order);
-
-bool check_double(const string &s);
-
-bool IsDoubleString(const std::string &s);
-
-double count_distance(vector<double> &dous);
-
-const int max_length = 1024;
-const int radius_earth = 6371;
-const double PI = 3.1415926535;
-//+ - . is �Ϸ�
-#ifndef UNIT_TESTING_ASSIGNMENT_1
-#define UNIT_TESTING_ASSIGNMENT_1
-
-int main() {
-    int will_return = sub_main();
-    cin.get();
-    cin.get();
-    return will_return;
-}
-
-#endif // !UNIT_TESTING_ASSIGNMENT_1
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    */
+#include "assignment_1.hpp"
 
 int sub_main() {
     vector<double> dous(4, 0.0f);
-    vector<string> strs(4, "");
+    vector <string> strs(4, "");
     int return_value1 = get_city_itude(dous, strs, "first", 0);
     if (0 != return_value1) {
         return return_value1;
@@ -88,7 +58,7 @@ double count_distance(vector<double> &dous) {
 }
 
 int get_city_itude(
-        vector<double> &dous, vector<string> &strs, const string &num, int order) {
+        vector<double> &dous, vector <string> &strs, const string &num, int order) {
     char first[1024] = {0};
     char itude[1024] = {0};
     cout << "The " << num << " city : ";
@@ -157,8 +127,8 @@ string delete_space(string str) {
     if (str.empty()) {
         return str;
     }
-    str.erase(0, str.find_first_not_of(" "));
-    str.erase(str.find_last_not_of(" ") + 1);
+    str.erase(0, str.find_first_not_of(' '));
+    str.erase(str.find_last_not_of(' ') + 1);
     return str;
 }
 
