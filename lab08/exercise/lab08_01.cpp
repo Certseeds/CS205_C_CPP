@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-10 22:16:13 
+ * @Date: 2020-04-10 22:16:13
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -28,7 +28,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
-const int32_t brand_length = 29;
+static constexpr const int32_t brand_length = 29;
 struct CandyBar {
     char brand[brand_length + 1];
     double weight;

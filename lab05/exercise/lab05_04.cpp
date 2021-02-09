@@ -19,7 +19,7 @@ int32_t sub_main_05_04();
 #define _UNIT_TESTING_LAB_05_
 
 int main() {
-    int32_t will_return = sub_main_05_04();
+    const int32_t will_return = sub_main_05_04();
     cin.get();
     cin.get();
     return will_return;
@@ -28,7 +28,7 @@ int main() {
 #endif // !_UNIT_TESTING_LAB_05_
 
 int32_t sub_main_05_04() {
-    const int32_t range = 7;
+    static constexpr const int32_t range = 7;
     char str[range + 1];
     str[range] = '\0';
     for (int32_t i = 0; i < range; i++) {

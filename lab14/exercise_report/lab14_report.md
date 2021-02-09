@@ -4,14 +4,17 @@
  * @Author: nanoseeds
  * @Date: 2020-05-23 11:50:05
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-05-23 12:04:20
+ * @LastEditTime: 2021-02-09 09:40:24
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 18.04),C++17, Cmake 3.16.6.  
 # Lab14 Exercise: 2020_0521
 
 ## E1 Code & Result
+
 ### Code
+
 1. lab14_01.cpp
 
 ``` cpp
@@ -48,6 +51,7 @@ T Max(T one, T two) {
 
 ### Result
 #### Test Case #1
+
 ``` log
 Input:
     no input
@@ -56,10 +60,13 @@ Output:
     The max of 5.6 and 7.3 is 7.3
     The max of donkey and apple is donkey
 ```
+
 ![picture_01](./lab14_01.png)
 
 ## E2 Code & Result
+
 ### Code
+
 1. matrix.h
 
 ``` cpp
@@ -188,7 +195,9 @@ void useMatrixTemplate(Matrix<T1> &M, T1 array1[][MAXCOLS], T1 array2[][MAXCOLS]
 ```
 
 ### Result
+
 #### Test Case #1
+
 ``` log
 Input:
     no input
@@ -224,4 +233,5 @@ Output:
     7.7 7.7 7.7 
     7.7 7.7 7.7 
 ```
+
 ![picture_02](./lab14_02.png)

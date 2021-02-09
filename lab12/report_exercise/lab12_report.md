@@ -4,13 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-05-07 23:11:33
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-05-07 23:32:33
+ * @LastEditTime: 2021-02-09 09:38:06
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++17, Cmake 3.16.6.  
+
 # Lab12 Exercise: 2020_0507
 
 ## E1 Code & Result
+
 ### Code
 
 1. Complex.h
@@ -140,7 +143,9 @@ int main() {
 ```
 
 ### Result
+
 #### Test Case #1
+
 ``` log
 Input:
     4
@@ -158,9 +163,11 @@ Output:
     a==c is0
     d is 4+6i
 ```
+
 ![picture_01](./lab12_01.png)
 
 ## E2 Code & Result
+
 ### Code
 
 1. Number.h
@@ -242,6 +249,7 @@ int main() {
 
 ### Result
 #### Test Case #1:
+
 ``` log
 Input:
     no input
@@ -255,4 +263,5 @@ Output:
     x = 20
     x = 20
 ```
+
 ![picture_02](./lab12_02.png)

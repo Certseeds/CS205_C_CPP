@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,17 +18,17 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-17 10:34:34 
+ * @Date: 2020-05-17 10:34:34
  * @LastEditors  : nanoseeds
  */
-#include "./CStereoShape_lab13_01.h"
+#include "CStereoShape_lab13_01.h"
 #include <iostream>
 
 int main() {
-    CStereoShape css1 = CStereoShape();
+    CStereoShape css1{};
     std::cout << css1.GetArea() << "\n";
     std::cout << css1.GetVolume() << "\n";
     css1.Show();
-    css1.GetNumOfObject();
+    CStereoShape::GetNumOfObject();
     return 0;
 }

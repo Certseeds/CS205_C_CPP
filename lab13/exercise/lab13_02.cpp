@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,11 +18,10 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-17 10:34:34 
+ * @Date: 2020-05-17 10:34:34
  * @LastEditors  : nanoseeds
  */
-#include "./CStereoShape_lab13_01.h"
-#include "./CCube_lab13_02.h"
+#include "CCube_lab13_02.h"
 #include <iostream>
 
 int main() {

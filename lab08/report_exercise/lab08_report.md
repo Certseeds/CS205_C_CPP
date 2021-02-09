@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-04-10 23:19:24
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 08:21:34
+ * @LastEditTime: 2021-02-09 09:35:46
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
@@ -88,7 +88,9 @@ void show(const CandyBar *cb) {
 ```
 
 ### Result
+
 #### Test Case #1:
+
 ``` log
 Input: 
     AGPL 3.0
@@ -114,6 +116,7 @@ Output:
     Weight: 8
     calories: 17
 ```
+
 ![picture_01](./lab08_01.png)
 
 ## E2 Code & Result
@@ -148,6 +151,7 @@ int main() {
 
 ### Result
 #### Test Case #1:
+
 ``` log
 Input: 
     no input.
@@ -157,4 +161,5 @@ Output:
     Max int: 5
     Max Double: 5.5
 ```
+
 ![picture_02](./lab08_02.png)

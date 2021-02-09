@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -14,36 +14,28 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-05-17 10:28:20 
- * @LastEditors  : nanoseeds
- */
-#ifndef CS205_C_CPP_LAB13_EXERCISE_CSTEREOSHAPE_LAB13_01_H
-#define CS205_C_CPP_LAB13_EXERCISE_CSTEREOSHAPE_LAB13_01_H
 
+#include "CandyBar.hpp"
 
-class CStereoShape {
-private:
-    inline static int numberOfObject = 0;
-    // or static int numberOfObject;
-    // && int CStereoShape::numberOfObject = 0;
-public:
-    CStereoShape();
+CandyBar::CandyBar() {
+    name = new char[lab04_02_maxrange];
+    memset(name, '\0', lab04_02_maxrange);
+    weight = new double;
+    calories = new int32_t;
+}
 
-    ~CStereoShape();
+CandyBar::CandyBar(char *n, double d, int32_t w) {
+    name = new char[lab04_02_maxrange];
+    weight = new double;
+    calories = new int32_t;
+    memset(name, '\0', lab04_02_maxrange);
+    memcpy(name, n, strlen(n) * sizeof(char));
+    (*weight) = d;
+    (*calories) = w;
+}
 
-    virtual double GetArea();
-
-    virtual double GetVolume();
-
-    virtual void Show();
-
-    int GetNumOfObject();
-
-};
-
-
-#endif //CS205_C_CPP_LAB13_EXERCISE_CSTEREOSHAPE_LAB13_01_H
+CandyBar::~CandyBar() {
+    delete[] name;
+    delete weight;
+    delete calories;
+}

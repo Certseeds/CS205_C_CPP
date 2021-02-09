@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -14,37 +14,25 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-05-17 10:48:32 
- * @LastEditors  : nanoseeds
- */
-#ifndef CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H
-#define CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H
+#ifndef _LAB04_PIZZA_
+#define _LAB04_PIZZA_
 
-#include "./CStereoShape_lab13_01.h"
+#include <iostream>
+#include <cstring>
 
-class CCube : public CStereoShape {
-private:
-    double length;
-    double width;
-    double height;
+static constexpr const int32_t lab04_01_max_length = 1024;
+
+class pizza {
 public:
-    CCube();
+    char *name{nullptr};
+    double *diameter{nullptr};
+    double *weight{nullptr};
 
-    CCube(double len, double wid, double heig);
+    pizza();
 
-    // 拷贝构造函数 Copy Constructor
-    CCube(const CCube &CC);
+    pizza(char *n, double d, double w);
 
-    double GetArea() override;
-
-    double GetVolume() override;
-
-    void Show() override;
+    ~pizza();
 };
 
-
-#endif //CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H
+#endif //  _LAB04_PIZZA_

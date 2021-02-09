@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-02 20:04:25 
+ * @Date: 2020-04-02 20:04:25
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -37,7 +37,7 @@ int main() {
     int32_t size;
     cout << "Enter the size of the array: ";
     cin >> size;
-    double *arr = new double[size];
+    auto *arr = new double[size];
     size = Fill_array(arr, size);
     Show_array(arr, size);
     Reverse_array(arr, size);

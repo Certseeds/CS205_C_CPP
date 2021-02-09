@@ -4,13 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-04-18 10:57:28
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-30 22:30:52
+ * @LastEditTime: 2021-02-09 09:37:28
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++14, Cmake 16.6.
+
+**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++14, Cmake 3.16.6.
+
 # Lab11 Exercise: 2020_0430
 
 ## E1 Code & Result
+
 ### Code
 
 1. lab11_01.cpp
@@ -136,6 +139,7 @@ std::string trim(std::string str) {
 
 ### Result
 #### Test Case #1
+
 ``` log
 Input:
     new
@@ -146,9 +150,11 @@ Output:
     Weight: 4.5
     Calorie: 230
 ```
+
 ![picture_01](./lab11_01.png)
 
 #### Test Case #2
+
 ``` log
 Input:
       Black CHock   
@@ -159,10 +165,13 @@ Output:
     Weight: 22.04
     Calorie: 28
 ```
+
 ![picture_02](./lab11_02.png)
 
 ## E2 Code & Result
+
 ### Code
+
 1. lab11_02.cpp
 
 ``` cpp
@@ -226,7 +235,9 @@ void Rectangle::display() {
 ```
 
 ### Result
+
 #### Test Case #1:
+
 ``` log
 Input: 
     No input.
@@ -244,4 +255,5 @@ Output:
     Area:       125.65
     Perimeter:  78.8
 ```
+
 ![picture_03](./lab11_03.png)

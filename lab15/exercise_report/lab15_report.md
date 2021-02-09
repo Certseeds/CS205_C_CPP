@@ -4,13 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-05-28 22:16:11
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-05-28 22:22:27
+ * @LastEditTime: 2021-02-09 09:41:17
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 18.04),C++17, Cmake 3.16.6.  
+
+**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 18.04),C++17, Cmake 3.16.6.
+
 # Lab15 Exercise: 2020_0528
 
 ## E Code & Result
+
 ### Code
 
 ``` cpp
@@ -59,6 +62,7 @@ double_t calculateAverage(int32_t a, int32_t b, int32_t c, int32_t d) {
 ```
 
 ### Result
+
 #### Test Case #1
 
 ``` log
@@ -67,6 +71,7 @@ Input:
 Output:
     The avarage of the four courses is 82.5
 ```
+
 ![picture_01](./lab15_01.png)
 
 #### Test Case #2
@@ -77,6 +82,7 @@ Input:
 Output:
     The parameter1 is -80 which out of range(0-100)
 ```
+
 ![picture_02](./lab15_02.png)
 
 #### Test Case #3
@@ -87,4 +93,5 @@ Input:
 Output:
     The parameter1 is 110 which out of range(0-100)
 ```
+
 ![picture_03](./lab15_03.png)

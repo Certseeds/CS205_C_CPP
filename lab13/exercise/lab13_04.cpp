@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,21 +18,20 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-17 11:31:19 
+ * @Date: 2020-05-17 11:31:19
  * @LastEditors  : nanoseeds
  */
-#include "./CStereoShape_lab13_01.h"
-#include "./CCube_lab13_02.h"
-#include "./CSphere_lab13_03.h"
+#include "CCube_lab13_02.h"
+#include "CSphere_lab13_03.h"
 #include <iostream>
 
 int main() {
-    CCube a_cube(4.0f, 5.0f, 6.0f);
-    CSphere c_sphere(7.9f);
+    CCube a_cube{4.0f, 5.0f, 6.0f};
+    CSphere c_sphere{7.9f};
     CStereoShape *p = &a_cube;
     p->Show();
     p = &c_sphere;
     p->Show();
-    std::cout << p->GetNumOfObject();
+    std::cout << CStereoShape::GetNumOfObject();
     return 0;
 }

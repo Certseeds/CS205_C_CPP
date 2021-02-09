@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,11 +18,11 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-30 21:36:11 
+ * @Date: 2020-04-30 21:36:11
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
-#include "Rectangle.h"
+#include "lib/Rectangle.h"
 
 int main() {
     std::cout << "Rectangle 1" << std::endl;

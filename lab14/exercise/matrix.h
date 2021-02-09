@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-23 11:20:35 
+ * @Date: 2020-05-23 11:20:35
  * @LastEditors  : nanoseeds
  */
 #ifndef CS205_C_CPP_LAB14_EXERCISE_MATRIX_H
@@ -27,8 +27,8 @@
 #include <iostream>
 #include <cstdint>
 
-const int32_t MAXROWS = 2;
-const int32_t MAXCOLS = 3;
+static constexpr const int32_t MAXROWS = 2;
+static constexpr const int32_t MAXCOLS = 3;
 
 // header file for lab14_02.cpp
 template<typename T>
