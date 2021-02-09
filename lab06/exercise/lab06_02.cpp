@@ -1,4 +1,4 @@
-/* CS205_C_CPP 
+/* CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,13 +18,13 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-03-26 22:02:50 
+ * @Date: 2020-03-26 22:02:50
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
 #include <cstring>
 
-const int32_t lab06_02_max_length = 1024;
+static constexpr const int32_t lab06_02_max_length = 1024;
 
 int main() {
     std::cout << "Enter words (q to quit): ";

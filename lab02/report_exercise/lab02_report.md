@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-07 10:18:43
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 08:49:42
+ * @LastEditTime: 2021-02-09 08:59:05
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
@@ -12,6 +12,7 @@
 # Lab02 Exercise:
 
 ## E1 Code & Result
+
 ### Code
 
 ``` cpp
@@ -27,7 +28,7 @@ int sub_main_02_01();
 #ifndef UNIT_TESTING_LAB_02
 #define UNIT_TESTING_LAB_02
 int main() {
-    int will_return = sub_main_02_01();
+    const int32_t will_return = sub_main_02_01();
     cin.get();
     cin.get();
     return will_return;
@@ -72,6 +73,7 @@ int main_lab02_01() {
 ```
 
 ### Result
+
 #### Test Case #1
 
 ``` log
@@ -80,9 +82,11 @@ Input:
 Output: 
     five lines of calculate results
 ```
+
 ![picture_01](./lab02_01.png)
 
 ## E2 Code & Result
+
 ### Code
 
 ``` cpp
@@ -102,7 +106,7 @@ int sub_main_02_02();
 #ifndef UNIT_TESTING_LAB_02
 #define UNIT_TESTING_LAB_02
 int main() {
-    int will_return = sub_main_02_02();
+    const int32_t will_return = sub_main_02_02();
     cin.get();
     cin.get();
     return will_return;
@@ -133,6 +137,7 @@ int sub_main_02_02() {
 ```
 
 ### Result
+
 #### Test Case #1
 
 ``` log
@@ -141,6 +146,7 @@ Input:
 Output:
     31600000 seconds = 365 days, 17 hours, 46minutes, 40seconds
 ```
+
 ![picture_02](./lab02_02.png)
 
 ``` log
@@ -151,9 +157,11 @@ Output:
     enter the numbers of seconds
     365000 seconds = 4 days, 5 hours, 23 minutes, 20seconds
 ```
+
 ![picture_03](./lab02_03.png)
 
 ## E3 Code & Result
+
 ### Code
 
 ``` cpp
@@ -169,7 +177,7 @@ int sub_main_02_03();
 #ifndef UNIT_TESTING_LAB_02
 #define UNIT_TESTING_LAB_02
 int main() {
-    int will_return = sub_main_02_03();
+    const int32_t will_return = sub_main_02_03();
     cin.get();
     cin.get();
     return will_return;
@@ -199,8 +207,8 @@ int sub_main_02_03() {
 ```
 
 ### Result
-#### Test Case #1
 
+#### Test Case #1
 
 ``` log
 Input: 
@@ -208,6 +216,7 @@ Input:
 Output:
     Z,1926,8.17000008(because the precision is set to 8)
 ```
+
 ![picture_04](./lab02_04.png)
 
 ``` log
@@ -218,5 +227,3 @@ Output:
 ```
 
 ![picture_05](./lab02_05.png)
-
-

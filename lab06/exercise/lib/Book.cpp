@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/* CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,34 +18,17 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-17 11:08:55 
+ * @Date: 2020-03-26 18:10:42
  * @LastEditors  : nanoseeds
  */
-#include "./CSphere_lab13_03.h"
-#include <cmath>
-#include <iostream>
+#include "Book.hpp"
 
-CSphere::CSphere() : CSphere(0) {
+
+
+double Book::Get_Area() const {
+    return (this->height) * (this->length);
 }
 
-CSphere::CSphere(double rad) {
-    this->radius = rad;
-}
-
-CSphere::CSphere(const CSphere &CC) {
-    this->radius = CC.radius;
-}
-
-double CSphere::GetArea() {
-    return 4.0f * M_PI * pow(this->radius, 2);
-}
-
-double CSphere::GetVolume() {
-    return 4.0f / 3.0f * M_PI * pow(this->radius, 3);
-}
-
-void CSphere::Show() {
-    std::cout << "radius is " << this->radius << "\n";
-    std::cout << "Area is " << this->GetArea() << "\n";
-    std::cout << "Volumn is " << this->GetVolume() << "\n";
+int Book::Get_Uuid() const {
+    return this->uuid;
 }

@@ -4,15 +4,18 @@
  * @Author: nanoseeds
  * @Date: 2020-03-06 23:00:00
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-08 17:10:33
+ * @LastEditTime: 2021-02-09 08:57:13
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+
 # Lab03 Exercise: 2020_0306
 
 ## Preparations
+
 For use unit test and avoid citing repeatability,
 
 write the define of CandyBar in an single file named `CandyBar.h`
+
 ``` cpp
 #ifndef _CANDYBAR_
 #define _CANDYBAR_
@@ -23,9 +26,13 @@ struct CandyBar {
     int calories;
 };
 #endif
+
 ```
+
 ## E1 Code & Result
+
 + Code
+
 ``` cpp
 #include <iostream>
 #include <vector>
@@ -42,7 +49,7 @@ int sub_main_03_01();
 #ifndef UNIT_TESTING_LAB_03
 #define UNIT_TESTING_LAB_03
 int main() {
-    int will_return = sub_main_03_01();
+    const int32_t will_return = sub_main_03_01();
     cin.get();
     cin.get();
     return will_return;
@@ -56,18 +63,25 @@ int sub_main_03_01() {
     return 0;
 }
 ```
+
 + Result
-### Test Case #1:
-```
+
+### Test Case #1
+
+``` log
 Input: No need
 Output:
     Brand: Mocha Munch
     Weight: 2.3
     Calorie: 350
 ```
+
 ![picture_01](lab03_01.png)
+
 ## E2 Code & Result
+
 + Code
+
 ``` cpp
 #include <iostream>
 #include <vector>
@@ -84,7 +98,7 @@ int sub_main_03_02();
 #ifndef UNIT_TESTING_LAB_03
 #define UNIT_TESTING_LAB_03
 int main() {
-    int will_return = sub_main_03_02();
+    const int32_t will_return = sub_main_03_02();
     cin.get();
     cin.get();
     return will_return;
@@ -107,9 +121,12 @@ int sub_main_03_02() {
     return 0;
 }
 ```
+
 + Result
-### Test Case #1:
-```
+
+### Test Case #1
+
+``` log
 Input: 
 "Super Candy Boss" "31.4" "159"
 Output:
@@ -117,9 +134,12 @@ Output:
     Weight: 31.4
     Calorie: 159
 ```
+
 ![picture_02](lab03_02.png)
 ## E3 Code & Result
+
 + Code
+
 ``` cpp
 #include <iostream>
 #include <vector>
@@ -136,7 +156,7 @@ int sub_main_03_03();
 #ifndef UNIT_TESTING_LAB_03
 #define UNIT_TESTING_LAB_03
 int main() {
-    int will_return = sub_main_03_03();
+    const int32_t will_return = sub_main_03_03();
     cin.get();
     cin.get();
     return will_return;
@@ -155,9 +175,12 @@ int sub_main_03_03() {
     return 0;
 }
 ```
+
 + Result
-### Test Case #1:
-```
+
+### Test Case #1
+
+``` log
 Input: No need
 Output:
     Brand: Mona coke
@@ -170,4 +193,5 @@ Output:
     Weight: 91.1
     Calorie: 92
 ```
+
 ![picture_03](lab03_03.png)

@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-02 19:52:38 
+ * @Date: 2020-04-02 19:52:38
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -38,8 +38,8 @@ void Cal_by_val(box *box_in);
 void Display(const box &box_in);
 
 int main() {
-    box box1 = {"ShanDong University", 11.4f, 51.4f, 19.19f, 0.0f};
-    box box2 = {"JinNan College", 20.0f, 26.0f, 18.0f, 0.0f};
+    box box1 {"ShanDong University", 11.4f, 51.4f, 19.19f, 0.0f};
+    box box2 {"JinNan College", 20.0f, 26.0f, 18.0f, 0.0f};
     std::cout << "Before setting valume by value" << std::endl;
     Display(box1);
     std::cout << "Before setting valume by address" << std::endl;

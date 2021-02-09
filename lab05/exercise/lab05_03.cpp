@@ -21,16 +21,16 @@ int32_t do_while_fibonacci();
 
 int32_t for_fibonacci();
 
-const char input_str[] = "Enter a positive number: ";
-const char output_str[] = "Fibonacci Series: ";
-const char illegal_str[] = "Please input positive";
+static constexpr const char* const input_str = "Enter a positive number: ";
+static constexpr const char* const output_str = "Fibonacci Series: ";
+static constexpr const char* const illegal_str = "Please input positive";
 #ifndef _UNIT_TESTING_LAB_05_
 #define _UNIT_TESTING_LAB_05_
 
 int main() {
     // Path is
     // 相对路径: /cmake-build-debug/lab05/test
-    int32_t will_return = sub_main_05_03();
+    const int32_t will_return = sub_main_05_03();
     cin.get();
     cin.get();
     return will_return;

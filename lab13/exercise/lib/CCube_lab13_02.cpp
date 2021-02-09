@@ -1,4 +1,4 @@
-/* CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,12 +18,39 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-03-26 18:16:22 
+ * @Date: 2020-05-17 10:48:32
  * @LastEditors  : nanoseeds
  */
-#include "Book.h"
+#include "CCube_lab13_02.h"
 #include <iostream>
-int32_t main(){
-    Book book1 (1,4,5);
-    std::cout << book1.Get_Area() << std::endl;
+
+
+CCube::CCube(double len, double wid, double heig) {
+    this->length = len;
+    this->width = wid;
+    this->height = heig;
+}
+
+CCube::CCube(const CCube &CC) {
+    this->length = CC.length;
+    this->width = CC.width;
+    this->height = CC.height;
+}
+
+double CCube::GetArea() {
+    return this->length * this->width * this->height;
+}
+
+double CCube::GetVolume() {
+    return 2 * this->length * this->width \
+ + 2 * this->width * this->height \
+ + 2 * this->length * this->height;
+}
+
+void CCube::Show() {
+    std::cout << "length is " << this->length << "\n";
+    std::cout << "width is " << this->width << "\n";
+    std::cout << "height is " << this->height << "\n";
+    std::cout << "Area is " << this->GetArea() << "\n";
+    std::cout << "Volumn is " << this->GetVolume() << "\n";
 }

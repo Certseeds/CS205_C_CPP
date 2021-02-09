@@ -88,7 +88,7 @@ int32_t UTF8string::bytes() {
 }
 // use
 int32_t UTF8string::length() {
-    int32_t will_return = 0;
+    const int32_t will_return = 0;
     int32_t bytes_in_char = 0;
     for (uint32_t i = 0; i < str.size(); i += bytes_in_char) {
         utf8_to_codepoint(reinterpret_cast<const unsigned char *>(&str[i]), &bytes_in_char);
@@ -98,7 +98,7 @@ int32_t UTF8string::length() {
     return will_return;
 }
 int32_t UTF8string::find(const string &sub_str) {
-    int32_t will_return = 0;
+    const int32_t will_return = 0;
     int32_t bytes_in_char = 0;
     for (uint32_t i = 0; i <= str.size() - sub_str.size(); i += bytes_in_char) {
         utf8_to_codepoint(reinterpret_cast<const unsigned char *>(&str[i]), &bytes_in_char);

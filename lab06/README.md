@@ -50,6 +50,7 @@ Output:
 ```
 
 PS: basic frame is provided!
+
 ``` cpp
 #include <iostream>
 #include <cctype>

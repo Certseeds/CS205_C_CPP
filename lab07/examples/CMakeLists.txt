@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(${PROJECT_NAME}
-        ./lib_Fun.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}//lib_Fun.cpp
         )

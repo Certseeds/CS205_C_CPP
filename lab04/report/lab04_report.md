@@ -10,8 +10,11 @@
 # Lab04 Exercise: 2020_0312
 
 ## E1 Code & Result
+
 ### Code
+
 1. pizza.hpp
+
 ``` cpp
 #ifndef _LAB04_PIZZA_
 #define _LAB04_PIZZA_
@@ -45,7 +48,9 @@ public:
 };
 #endif //  _LAB04_PIZZA_
 ```
-2. lab04_01.cpp    
+
+2. lab04_01.cpp
+
 ``` cpp
 #include <iostream>
 #include "./pizza.hpp"
@@ -56,7 +61,7 @@ int sub_main_04_01();
 #ifndef UNIT_TESTING_LAB_04
 #define UNIT_TESTING_LAB_04
 int main() {
-    int will_return = sub_main_04_01();
+    const int32_t will_return = sub_main_04_01();
     cin.get();
     cin.get();
     return will_return;
@@ -85,9 +90,12 @@ int sub_main_04_01() {
     return 0;
 }
 ```
+
 ### Result
-#### Test Case #1:
-```
+
+#### Test Case #1
+
+``` log
 Input: 
     "Firenze Pizza No."
     18
@@ -97,10 +105,15 @@ Output:
     diameter of the pizza : 18
     weight of the pizza : 189
 ```
+
 ![picture_01](./lab04_01.png)
+
 ## E2 Code & Result
+
 ### Code
+
 1. CandyBar.hpp
+
 ``` cpp
 #ifndef _LAB04_CANDYBAR_
 #define _LAB04_CANDYBAR_
@@ -133,7 +146,9 @@ struct CandyBar {
 };
 #endif //!_LAB04_CANDYBAR_
 ```
+
 2. lab04_02.cpp
+
 ``` cpp
 #include <iostream>
 #include"./CandyBar.hpp"
@@ -144,7 +159,7 @@ int sub_main_04_02();
 #ifndef UNIT_TESTING_LAB_04
 #define UNIT_TESTING_LAB_04
 int main() {
-    int will_return = sub_main_04_02();
+    const int32_t will_return = sub_main_04_02();
     cin.get();
     cin.get();
     return will_return;
@@ -181,9 +196,12 @@ int sub_main_04_02() {
     return 0;
 }
 ```
+
 ### Result
-#### Test Case #1:
-```
+
+#### Test Case #1
+
+``` log
 Input: 
     "No.1 amazing CandyBar"
     25
@@ -205,9 +223,13 @@ Output:
     weight of the CandyBar 2 : 30
     the calories of CandyBar 2 : 250
 ```
+
 ![picture_02](./lab04_02.png)
+
 ## E3 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 using std::cin;
@@ -217,7 +239,7 @@ int sub_main_04_03();
 #ifndef UNIT_TESTING_LAB_04
 #define UNIT_TESTING_LAB_04
 int main() {
-    int will_return = sub_main_04_03();
+    const int32_t will_return = sub_main_04_03();
     cin.get();
     cin.get();
     return will_return;
@@ -243,9 +265,12 @@ int sub_main_04_03() {
     return 0;
 }
 ```
+
 ### Result
-#### Test Case #1:
-```
+
+#### Test Case #1
+
+``` log
 Input: 
     19
     26
@@ -259,4 +284,5 @@ Output:
     number 3 is : 26
     number 4 is : 19
 ```
+
 ![picture_03](./lab04_03.png)

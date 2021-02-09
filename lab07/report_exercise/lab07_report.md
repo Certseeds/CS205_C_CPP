@@ -4,15 +4,18 @@
  * @Author: nanoseeds
  * @Date: 2020-04-02 20:48:14
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 09:22:48
+ * @LastEditTime: 2021-02-09 09:35:06
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
- 
+
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)  
+
 # Lab07 Exercise: 2020_0402
 
 ## E1 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 const int row = 52;
@@ -93,7 +96,9 @@ int32_t Modules(int32_t a, int32_t b) {
 ```
 
 ### Result
+
 #### Test Case #1: Wrong Choice
+
 ``` log
 Input: 
     0
@@ -102,8 +107,11 @@ Output:
     Wrong choice, default use 0
     Result:579
 ```
+
 ![picture_01](./lab07_01.png)
+
 #### Test Case #2: Add
+
 ``` log
 Input: 
     1
@@ -111,8 +119,11 @@ Input:
 Output:
     Result:9261
 ```
+
 ![picture_02](./lab07_02.png)
+
 #### Test Case #3: Subtract
+
 ``` log
 Input: 
     2
@@ -120,8 +131,11 @@ Input:
 Output:
     Result:-400
 ```
+
 ![picture_03](./lab07_03.png)
+
 #### Test Case #4: Multiply
+
 ``` log
 Input: 
     3
@@ -129,8 +143,11 @@ Input:
 Output:
     Result:1554390
 ```
+
 ![picture_04](./lab07_04.png)
+
 #### Test Case #5: Divide
+
 ``` log
 Input: 
     4
@@ -138,8 +155,11 @@ Input:
 Output:
     Result:143
 ```
+
 ![picture_05](./lab07_05.png)
+
 #### Test Case #6: Modulus
+
 ``` log
 Input: 
     5
@@ -148,7 +168,9 @@ Output:
     Result:431
 ```
 ![picture_06](./lab07_06.png)
+
 #### Test Case #7: Big Choice
+
 ``` log
 Input: 
     6
@@ -157,8 +179,11 @@ Output:
     Wrong choice, default use 0
     Result:938
 ```
+
 ![picture_07](./lab07_07.png)
+
 #### Test Case #8: continue
+
 ``` log
 Input: 
     0
@@ -175,12 +200,15 @@ Output:
     Result:1109
     Result:0
 ```
+
 ![picture_08_1](./lab07_08_1.png)
 
 ![picture_08_2](./lab07_08_2.png)
 
 ## E2 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 
@@ -230,8 +258,11 @@ void Display(const box &box_in) {
     std::cout << "Volume: " << box_in.volume << std::endl;
 }
 ```
+
 ### Result
-#### Test Case #1: 
+
+#### Test Case #1:
+
 ``` log
 Input: 
 Output:
@@ -261,10 +292,13 @@ Output:
     Volume: 9360
 
 ```
+
 ![picture_09](./lab07_09.png)
 
 ## E3 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 
@@ -321,8 +355,11 @@ void Reverse_array(double *arr, int32_t size) {
     Reverse_array(arr + 1, size - 2);
 }
 ```
+
 ### Result
+
 #### Test Case #1: size is 1
+
 ``` log
 Input: 
     1
@@ -332,8 +369,10 @@ Output:
     100
     100
 ```
+
 ![picture_10](./lab07_10.png)
 #### Test Case #2: size is 2
+
 ``` log
 Input: 
     2
@@ -343,8 +382,11 @@ Output:
     200 100 
     200 100 
 ```
+
 ![picture_11](./lab07_11.png)
+
 #### Test Case #3: size is 3
+
 ``` log
 Input: 
     3
@@ -354,8 +396,11 @@ Output:
     7931 456 123 
     7931 456 123 
 ```
+
 ![picture_12](./lab07_12.png)
+
 #### Test Case #4: size is 4
+
 ``` log
 Input: 
     4
@@ -365,8 +410,10 @@ Output:
     810 1919 5145 114 
     810 5145 1919 114 
 ```
+
 ![picture_13](./lab07_13.png)
 #### Test Case #5: size is 5
+
 ``` log
 Input: 
     5
@@ -376,8 +423,11 @@ Output:
     81 19 19 41 11 
     81 41 19 19 11
 ``` 
+
 ![picture_14](./lab07_14.png)
+
 #### Test Case #6: size is 6
+
 ``` log
 Input: 
     6
@@ -387,8 +437,11 @@ Output:
     21 37 71 71 99 43 
     21 99 71 71 37 43 
 ```
+
 ![picture_15](./lab07_15.png)
+
 #### Test Case #7: size is 7
+
 ``` log
 Input: 
     7
@@ -401,6 +454,7 @@ Output:
 ![picture_16](./lab07_16.png)
 
 #### Test Case #8: size is 8
+
 ``` log
 Input: 
     8
@@ -410,6 +464,7 @@ Output:
 ![picture_17](./lab07_17.png)
 
 #### Test Case #9: size is 16
+
 ``` log
 Input: 
     16
@@ -420,13 +475,16 @@ Output:
     255 408 1122 82 31 151 331 286 255 255 255 7 513 129 65 17 
     255 65 129 513 7 255 255 255 286 331 151 31 82 1122 408 17 
 ```
+
 ![picture_18](./lab07_18.png)
 
 #### Test Case #10: input error
+
 ``` log
 Input: 
     8
     11 22 408 4 11 14 abc
 Output:
 ```
+
 ![picture_19](./lab07_19.png)

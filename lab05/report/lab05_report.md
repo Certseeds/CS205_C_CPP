@@ -21,7 +21,7 @@ int32_t sub_main_05_01();
 #ifndef _UNIT_TESTING_LAB_05_
 #define _UNIT_TESTING_LAB_05_
 int main() {
-    int32_t will_return = sub_main_05_01();
+    const int32_t will_return = sub_main_05_01();
     cin.get();
     cin.get();
     return will_return;
@@ -78,7 +78,7 @@ int32_t sub_main_05_02();
 #ifndef _UNIT_TESTING_LAB_05_
 #define _UNIT_TESTING_LAB_05_
 int main() {
-    int32_t will_return = sub_main_05_02();
+    const int32_t will_return = sub_main_05_02();
     cin.get();
     cin.get();
     return will_return;
@@ -148,7 +148,7 @@ const char illegal_str[] = "Please input positive";
 #ifndef _UNIT_TESTING_LAB_05_
 #define _UNIT_TESTING_LAB_05_
 int main() {
-	int32_t will_return = sub_main_05_03();
+	const int32_t will_return = sub_main_05_03();
 	cin.get();
 	cin.get();
 	return will_return;
@@ -269,7 +269,7 @@ int32_t sub_main_05_04();
 #ifndef _UNIT_TESTING_LAB_05_
 #define _UNIT_TESTING_LAB_05_
 int main() {
-    int32_t will_return = sub_main_05_04();
+    const int32_t will_return = sub_main_05_04();
     cin.get();
     cin.get();
     return will_return;

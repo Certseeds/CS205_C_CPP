@@ -18,12 +18,13 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-02 18:08:01 
+ * @Date: 2020-04-02 18:08:01
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
+#include <functional>
 
-const int row = 52;
+static constexpr const int32_t row = 52;
 
 void outputLine(const int &number, const char &ch);
 
@@ -45,9 +46,7 @@ using std::cout;
 using std::endl;
 
 int main() {
-    int32_t(*func_array[])(int32_t
-    a, int32_t
-    b) = { Add, Substract, Multiply, Divide, Modules };
+    std::function<int32_t(int32_t,int32_t)> func_array[]{ Add, Substract, Multiply, Divide, Modules};
     char conti = 'Y';
     int32_t num1 = 0;
     int32_t num2 = 0;

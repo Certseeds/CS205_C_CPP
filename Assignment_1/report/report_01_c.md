@@ -55,7 +55,7 @@ const double PI = 3.1415926535;
 #ifndef UNIT_TESTING_ASSIGNMENT_1
 #define UNIT_TESTING_ASSIGNMENT_1
 int main() {
-    int will_return = sub_main();
+    const int32_t will_return = sub_main();
     cin.get();
     cin.get();
     return will_return;

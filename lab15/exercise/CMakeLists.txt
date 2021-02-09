@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 add_executable(${PROJECT_NAME}
-        ./lab15_01.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/lab15_01.cpp
         )

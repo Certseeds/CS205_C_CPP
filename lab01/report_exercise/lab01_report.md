@@ -4,14 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 08:15:29
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 08:56:16
+ * @LastEditTime: 2021-02-09 08:58:04
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
 **Environment**: MSVC2019.
-# lab01 Exercise:
+
+# lab01 Exercise
 
 ## E1 Code & Result
+
 ### Code
 
 ``` cpp
@@ -30,6 +32,7 @@ int main(){1
 ```
 
 ### Result
+
 #### Test Case
 
 ``` log
@@ -39,9 +42,11 @@ Output:
     Hello world
     Hello world
 ```
+
 ![picture_01](./lab01_01.png)
 
 ## E2 Code & Result
+
 ### Code
 
 ``` cpp
@@ -62,7 +67,9 @@ void smile(){
 ```
 
 ### Result
+
 #### Test Case
+
 
 ``` log
 Input: 
@@ -72,4 +79,5 @@ Output:
     Smile!Smile!
     Smile!
 ```
+
 ![picture_02](./lab01_02.png)

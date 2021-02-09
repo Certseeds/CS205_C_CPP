@@ -4,23 +4,15 @@ project(lab13_exercise LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
-add_library(lab13_CStereoShape
-        SHARED
-        CStereoShape_lab13_01.h
-        CStereoShape_lab13_01.cpp)
+add_subdirectory(lib)
 
-add_library(lab13_CCube
-        SHARED
-        CCube_lab13_02.h
-        CCube_lab13_02.cpp)
+add_executable(${PROJECT_NAME}_01 ${CMAKE_CURRENT_SOURCE_DIR}/lab13_01.cpp)
+add_executable(${PROJECT_NAME}_02 ${CMAKE_CURRENT_SOURCE_DIR}/lab13_02.cpp)
+add_executable(${PROJECT_NAME}_04 ${CMAKE_CURRENT_SOURCE_DIR}/lab13_04.cpp)
 
-add_library(lab13_CSphere
-        SHARED
-        CSphere_lab13_03.h
-        CSphere_lab13_03.cpp)
 
-add_executable(${PROJECT_NAME} ./lab13_04.cpp)
-target_link_libraries(${PROJECT_NAME}
-        lab13_CStereoShape
-        lab13_CCube
-        lab13_CSphere)
+target_link_libraries(${PROJECT_NAME}_01 ${PROJECT_NAME}_CStereoShape)
+target_link_libraries(${PROJECT_NAME}_02 ${PROJECT_NAME}_CCube)
+target_link_libraries(${PROJECT_NAME}_04
+        ${PROJECT_NAME}_CCube
+        ${PROJECT_NAME}_CSphere)

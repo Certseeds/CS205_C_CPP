@@ -4,13 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-04-18 10:57:28
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-18 11:53:17
+ * @LastEditTime: 2021-02-09 09:36:41
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++14, Make 4.1.   
+
 # Lab09 Exercise: 2020_0416
 
 ## E1 Code & Result
+
 ### Code
 
 1. fun.h
@@ -30,6 +33,7 @@ void PrintArray(double *target1, double *target2, double *target3, int
 len);
 #endif //CS205_C_CPP_LAB09_EXERCISE_QUESTION1_FUN_H
 ```
+
 2. fun.cpp
 
 ``` cpp
@@ -70,6 +74,7 @@ len) {
     }
 }
 ```
+
 3. main.cpp
 
 ``` cpp
@@ -88,6 +93,7 @@ int main() {
     return 0;
 }
 ```
+
 4. Makefile_1
 
 ``` Makefile
@@ -108,7 +114,9 @@ clean:
 ```
 
 ### Result
+
 #### Test Case #1:
+
 ``` log
 Input:
     No input
@@ -120,13 +128,17 @@ Output:
                 4.4|                4.4|                4.4|
                 5.5|                5.5|                5.5|
 ```
+
 ![picture_01](./lab09_01.png)
 
 #### Test Case #2:Clean
+
 ![picture_01_2](./lab09_01_2.png)
 
 ## E2 Code & Result
+
 ### Code
+
 1. CandyBar.h
 
 ``` cpp
@@ -145,6 +157,7 @@ int setCandyBar(CandyBar &snack);
 void showCandyBar(const CandyBar &snack);
 #endif //EXC_CANDYBAR_H
 ```
+
 2. candybar.cpp
 
 ``` cpp
@@ -178,6 +191,7 @@ void showCandyBar(const CandyBar &snack) {
     std::cout << "Calorie: " << snack.calorie << std::endl;
 }
 ```
+
 3. main2.cpp
 
 ``` cpp
@@ -204,6 +218,7 @@ int main() {
     return 0;
 }
 ```
+
 4. Makefile_2
 
 ``` Makefile
@@ -223,7 +238,9 @@ clean:
 #  make -f Makefile_2 clean
 ```
 ### Result
+
 #### Test Case #1:
+
 ``` log
 Input: 
     new
@@ -263,9 +280,11 @@ Output:
     Weight: 5.5
     Calorie: 6
 ```
+
 ![picture_02](./lab09_02.png)
 
 #### Test Case #2:
+
 ``` log
 Input: 
     new
@@ -276,7 +295,9 @@ Input:
 Output:
     empty name detected!
 ```
+
 ![picture_03](./lab09_03.png)
 
 #### Test Case #3:Clean
+
 ![picture_04](./lab09_04.png)

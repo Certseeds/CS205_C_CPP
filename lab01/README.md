@@ -4,10 +4,11 @@
  * @Author: nanoseeds
  * @Date: 2020-06-07 10:10:19
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-07 10:12:18
+ * @LastEditTime: 2021-02-09 08:57:30
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-## CS205_C_CPP_Lab01
+
+# CS205_C_CPP_Lab01
 
 1. Write a program to print your name and address
 2. Many studies suggest that smiling has benefits. Write a program that

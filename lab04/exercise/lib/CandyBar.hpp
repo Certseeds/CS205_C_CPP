@@ -1,4 +1,4 @@
-/* CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -14,40 +14,24 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-03-26 18:10:42 
- * @LastEditors  : nanoseeds
- */
-#ifndef CS205_C_CPP_LAB06_EXERCISE_INCLUDE_BOOK_H
-#define CS205_C_CPP_LAB06_EXERCISE_INCLUDE_BOOK_H
+#ifndef _LAB04_CANDYBAR_
+#define _LAB04_CANDYBAR_
 
+#include <string>
+#include <cstring>
 
-#include <cstdint>
+static constexpr const int32_t lab04_02_maxrange = 1024;
 
-class Book {
-public:
-    const int Write_Year = 2020;
-    int32_t uuid;
-    double height;
-    double length;
+struct CandyBar {
+    char *name{nullptr};
+    double *weight{nullptr};
+    int32_t *calories{nullptr};
 
-    Book();
+    CandyBar();
 
-    explicit Book(int32_t uuid_in);
+    CandyBar(char *n, double d, int32_t w);
 
-    Book(int32_t uuid_in, double height_in, double length_in);
-
-    Book(const Book &) = delete;
-
-    Book &operator=(const Book &) = delete;
-
-    int Get_Uuid() const;
-
-    double Get_Area() const;
+    ~CandyBar();
 };
 
-
-#endif //CS205_C_CPP_LAB06_EXERCISE_INCLUDE_BOOK_H
+#endif //!_LAB04_CANDYBAR_

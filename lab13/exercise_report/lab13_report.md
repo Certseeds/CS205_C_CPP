@@ -4,13 +4,16 @@
  * @Author: nanoseeds
  * @Date: 2020-05-17 11:45:12
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-05-17 12:07:41
+ * @LastEditTime: 2021-02-09 09:38:36
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
+
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++17, Cmake 3.16.6.  
+
 # Lab13 Exercise: 2020_0514
 
 ##  Code & Result
+
 ### Code
 
 1. CStereoShape.h
@@ -185,6 +188,7 @@ int main() {
     return 0;
 }
 ```
+
 8. Cmakelist.txt
 
 ``` cmake
@@ -199,8 +203,11 @@ add_executable(${PROJECT_NAME}
         ./lab13_04.cpp
         )
 ```
+
 ### Result
+
 #### Test Case #1
+
 ``` log
 Input:
     no input
@@ -215,4 +222,5 @@ Output:
     Volumn is 2065.24
     2
 ```
+
 ![picture_01](./lab13_01.png)

@@ -92,7 +92,7 @@ constexpr double_t PI = 3.1415926535f;
 #ifndef UNIT_TESTING_ASSIGNMENT_2
 #define UNIT_TESTING_ASSIGNMENT_2
 int main() {
-    int will_return = sub_main_assignment_2();
+    const int32_t will_return = sub_main_assignment_2();
     cin.get();
     cin.get();
     return will_return;

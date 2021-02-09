@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -14,35 +14,27 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
-/**
- * @Github: https://github.com/Certseeds/CS205_C_CPP
- * @Organization: SUSTech
- * @Author: nanoseeds
- * @Date: 2020-05-17 11:08:55 
- * @LastEditors  : nanoseeds
- */
-#ifndef CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H
-#define CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H
+#include "pizza.hpp"
 
-#include "./CStereoShape_lab13_01.h"
+pizza::pizza() {
+    name = new char[lab04_01_max_length];
+    memset(name, '\0', lab04_01_max_length);
+    diameter = new double;
+    weight = new double;
+}
 
-class CSphere : public CStereoShape {
-private:
-    double radius;
-public:
-    CSphere();
+pizza::pizza(char *n, double d, double w) {
+    name = new char[lab04_01_max_length];
+    diameter = new double;
+    weight = new double;
+    memset(name, '\0', lab04_01_max_length);
+    memcpy(name, n, strlen(n) * sizeof(char));
+    (*diameter) = d;
+    (*weight) = w;
+}
 
-    CSphere(double rad);
-
-    // 拷贝构造函数 Copy Constructor
-    CSphere(const CSphere &CC);
-
-    double GetArea() override;
-
-    double GetVolume() override;
-
-    void Show() override;
-};
-
-
-#endif //CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H
+pizza::~pizza() {
+    delete[] name;
+    delete diameter;
+    delete weight;
+}

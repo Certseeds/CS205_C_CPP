@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-23 11:16:48 
+ * @Date: 2020-05-23 11:16:48
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
@@ -31,32 +31,32 @@ template<typename T1>
 void useMatrixTemplate(Matrix<T1> &M, T1 array1[][MAXCOLS], T1 array2[][MAXCOLS]);
 
 int main() {
-    string str1[MAXROWS][MAXCOLS] =
+    string str1[MAXROWS][MAXCOLS]
             {
                     {"Congra", "y",   "ar"},
                     {"alm",    "don", "La"}
             };
-    string str2[MAXROWS][MAXCOLS] =
+    string str2[MAXROWS][MAXCOLS]
             {
                     {"tulations", "ou",    "e"},
                     {"ost",       "e the", "b!"}
             };
-    int num1[MAXROWS][MAXCOLS] =
+    int num1[MAXROWS][MAXCOLS]
             {
                     {1, 2, 3},
                     {4, 5, 6}
             };
-    int num2[MAXROWS][MAXCOLS] =
+    int num2[MAXROWS][MAXCOLS]
             {
                     {6, 5, 4},
                     {3, 2, 1}
             };
-    double dou1[MAXROWS][MAXCOLS] =
+    double dou1[MAXROWS][MAXCOLS]
             {
                     {1.6f, 2.5f, 3.4f},
                     {4.3f, 5.2f, 6.1f}
             };
-    double dou2[MAXROWS][MAXCOLS] =
+    double dou2[MAXROWS][MAXCOLS]
             {
                     {6.1f, 5.2f, 4.3f},
                     {3.4f, 2.5f, 1.6f}
