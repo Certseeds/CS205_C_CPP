@@ -142,6 +142,7 @@
         "array": "cpp",
         "complex": "cpp",
         "resumable": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "unordered_set": "cpp"
     }
 }
