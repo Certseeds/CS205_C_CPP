@@ -62,16 +62,16 @@ input_type readNumber() {
 }
 
 output_type count(input_type input) {
-    const size_t row{input.size()}, col{input.front().size()};
+    const int32_t row = static_cast<int32_t>(input.size()), col = static_cast<int32_t>(input.front().size());
     const unordered_set<Color> uset_b{Color::B, Color::G};
     const unordered_map<Color, Color> umap_b{{{Color::B, Color::X}, {Color::G, Color::Y}}};
     const unordered_set<Color> uset_y{Color::Y, Color::G};
     const unordered_map<Color, Color> umap_y{{{Color::Y, Color::X}, {Color::G, Color::B}}};
     output_type sum{0};
-    for (size_t i{0}; i < row; i++) {
-        for (size_t j{0}; j < col; j++) {
+    for (int32_t i{0}; i < row; i++) {
+        for (int32_t j{0}; j < col; j++) {
             if (uset_y.count(input[i][j]) != 0) {
-                size_t i2{i}, j2{j};
+                int32_t i2{i}, j2{j};
                 sum++;
                 while (i2 < row && j2 < col && uset_y.count(input[i2][j2]) != 0) {
                     input[i2][j2] = umap_y.at(input[i2][j2]);
@@ -80,7 +80,7 @@ output_type count(input_type input) {
                 }
             }
             if (uset_b.count(input[i][j]) != 0) {
-                size_t i2{i}, j2{j};
+                int32_t i2{i}, j2{j};
                 sum++;
                 while (i2 < row && 0 <= j2 && uset_b.count(input[i2][j2]) != 0) {
                     input[i2][j2] = umap_b.at(input[i2][j2]);
@@ -105,7 +105,9 @@ int main() {
 }
 }
 #ifndef CS205_C_CPP_MIDTERM_2021SPRING
+
 int main() {
     return question5::main();
 }
+
 #endif
