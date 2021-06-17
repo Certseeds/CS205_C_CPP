@@ -7,26 +7,15 @@ edition = "2018"
 [[bin]]
 name = "CS205_C_CPP_2020Spring_RUST_lab02_01"
 path = "lab02_01.rs"
-test = false
-doctest = false
-bench = false
-doc = false
 
 [[bin]]
 name = "CS205_C_CPP_2020Spring_RUST_lab02_02"
 path = "lab02_02.rs"
 test = true
-doctest = false
-bench = false
-doc = false
 
 [[bin]]
 name = "CS205_C_CPP_2020Spring_RUST_lab02_03"
 path = "lab02_03.rs"
-test = false
-doctest = false
-bench = false
-doc = false
 
 [[test]]
 name = "CS205_C_CPP_2020Spring_RUST_lab02_02_test"
