@@ -5,21 +5,18 @@
 #@LastEditTime: 2020-07-28 23:43:03
 # This is a basic workflow to help you get started with Actions
 
-name: Build Cpp By CMake
+name: Rust Build and Test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  [ push,pull_request ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
-    name: cpp-test
+    name: test
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,21 +27,19 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
       # ensure the path and files of project
       - name: ensure the path and files of project
         run: sudo apt install tree; tree
 
-      - name: ensure the cmake
-        run: cmake --version
+      - name: rust build
+        run: cargo build --all --release --all-features
 
-      - name: prepare folder
-        run: cmake -E make_directory ./CMAKE_DEBUG_PATH
+      - name: rust test
+        run: cargo test --all
 
-      - name: cmake prepare for compile
-        working-directory: ./CMAKE_DEBUG_PATH
-        run: cmake .. -DCMAKE_BUILD_TYPE=DEBUG
-
-      - name: cmake prepare for compile
-        working-directory: ./CMAKE_DEBUG_PATH
-        run: cmake --build . --config DEBUG --parallel $(nproc)
-
+      - name: tree
+        run: tree

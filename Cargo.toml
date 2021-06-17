@@ -1,0 +1,16 @@
+[package]
+name = "CS205_C_CPP_2020Spring_RUST"
+version = "0.0.1"
+authors = ["Certseeds <Certseeds <51754303+Certseeds@users.noreply.github.com>"]
+edition = "2018"
+
+[workspace] # rusrc: rust source
+members = ["lab01/rusrc", "lab02/rusrc"]
+
+[[bin]] # next step is delete the root-path's src file
+name = "KNOW_NO_BIN"
+path = "third_party/rust.rs"
+
+[dependencies]
+CS205_C_CPP_2020Spring_RUST_lab01 = { path = "lab01/rusrc" }
+CS205_C_CPP_2020Spring_RUST_lab02 = { path = "lab02/rusrc" }

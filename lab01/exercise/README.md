@@ -10,7 +10,7 @@
 
 **Environment**: MSVC2019.
 
-# lab01 Exercise
+# lab01 Exercise Report
 
 ## E1 Code & Result
 

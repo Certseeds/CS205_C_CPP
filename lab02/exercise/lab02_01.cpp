@@ -44,7 +44,7 @@ int main() {
     return will_return;
 }
 
-#endif // !UNIT_TESTING_LAB_03
+#endif // !UNIT_TESTING_LAB_02
 
 int sub_main_02_01() {
     cout << "Result:" << endl;
