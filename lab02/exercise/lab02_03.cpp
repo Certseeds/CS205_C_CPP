@@ -40,7 +40,7 @@ int main() {
     cin.get();
     return will_return;
 }
-#endif // !UNIT_TESTING_LAB_03
+#endif // !UNIT_TESTING_LAB_02
 
 int sub_main_02_03() {
     char ch = '0';
