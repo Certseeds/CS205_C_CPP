@@ -4,9 +4,9 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:00:04
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 08:31:06
- * @License: CC-BY-NC-SA_V4_0 or any later version 
- -->
+ * @LastEditTime: 2021-06-18 22:45:53
+   * @License: CC-BY-NC-SA_V4_0 or any later version 
+   -->
 ## CS205_C_CPP_Lab04
 
 1. William Wingate runs a pizza-analysis service.For each pizza,he needs to record
