@@ -214,7 +214,7 @@ Input:
     250
 Output:
     name of the CandyBar 0 : No.1 amazing CandyBar
-     weight of the CandyBar 0 : 25
+    weight of the CandyBar 0 : 25
     the calories of CandyBar 0 : 200
     name of the CandyBar 1 : Apple CanBar plus
     weight of the CandyBar 1 : 20
