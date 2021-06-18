@@ -53,7 +53,7 @@ int sub_main_03_02() {
     cin >> weight;
     cout << "Enter calories(an integer value) in the Candy bar: ";
     cin >> calories;
-    CandyBar cb_1 = {temp_name, weight, calories};
+    CandyBar cb_1{temp_name, weight, calories};
     cout << "Brand: " << cb_1.name << endl;
     cout << "Weight: " << cb_1.weight << endl;
     cout << "Calorie: " << cb_1.calories << endl;
