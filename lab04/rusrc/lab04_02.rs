@@ -1,14 +1,12 @@
 pub mod lib;
 
 mod lab04_02 {
-    use std::fs::read;
-
     use crate::lib::candy_bar::candy_bar::CandyBar as CandyBar;
 
     pub(crate) fn main() {
         let mut candy_bars: Vec<CandyBar> = Vec::new();
         let mut read_str = String::new();
-        for iter in 0..3 {
+        for _ in 0..3 {
             let mut pushed = CandyBar::default();
             println!("Enter brand name of a Candy bar:");
             std::io::stdin().read_line(&mut read_str).expect("Read Name Fail");
