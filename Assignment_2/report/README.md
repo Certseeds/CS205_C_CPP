@@ -4,22 +4,25 @@
  * @Author: nanoseeds
  * @Date: 2020-03-15 21:28:57
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-08 17:10:15
- * @License: CC-BY-NC-SA_V4_0 or any later version 
+ * @LastEditTime: 2021-06-22 10:46:24
+ * @License: CC-BY-NC-SA_V4_0 or any later version
  -->
 
 # CS205 C/C++ Assignment2
 
-**环境**:Visual Studio 2019,MSVC  
+**环境**:Visual Studio 2019,MSVC
 
 ## Part 1 - Analysis
+
 1. 结构体city含有四个指针,分别为两个char\*,一个存储城市名,一个存储国家名,另外两个double*存储经纬度.并在构造函数内使用new,析构函数内delete,确保不内存泄漏.
 2. 数据读入部分使用ifstream,并提前将city数组全部初始化,在循环中读取所有数据,并将读取到的每行数据以逗号分隔,并初始化为city.在读取的过程中,使用`strlen()`和判断语句来提醒数组过小无法存储完city_name与country_name和无法读取完数据,并使用初始化时判断的方式避免内存越界.
 3. 读取完数据后,进入循环,提示用户输入城市名,首先输入全部经过`trim()`函数保证左右无空格,然后将输入的字符串与city数组中的所有city_name使用`strstr()`进行判断,若返回数组长度为零,则继续输入,若长度大于1,则读取输入进行选择,当长度为1时才直接结束,输入完毕后,只有通过输入`Bye`(大小写不敏感,使用函数判断)才会退出.
-4. 最后,使用Assignment1中的计算距离函数,进行距离的计算.  
+4. 最后,使用Assignment1中的计算距离函数,进行距离的计算.
 
 ## Part 2 - Code
+
 1. city.hpp( the header file for city class)
+
 ``` cpp
 #ifndef _ASSIGNMENT_2_CITY_
 #define _ASSIGNMENT_2_CITY_
@@ -62,7 +65,9 @@ struct city {
 };
 #endif
 ```
+
 2. Assignment_2.cpp
+
 ``` cpp
 #include <iostream>
 #include<fstream>
@@ -261,15 +266,20 @@ double count_distance(vector<double>& dous) {
 ```
 
 ## Part 3 - Result & Verification
+
 ### Test Case #1:文件不存在
-```
+
+``` log
 Input:
     Do not exist world_cities.csv in ./
 Output:
     "Notice for dont find file"
 ```
+
 ![picture_01](./picture_01.png)
+
 ### Test Case #2: 长度不足
+
 ``` cpp
     constexpr int32_t LENGTH_OF_NAME = 25;
     constexpr int32_t LENGTH_OF_ARRAY = 800;
@@ -285,8 +295,11 @@ Output:
     a lot of warnning, but can still run
     finally output Distance between London and Amman is : 3642.16 km
 ```
+
 ![picture_02](./picture_02.png)
+
 ### Test Case #3: 正常运行_1
+
 ``` cpp
     constexpr int32_t LENGTH_OF_NAME = 35;
     constexpr int32_t LENGTH_OF_ARRAY = 1000;
@@ -298,13 +311,16 @@ Input:
     frot
     Fort
     3
-       Bye
+    Bye
 Output:
     Distance between Chiang Mai and Fort-de-France is : 15708 km
 ```
+
 ![picture_03](./picture_03.png)
+
 ### Test Case #4: 正常运行_找不到城市
-``` cpp
+
+``` log
 Input:
     Cangzhou
     Zhaoxian
@@ -319,8 +335,11 @@ Input:
 Output:
     Distance between Shijiazhuang and Guangzhou is : 1662.84 km
 ```
+
 ![picture_04](./picture_04.png)
+
 ### Test Case #5: 正常运行_长度过短
+
 ``` cpp
 Input:
     as
@@ -340,8 +359,11 @@ Input:
 Output:
     Distance between Beirut and Boston is : 8721.79 km
 ```
+
 ![picture_05](./picture_05.png)
+
 ### Test Case #6: 正常运行_匹配多项
+
 ``` cpp
 Input:
     Fort
@@ -352,8 +374,11 @@ Input:
 Output:
     Distance between Fort-de-France and Canc煤n is : 2818.77 km
 ```
+
 ![picture_06](./picture_06.png)
+
 ### Test Case #7: 正常运行_多次循环
+
 ``` cpp
 Input:
     Cana
@@ -370,8 +395,11 @@ Input:
 Output:
     Distance between Shenzhen and Guangzhou is : 107.187 km
 ```
+
 ![picture_07](./picture_07.png)
+
 ### Test Case #8: 正常运行_所有情况
+
 ``` cpp
 Input:
     Cangzhou
@@ -396,8 +424,11 @@ Input:
 Output:
     Distance between Jinan and Muscat is : 5710.21 km
 ```
+
 ![picture_08](./picture_08.png)
+
 ### Test Case #9: 正常运行_大小写
+
 ``` cpp
 Input:
     beijing
@@ -407,8 +438,11 @@ Input:
 Output:
     Distance between Beijing and Guangzhou is : 1887.55 km
 ```
+
 ![picture_09](./picture_09.png)
+
 ### Test Case #10: 正常运行_匹配与输入长度
+
 ``` cpp
 Input:
     Ko
@@ -420,8 +454,11 @@ Input:
 Output:
     Distance between Kota Bharu and Kuching is : 1031.94 km
 ```
+
 ![picture_10](./picture_10.png)
+
 ### Test Case #11: 正常运行_模糊匹配与越界
+
 ``` cpp
 Input:
     King
@@ -434,10 +471,15 @@ Input:
 Output:
     Distance between Kingston and Victoria is : 11912.3 km
 ```
+
 ![picture_11](./picture_11.png)
 
 ## Part 4 - Difficulties & Solutions  
+
 #### Difficulties
+
 使用指针管理对象与进行动态内存分配.
+
 #### Solutions
+
 阅读了关于class的章节,将city类单独存放在一个hpp文件中,并使用了析构函数.
