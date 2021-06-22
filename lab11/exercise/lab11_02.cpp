@@ -22,14 +22,14 @@
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
-#include "lib/rectangle_.h"
+#include "lib/rectangle.h"
 
 int main() {
     std::cout << "Rectangle 1" << std::endl;
-    rectangle_ r1(4, 40);
+    rectangle r1(4, 40);
     r1.display();
     std::cout << "Rectangle 2" << std::endl;
-    rectangle_ r2(3.5, 35.9);
+    rectangle r2(3.5, 35.9);
     r2.display();
     return 0;
 }

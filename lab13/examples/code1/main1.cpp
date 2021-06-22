@@ -1,8 +1,8 @@
 
 //main.cpp the main program
 #include <iostream>
-#include "circle_.h"
-#include "rectangle_.h"
+#include "circle.h"
+#include "rectangle.h"
 using namespace std;
 // formatting stuff
 typedef std::ios_base::fmtflags format;
@@ -13,7 +13,7 @@ void restore(format f, precis p);
 
 int main() {
     double r;
-    circle_ circle1(3);
+    circle circle1(3);
     // set up ###.## format
     format initialState = setFormat();
     precis prec = cout.precision(3);
@@ -24,14 +24,14 @@ int main() {
     // set up ###.## format
     initialState = setFormat();
     prec = cout.precision(3);
-    rectangle_ rectangle1(4,4);
-    rectangle_ rectangle2(3.5,35.9);
+    rectangle rectangle1(4,4);
+    rectangle rectangle2(3.5,35.9);
     rectangle1.Show();
     rectangle2.Show();
     // Restore original format
     restore(initialState,prec);
 
-    cout<<"This program generates "<<circle_::GetNumOfObj() + rectangle_::GetNumOfObj()<<" objects";
+    cout<<"This program generates "<<circle::GetNumOfObj() + rectangle::GetNumOfObj()<<" objects";
     return 0;
 }
 

@@ -6,11 +6,11 @@
 #define LAB13_CIRCLE1_H
 
 #define PI 3.1415
-class circle_ {
+class circle {
 public:
-    circle_(double radius);
-    circle_(circle_ &C);
-    ~circle_();
+    circle(double radius);
+    circle(circle &C);
+    ~circle();
     double GetRadius();
     double GetArea()const;
     static  int GetNumOfObj(){ return  numberOfObjects;}

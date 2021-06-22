@@ -10,13 +10,18 @@
 class Complex {
 public:
     Complex();
-    Complex(double re,double im);
+
+    Complex(double re, double im);
 
     void Show() const;
-    Complex operator+(const Complex& other)const;
-    Complex operator+(double r)const;
-    friend Complex operator+(double r,const Complex& other);
-    friend std::ostream&operator<<(std::ostream& os,const Complex& other);
+
+    Complex operator+(const Complex &other) const;
+
+    Complex operator+(double r) const;
+
+    friend Complex operator+(double r, const Complex &other);
+
+    friend std::ostream &operator<<(std::ostream &os, const Complex &other);
 
 private:
     double imag;

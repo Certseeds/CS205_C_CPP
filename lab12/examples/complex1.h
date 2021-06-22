@@ -9,10 +9,12 @@
 class Complex {
 public:
     Complex();
-    Complex(double re,double im);
+
+    Complex(double re, double im);
 
     void Show() const;
-    Complex operator+(const Complex& other)const;
+
+    Complex operator+(const Complex &other) const;
 
 private:
     double imag;

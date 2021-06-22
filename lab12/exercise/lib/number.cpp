@@ -21,7 +21,7 @@
  * @Date: 2020-05-07 22:04:08
  * @LastEditors  : nanoseeds
  */
-#include "number_.h"
+#include "number.h"
 
 Number Number::operator++() { // 前缀
     return Number(++number);

@@ -25,14 +25,14 @@
 #define CS205_C_CPP_LAB11_EXERCISE_RECTANGLE_H
 
 
-class rectangle_ {
+class rectangle {
 private:
     double width = 1;
     double height = 1;
 public:
-    rectangle_();
+    rectangle();
 
-    rectangle_(double w, double h);
+    rectangle(double w, double h);
 
     double getArea();
 
