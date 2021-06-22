@@ -3,8 +3,6 @@ project(${PROJECT_NAME}_lab07_example LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(.)
-
 file(GLOB USER_LIBS_PATH ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp) # regex to find libs, more flexibility
 foreach (elementName IN LISTS USER_LIBS_PATH)
     string(REGEX REPLACE ".*/" "" elementName ${elementName})

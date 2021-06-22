@@ -1,4 +1,4 @@
-/*  CS205_C_CPP 
+/*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
     CS205_C_CPP is free software: you can redistribute it and/or modify
@@ -18,13 +18,15 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-16 14:06:45 
+ * @Date: 2020-04-16 14:06:45
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 #include <functional>
+#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -220,7 +222,7 @@ void get_matrix(matrix_t &matrix, ifstream &file) {
     while (!file.eof()) {
         vector<double> line;
         string temp;
-        getline(file, temp);
+        std::getline(file, temp);
         if (temp.empty()) {
             break;
         }

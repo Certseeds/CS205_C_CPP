@@ -1,20 +1,13 @@
 cmake_minimum_required(VERSION 3.6)
-project(lab12_example)
+project(${PROJECT_NAME}_lab12_example)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-add_executable(${PROJECT_NAME}_example0
-        ./useComplex0.cpp ./Complex0.cpp ./Complex0.h
-        )
-add_executable(${PROJECT_NAME}_example1
-        ./useComplex1.cpp ./Complex1.cpp ./Complex1.h
-        )
-add_executable(${PROJECT_NAME}_example2
-        ./useComplex2.cpp ./Complex2.cpp ./Complex2.h
-        )
-add_executable(${PROJECT_NAME}_example3
-        ./useComplex3.cpp ./Complex3.cpp ./Complex3.h
-        )
-add_executable(${PROJECT_NAME}_example4
-        ./useComplex4.cpp ./Complex4.cpp ./Complex4.h
-        )
+set(List 0 1 2 3 4)
+foreach (element IN LISTS List)
+    add_executable(${PROJECT_NAME}_example${element}
+            ${CMAKE_CURRENT_SOURCE_DIR}/useComplex${element}.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/Complex${element}.cpp
+            )
+endforeach ()
+unset(List)

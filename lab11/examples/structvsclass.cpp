@@ -5,17 +5,18 @@
 
 using namespace std;
 struct A {
-    int a;
+    int a{'a'};
 };
 
 class B {
-    int b;
+public: // unless compile fail
+    int b{'b'};
 };
 
 // Main function for the program
 int main() {
-    A ac;
-    B bc;
+    A ac{};
+    B bc{};
     cout << ac.a << " " << bc.b << endl;
     return 0;
 }

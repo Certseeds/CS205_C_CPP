@@ -24,6 +24,7 @@
 #ifndef CS205_C_CPP_LAB13_EXERCISE_CSTEREOSHAPE_LAB13_01_H
 #define CS205_C_CPP_LAB13_EXERCISE_CSTEREOSHAPE_LAB13_01_H
 
+inline static constexpr const double M_PI = 3.1415926535897932384;
 
 class CStereoShape {
 private:

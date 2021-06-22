@@ -18,13 +18,14 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-04-30 19:59:02 
+ * @Date: 2020-04-30 19:59:02
  * @LastEditors  : nanoseeds
  */
 #ifndef CS205_C_CPP_LAB11_EXERCISE_CANDYBAR_H
 #define CS205_C_CPP_LAB11_EXERCISE_CANDYBAR_H
 
 #include <iostream>
+#include <string>
 
 class CandyBar {
 private:

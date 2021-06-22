@@ -1,9 +1,9 @@
 add_library(${PROJECT_NAME}_CandyBar
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/CandyBar.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/CandyBar.h)
 add_library(${PROJECT_NAME}_Rectangle
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.h)
 

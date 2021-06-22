@@ -11,7 +11,7 @@ int Shape::numberOfObjects = 0;
 Formatting Shape::SetFormat() const
 {
     // set up ###.## format
-    Formatting f;
+    Formatting f{};
     f.flag =
             cout.setf(ios_base::fixed, ios_base::floatfield);
     f.pr = cout.precision(3);
@@ -34,4 +34,5 @@ void Shape::Show() {
 }
 double Shape::GetArea()const{
     std::cout <<"The Shape::GetArea!"<<std::endl;
+    return 0;
 }
