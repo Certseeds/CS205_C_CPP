@@ -18,32 +18,31 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-07 22:03:28
+ * @Date: 2020-05-17 11:08:55
  * @LastEditors  : nanoseeds
  */
-#include "complex_.h"
+#include "c_sphere_lab13_03.h"
+#include <cmath>
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
 
-int main() {
-    Complex a(3.0, 4.0);
-    Complex b(2.0, 6.0);
-    cout << "b is " << b << endl;
-    cout << "~b is " << ~b << endl;
-    cout << "a is " << a << endl;
-    cout << "a + b is " << a + b << endl;
-    cout << "a - b is " << a - b << endl;
-    cout << "a * b is " << a * b << endl;
-    cout << "2 * b is " << 2 * b << endl;
-    Complex c = b;
-    cout << "b==c is " << (b == c) << endl;
-    cout << "b!=c is" << (b != c) << endl;
-    cout << "a==c is" << (a == c) << endl << endl;
-    Complex d;
-    cout << "Enter a complex number : " << endl;
-    cin >> d;
-    cout << "d is " << d << endl;
-    return 0;
+CSphere::CSphere(double rad) {
+    this->radius = rad;
+}
+
+CSphere::CSphere(const CSphere &CC) {
+    this->radius = CC.radius;
+}
+
+double CSphere::GetArea() {
+    return 4.0f * M_PI * pow(this->radius, 2);
+}
+
+double CSphere::GetVolume() {
+    return 4.0f / 3.0f * M_PI * pow(this->radius, 3);
+}
+
+void CSphere::Show() {
+    std::cout << "radius is " << this->radius << "\n";
+    std::cout << "Area is " << this->GetArea() << "\n";
+    std::cout << "Volumn is " << this->GetVolume() << "\n";
 }

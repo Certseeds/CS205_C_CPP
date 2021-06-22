@@ -22,7 +22,7 @@
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
-#include "lib/CandyBar.h"
+#include "lib/candy_bar.h"
 
 int main() {
     CandyBar cb; // 构造函数 无参

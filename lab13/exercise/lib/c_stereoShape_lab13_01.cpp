@@ -18,32 +18,35 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-07 22:03:28
+ * @Date: 2020-05-17 10:28:20
  * @LastEditors  : nanoseeds
  */
-#include "complex_.h"
+#include "c_stereoShape_lab13_01.h"
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
 
-int main() {
-    Complex a(3.0, 4.0);
-    Complex b(2.0, 6.0);
-    cout << "b is " << b << endl;
-    cout << "~b is " << ~b << endl;
-    cout << "a is " << a << endl;
-    cout << "a + b is " << a + b << endl;
-    cout << "a - b is " << a - b << endl;
-    cout << "a * b is " << a * b << endl;
-    cout << "2 * b is " << 2 * b << endl;
-    Complex c = b;
-    cout << "b==c is " << (b == c) << endl;
-    cout << "b!=c is" << (b != c) << endl;
-    cout << "a==c is" << (a == c) << endl << endl;
-    Complex d;
-    cout << "Enter a complex number : " << endl;
-    cin >> d;
-    cout << "d is " << d << endl;
-    return 0;
+
+CStereoShape::CStereoShape() {
+    numberOfObject++;
+}
+
+double CStereoShape::GetArea() {
+    std::cout << "CStereoShape::GetArea()" << std::endl;
+    return 0.0;
+}
+
+double CStereoShape::GetVolume() {
+    std::cout << "CStereoShape::GetVolume()" << std::endl;
+    return 0.0;
+}
+
+void CStereoShape::Show() {
+    std::cout << "CStereoShape::Show()" << std::endl;
+}
+
+int CStereoShape::GetNumOfObject() {
+    return  CStereoShape::numberOfObject;
+}
+
+CStereoShape::~CStereoShape() {
+    numberOfObject--;
 }

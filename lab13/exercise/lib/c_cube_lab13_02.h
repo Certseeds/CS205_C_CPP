@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-01-05 18:49:03
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-02-09 09:57:28
+ */
 /*  CS205_C_CPP
     Copyright (C) 2020  nanoseeds
 
@@ -18,32 +26,33 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-07 22:03:28
+ * @Date: 2020-05-17 10:48:32
  * @LastEditors  : nanoseeds
  */
-#include "complex_.h"
-#include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
+#ifndef CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H
+#define CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H
 
-int main() {
-    Complex a(3.0, 4.0);
-    Complex b(2.0, 6.0);
-    cout << "b is " << b << endl;
-    cout << "~b is " << ~b << endl;
-    cout << "a is " << a << endl;
-    cout << "a + b is " << a + b << endl;
-    cout << "a - b is " << a - b << endl;
-    cout << "a * b is " << a * b << endl;
-    cout << "2 * b is " << 2 * b << endl;
-    Complex c = b;
-    cout << "b==c is " << (b == c) << endl;
-    cout << "b!=c is" << (b != c) << endl;
-    cout << "a==c is" << (a == c) << endl << endl;
-    Complex d;
-    cout << "Enter a complex number : " << endl;
-    cin >> d;
-    cout << "d is " << d << endl;
-    return 0;
-}
+#include "c_stereoShape_lab13_01.h"
+
+class CCube : public CStereoShape {
+private:
+    double length{0.0f};
+    double width{0.0f};
+    double height{0.0f};
+public:
+    CCube() = default;
+
+    CCube(double len, double wid, double heig);
+
+    // 拷贝构造函数 Copy Constructor
+    CCube(const CCube &CC);
+
+    double GetArea() override;
+
+    double GetVolume() override;
+
+    void Show() override;
+};
+
+
+#endif //CS205_C_CPP_LAB13_EXERCISE_CCUBE_LAB13_02_H

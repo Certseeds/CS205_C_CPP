@@ -21,7 +21,7 @@
  * @Date: 2020-05-17 10:34:34
  * @LastEditors  : nanoseeds
  */
-#include "CCube_lab13_02.h"
+#include "c_cube_lab13_02.h"
 #include <iostream>
 
 int main() {

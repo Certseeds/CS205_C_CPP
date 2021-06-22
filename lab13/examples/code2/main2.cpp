@@ -1,20 +1,20 @@
 //main.cpp the main program
 #include <iostream>
-#include "Circle.h"
-#include "Rectangle.h"
-#include "Shape.h"
+#include "circle_.h"
+#include "rectangle_.h"
+#include "shape_.h"
 using namespace std;
 int main() {
     double r;
-    Circle circle1(3);
+    circle_ circle1(3);
     circle1.Show();
 
-    Rectangle rectangle1(4,4);
-    Rectangle rectangle2(3.5,35.9);
+    rectangle_ rectangle1(4,4);
+    rectangle_ rectangle2(3.5,35.9);
     rectangle1.Show();
     rectangle2.Show();
 
-    cout<<"This program generates "<<Shape::GetNumOfObj() <<" objects";
+    cout<<"This program generates "<<shape_::GetNumOfObj() <<" objects";
     return 0;
 }
 

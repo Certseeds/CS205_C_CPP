@@ -1,11 +1,11 @@
 add_library(${PROJECT_NAME}_Complex
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/Complex.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Complex.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/complex_.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/complex_.h)
 add_library(${PROJECT_NAME}_Number
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/Number.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Number.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/number_.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/number_.h)
 
 target_include_directories(${PROJECT_NAME}_Complex
         INTERFACE
