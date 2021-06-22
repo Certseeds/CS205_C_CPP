@@ -12,9 +12,9 @@ struct Formatting
     std::streamsize pr;
 };
 
-class shape_ {
+class shape {
 public:
-    shape_(){
+    shape(){
         numberOfObjects++;
     }
 

@@ -22,7 +22,7 @@
  * @LastEditors  : nanoseeds
  */
 #include <iostream>
-#include "number_.h"
+#include "number.h"
 
 using std::cout;
 using std::endl;

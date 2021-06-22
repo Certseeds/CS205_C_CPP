@@ -3,7 +3,7 @@ project(${PROJECT_NAME}_lab11_example LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(${PROJECT_NAME}_BOX ${LIB_WAY} ${CMAKE_CURRENT_SOURCE_DIR}/box_.cpp)
+add_library(${PROJECT_NAME}_BOX ${LIB_WAY} ${CMAKE_CURRENT_SOURCE_DIR}/box.cpp)
 
 set(List 1 2 3 4)
 foreach (element IN LISTS List)

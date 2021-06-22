@@ -2,22 +2,22 @@
 // Created by lenovo on 2019/12/4.
 //
 #include <iostream>
-#include "rectangle_.h"
+#include "rectangle.h"
 
-rectangle_::rectangle_(rectangle_& rectangle){
+rectangle::rectangle(rectangle& rectangle){
     width = rectangle.width;
     height = rectangle.height;
 
 }
-rectangle_::rectangle_(double width,double height){
+rectangle::rectangle(double width,double height){
     this->width=width;
     this->height=height;
 
 }
-double rectangle_::GetArea()const{
+double rectangle::GetArea()const{
     return width*height;
 }
-void rectangle_::Show() {
+void rectangle::Show() {
     // set up ###.## format
     Formatting flag = SetFormat();
     std::cout <<"width:"<<width

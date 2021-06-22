@@ -21,27 +21,27 @@
  * @Date: 2020-04-30 21:35:56
  * @LastEditors  : nanoseeds
  */
-#include "rectangle_.h"
+#include "rectangle.h"
 #include <iostream>
 #include <iomanip>
 
-rectangle_::rectangle_() {
+rectangle::rectangle() {
 
 }
 
-rectangle_::rectangle_(double w, double h) : width(w), height(h) {
+rectangle::rectangle(double w, double h) : width(w), height(h) {
 
 }
 
-double rectangle_::getArea() {
+double rectangle::getArea() {
     return this->width * this->height;
 }
 
-double rectangle_::getPerimeter() {
+double rectangle::getPerimeter() {
     return 2 * (this->width + this->height);
 }
 
-void rectangle_::display() {
+void rectangle::display() {
     std::cout << "-------------" << std::endl;
     std::cout << "Width:      " << std::setiosflags(std::ios::left) << this->width << std::endl;
     std::cout << "Height:     " << std::setiosflags(std::ios::left) << this->height << std::endl;

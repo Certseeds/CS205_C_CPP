@@ -4,8 +4,8 @@ add_library(${PROJECT_NAME}_CandyBar
         ${CMAKE_CURRENT_SOURCE_DIR}/candy_bar.h)
 add_library(${PROJECT_NAME}_Rectangle
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle_.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle_.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle.h)
 
 target_include_directories(${PROJECT_NAME}_CandyBar
         INTERFACE

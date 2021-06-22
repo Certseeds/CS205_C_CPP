@@ -1,29 +1,29 @@
 //
 // Created by lenovo on 2019/12/4.
 //
-// Circle.cpp -- Circle class methods
-#include "circle_.h"
+
+#include "circle.h"
 #include <iostream>
 
-circle_::circle_(circle_ &C){
+circle::circle(circle &C){
     radius= C.radius;
 
 }
-circle_::circle_(double radius):radius(radius){
+circle::circle(double radius):radius(radius){
 
 }
-circle_::~circle_(){
+circle::~circle(){
 
 }
 
-double circle_::GetRadius(){
+double circle::GetRadius(){
     return radius;
 }
 
-double circle_::GetArea()const{
+double circle::GetArea()const{
     return PI*radius*radius;
 }
-void circle_::Show() {
+void circle::Show() {
     // set up ###.## format
     Formatting flag = SetFormat();
 

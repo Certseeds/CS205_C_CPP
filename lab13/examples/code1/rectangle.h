@@ -5,17 +5,20 @@
 #ifndef LAB13_RECTANGLE2_H
 #define LAB13_RECTANGLE1_H
 
-#include "shape_.h"
-class rectangle_: public shape_ {
+
+class rectangle {
 
 public:
-    rectangle_(rectangle_& rectangle);
-    rectangle_(double width,double height);
-    rectangle_(){ }
+    rectangle(rectangle& rectangle);
+    rectangle(double width,double height);
+    rectangle(){
+            numberOfObjects++;
+        }
+    static int GetNumOfObj(){ return  numberOfObjects;}
     double GetArea()const;
     void Show();
 private:
-
+    static int numberOfObjects;
     double width;
     double height;
 };
