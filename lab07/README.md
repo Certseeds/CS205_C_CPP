@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:15:06
  * @LastEditors: nanoseeds
- * @LastEditTime: 2021-06-22 15:41:39
+ * @LastEditTime: 2021-06-22 20:27:05
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_Lab07
@@ -31,49 +31,49 @@ Press y or Y to continue:y
 PS: frame is provided
 
 ``` cpp
-#include <iostream> 
-using namespace std; 
-void displaymenu(){ 
-    //complete code here 
-} 
-int Add(int a,int b){
-    //complete code here 
+#include <iostream>
+using namespace std;
+void displaymenu(){
+    //complete code here
 }
-int Substract(int a, int b){ 
-    //complete code here 
+int Add(int a,int b){
+    //complete code here
+}
+int Substract(int a, int b){
+    //complete code here
 }
 int Multiply(int a, int b){
-    //complete code here 
+    //complete code here
 }
-float Divide(int a,int b){ 
-    //complete code here 
+float Divide(int a,int b){
+    //complete code here
 }
-int Modulus(int a, int b){ 
-    //complete code here 
+int Modulus(int a, int b){
+    //complete code here
 }
 ```
 
 ``` cpp
-int main(int argc, char *argv[]) { 
-    //show menu 
+int main(int argc, char *argv[]) {
+    //show menu
     displaymenu();
-    int yourchoice; 
-    int a; 
-    int b; 
-    char confirm; 
+    int yourchoice;
+    int a;
+    int b;
+    char confirm;
     do{
-    cout<<"Enter your choice(1-5):"; 
-    cin>>yourchoice; 
+    cout<<"Enter your choice(1-5):";
+    cin>>yourchoice;
     cout<<"Enter your two integer numbers:";
-    cin>>a>>b; 
-    cout<<"\n"; 
-    switch(yourchoice){ 
-          //complete code here 
+    cin>>a>>b;
+    cout<<"\n";
+    switch(yourchoice){
+          //complete code here
     }
     cout<<"\nPress y or Y to continue:";
-    cin>>confirm; 
-    }while(confirm=='y'||confirm=='Y'); 
-    return EXIT_SUCCESS; 
+    cin>>confirm;
+    }while(confirm=='y'||confirm=='Y');
+    return EXIT_SUCCESS;
    }
 ```
 

@@ -13,9 +13,9 @@ mod lab07_03 {
         let mut array = vec![0f64; size];
         lab07_03::fill_array(&mut array);
         lab07_03::show_array(&array);
-        lab07_03::reverse_array(&mut array);
+        lab07_03::reverse_array(array.len(), &mut array);
         lab07_03::show_array(&array);
-        lab07_03::reverse_array(&mut array);
+        lab07_03::reverse_array(array.len()-2, &mut array[1..(size - 1)]);
         lab07_03::show_array(&array);
     }
 }
