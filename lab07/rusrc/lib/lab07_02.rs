@@ -10,20 +10,17 @@ pub mod book {
     }
 
     pub fn cal_by_val(book: Book) {
-        //TODO
-        //println!("{}", &book);
+        println!("{}", &book);
     }
 
     pub fn cal_by_pointer(book: *mut Book) {
-        //TODO
-        //unsafe {
-        //    println!("{}", *book);
-        //}
+        unsafe {
+            println!("{}", *book);
+        }
     }
 
     pub fn cal_by_ref(book: &Book) {
-        //TODO
-        //println!("{}", &book);
+        println!("{}", &book);
     }
 
     impl fmt::Display for Book {

@@ -21,4 +21,3 @@ test = true
 
 # rusrc means rust-src
 [dependencies]
-libc = "0.2.97"
