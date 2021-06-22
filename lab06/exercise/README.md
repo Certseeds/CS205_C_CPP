@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-03-26 23:23:19
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-08 17:11:03
+ * @LastEditTime: 2021-06-22 13:42:17
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  --> 
 **Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
@@ -44,81 +44,111 @@ int main() {
     return 0;
 }
 ```
+
 ### Result
+
 #### Test Case #1:
-```
+
+``` log
 Input: 
     a
 Output:
     Vowel
 ```
+
 ![picture_01](./lab06_01.png)
+
 #### Test Case #2:
-```
+
+``` log
 Input: 
     b
 Output:
     Consonant
 ```
+
 ![picture_02](./lab06_02.png)
+
 #### Test Case #3:
-```
+
+``` log
 Input: 
     E
 Output:
     Vowel
 ```
+
 ![picture_03](./lab06_03.png)
+
 #### Test Case #4:
-```
+
+``` log
 Input: 
     C
 Output:
     Consonant
 ```
+
 ![picture_04](./lab06_04.png)
+
 #### Test Case #5:
-```
+
+``` log
 Input: 
     i
 Output:
     Vowel
 ```
+
 ![picture_05](./lab06_05.png)
+
 #### Test Case #6:
-```
+
+``` log
 Input: 
     O
 Output:
     Vowel
 ```
+
 ![picture_06](./lab06_06.png)
+
 #### Test Case #7:
-```
+
+``` log
 Input: 
     t
 Output:
     Consonant
 ```
+
 ![picture_07](./lab06_07.png)
+
 #### Test Case #8:
-```
+
+``` log
 Input: 
     U
 Output:
     Vowel
 ```
+
 ![picture_08](./lab06_08.png)
+
 #### Test Case #9:
-```
+
+``` log
 Input: 
     ?
 Output:
     Error! please input vowel or consonant characters
 ```
 ![picture_09](./lab06_09.png)
+
 ## E2 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 #include <cstring>
@@ -161,9 +191,11 @@ int main() {
 }
 ```
 ### Result
+
 #### Test Case #1:
-```
-Input: 
+
+``` log
+Input:
     in all sections, yuwen is the basic class
     it can import the basic language apower and other works.
     not at all! done
@@ -174,9 +206,13 @@ Output:
     12 words begining with consonants
     1 others
 ```
+
 ![picture_10](./lab06_10.png)
+
 ## E3 Code & Result
+
 ### Code
+
 ``` cpp
 #include <iostream>
 using std::cin;
@@ -212,10 +248,13 @@ int main() {
     return 0;
 }
 ```
+
 ### Result
+
 #### Test Case #1:
-```
-Input:  
+
+``` log
+Input:
     89
     99
     97
@@ -223,10 +262,13 @@ Output:
     Average is : 93.6667
     Grade is : A
 ```
+
 ![picture_11](./lab06_11.png)
+
 #### Test Case #2:
-```
-Input:  
+
+``` log
+Input:
     85
     90
     95
@@ -234,10 +276,13 @@ Output:
     Average is : 90
     Grade is : A
 ```
+
 ![picture_12](./lab06_12.png)
+
 #### Test Case #3:
-```
-Input:  
+
+``` log
+Input:
     79
     83
     89
@@ -245,10 +290,13 @@ Output:
     Average is : 83.6667
     Grade is : B
 ```
+
 ![picture_13](./lab06_13.png)
+
 #### Test Case #4:
-```
-Input:  
+
+``` log
+Input:
     65
     75
     70
@@ -256,10 +304,12 @@ Output:
     Average is : 70
     Grade is : B
 ```
+
 ![picture_14](./lab06_14.png)
 #### Test Case #5:
-```
-Input:  
+
+``` log
+Input:
     60
     53
     59
@@ -267,10 +317,12 @@ Output:
     Average is : 57.3333
     Grade is : C
 ```
+
 ![picture_15](./lab06_15.png)
 #### Test Case #6:
-```
-Input:  
+
+``` log
+Input:
     45
     51
     54
@@ -278,10 +330,12 @@ Output:
     Average is : 50
     Grade is : C
 ```
+
 ![picture_16](./lab06_16.png)
 #### Test Case #7:
-```
-Input:  
+
+``` log
+Input:
     1
     2
     3
@@ -289,10 +343,13 @@ Output:
     Average is : 2
     Grade is : F
 ```
+
 ![picture_17](./lab06_17.png)
+
 #### Test Case #8:
-```
-Input:  
+
+``` log
+Input:
     60.0
     25.0
     99.98
@@ -300,4 +357,5 @@ Output:
     Average is : 61.66
     Grade is : C
 ```
+
 ![picture_18](./lab06_18.png)
