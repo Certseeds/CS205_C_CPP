@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:10:05
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-08 09:31:13
+ * @LastEditTime: 2021-06-22 13:09:09
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_Lab06
@@ -36,7 +36,7 @@ NOTE:English alphabets 'a' , 'e' , 'i' , 'o' , 'u' both lowercase and uppercase 
 2. Write a program that reads input a word at a time until a lone q is entered.The program should then report the number of words that began with vowels,the num- ber that began with consonants,and the number that fit neither of those categories. One approach is to use **isalpha()** to discriminate between words beginning with letters and those that don't and then use an **if or switch** statement to further identify those passing the **isalpha()** test that begin with vowels.A sample run might
 look like this:.
 
-```
+``` log
 Input:
     in all sections, yuwen is the basic class
     it can import the basic language apower and other works.
