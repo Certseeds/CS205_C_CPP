@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-08 09:15:06
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 08:31:31
+ * @LastEditTime: 2021-06-22 15:41:39
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_Lab07
@@ -31,7 +31,8 @@ Press y or Y to continue:y
 PS: frame is provided
 
 ``` cpp
-#include <iostream> using namespace std; 
+#include <iostream> 
+using namespace std; 
 void displaymenu(){ 
     //complete code here 
 } 
