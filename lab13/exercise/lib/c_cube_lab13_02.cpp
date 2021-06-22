@@ -18,32 +18,39 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-07 22:03:28
+ * @Date: 2020-05-17 10:48:32
  * @LastEditors  : nanoseeds
  */
-#include "complex_.h"
+#include "c_cube_lab13_02.h"
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
 
-int main() {
-    Complex a(3.0, 4.0);
-    Complex b(2.0, 6.0);
-    cout << "b is " << b << endl;
-    cout << "~b is " << ~b << endl;
-    cout << "a is " << a << endl;
-    cout << "a + b is " << a + b << endl;
-    cout << "a - b is " << a - b << endl;
-    cout << "a * b is " << a * b << endl;
-    cout << "2 * b is " << 2 * b << endl;
-    Complex c = b;
-    cout << "b==c is " << (b == c) << endl;
-    cout << "b!=c is" << (b != c) << endl;
-    cout << "a==c is" << (a == c) << endl << endl;
-    Complex d;
-    cout << "Enter a complex number : " << endl;
-    cin >> d;
-    cout << "d is " << d << endl;
-    return 0;
+
+CCube::CCube(double len, double wid, double heig) {
+    this->length = len;
+    this->width = wid;
+    this->height = heig;
+}
+
+CCube::CCube(const CCube &CC) {
+    this->length = CC.length;
+    this->width = CC.width;
+    this->height = CC.height;
+}
+
+double CCube::GetArea() {
+    return this->length * this->width * this->height;
+}
+
+double CCube::GetVolume() {
+    return 2 * this->length * this->width \
+ + 2 * this->width * this->height \
+ + 2 * this->length * this->height;
+}
+
+void CCube::Show() {
+    std::cout << "length is " << this->length << "\n";
+    std::cout << "width is " << this->width << "\n";
+    std::cout << "height is " << this->height << "\n";
+    std::cout << "Area is " << this->GetArea() << "\n";
+    std::cout << "Volumn is " << this->GetVolume() << "\n";
 }

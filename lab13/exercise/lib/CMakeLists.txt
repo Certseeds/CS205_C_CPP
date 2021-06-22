@@ -1,15 +1,15 @@
 add_library(${PROJECT_NAME}_CStereoShape
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/CStereoShape_lab13_01.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/CStereoShape_lab13_01.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_stereoShape_lab13_01.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_stereoShape_lab13_01.h)
 add_library(${PROJECT_NAME}_CCube
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/CCube_lab13_02.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/CCube_lab13_02.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_cube_lab13_02.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_cube_lab13_02.h)
 add_library(${PROJECT_NAME}_CSphere
         ${LIB_WAY}
-        ${CMAKE_CURRENT_SOURCE_DIR}/CSphere_lab13_03.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/CSphere_lab13_03.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_sphere_lab13_03.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/c_sphere_lab13_03.h)
 
 target_include_directories(${PROJECT_NAME}_CStereoShape
         INTERFACE

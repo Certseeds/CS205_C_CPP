@@ -4,7 +4,7 @@
  # @Author: nanoseeds
  # @Date: 2020-02-18 11:10:37
  # @LastEditors: nanoseeds
- # @LastEditTime: 2020-08-13 23:30:45
+ # @LastEditTime: 2021-06-23 00:21:13
 ### 
 *            text=auto
 
@@ -13,6 +13,7 @@
 .gitignore     text
 *.md           text
 catch.hpp linguist-vendored
+*/examples/** linguist-vendored
 
 # scripts
 *.sh text eol=lf

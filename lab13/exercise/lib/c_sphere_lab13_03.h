@@ -18,32 +18,31 @@
  * @Github: https://github.com/Certseeds/CS205_C_CPP
  * @Organization: SUSTech
  * @Author: nanoseeds
- * @Date: 2020-05-07 22:03:28
+ * @Date: 2020-05-17 11:08:55
  * @LastEditors  : nanoseeds
  */
-#include "complex_.h"
-#include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
+#ifndef CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H
+#define CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H
 
-int main() {
-    Complex a(3.0, 4.0);
-    Complex b(2.0, 6.0);
-    cout << "b is " << b << endl;
-    cout << "~b is " << ~b << endl;
-    cout << "a is " << a << endl;
-    cout << "a + b is " << a + b << endl;
-    cout << "a - b is " << a - b << endl;
-    cout << "a * b is " << a * b << endl;
-    cout << "2 * b is " << 2 * b << endl;
-    Complex c = b;
-    cout << "b==c is " << (b == c) << endl;
-    cout << "b!=c is" << (b != c) << endl;
-    cout << "a==c is" << (a == c) << endl << endl;
-    Complex d;
-    cout << "Enter a complex number : " << endl;
-    cin >> d;
-    cout << "d is " << d << endl;
-    return 0;
-}
+#include "c_stereoShape_lab13_01.h"
+
+class CSphere : public CStereoShape {
+private:
+    double radius{0};
+public:
+    CSphere() = default;
+
+    explicit CSphere(double rad);
+
+    // 拷贝构造函数 Copy Constructor
+    CSphere(const CSphere &CC);
+
+    double GetArea() override;
+
+    double GetVolume() override;
+
+    void Show() override;
+};
+
+
+#endif //CS205_C_CPP_LAB13_EXERCISE_CSPHERE_LAB13_03_H

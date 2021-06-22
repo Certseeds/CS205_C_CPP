@@ -1,13 +1,13 @@
 //main.cpp the main program
 #include <iostream>
-#include "Circle.h"
-#include "Rectangle.h"
-#include "Shape.h"
+#include "circle_.h"
+#include "rectangle_.h"
+#include "shape_.h"
 using namespace std;
 
 #define NUM_OF_SHAPE 3
 int main() {
-   Shape* p_shape[NUM_OF_SHAPE];
+   shape_* p_shape[NUM_OF_SHAPE];
 
    int ch = 0;
    for(int i =0; i< NUM_OF_SHAPE;i++)
@@ -22,14 +22,14 @@ int main() {
            cout << "Please enter the radius of the circle:";
            double r;
            cin>> r;
-           p_shape[i] = new Circle(r);
+           p_shape[i] = new circle_(r);
        }
        else
        {
            cout<< "Please enter the width and height of the rectangle:";
            double w,h;
            cin>> w>>h;
-           p_shape[i] = new Rectangle(w,h);
+           p_shape[i] = new rectangle_(w,h);
        }
        while (cin.get() != '\n')
            continue;
@@ -43,7 +43,7 @@ int main() {
     {
         delete p_shape[i];
     }
-    cout<<"This program generates "<<Shape::GetNumOfObj() <<" objects";
+    cout<<"This program generates "<<shape_::GetNumOfObj() <<" objects";
     return 0;
 }
 
