@@ -27,7 +27,6 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <unistd.h>
 #include "city.hpp"
 
 using std::cin;

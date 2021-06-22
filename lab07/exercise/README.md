@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-04-02 20:48:14
  * @LastEditors: nanoseeds
- * @LastEditTime: 2021-02-09 09:35:06
+ * @LastEditTime: 2021-06-22 21:20:45
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
@@ -100,7 +100,7 @@ int32_t Modules(int32_t a, int32_t b) {
 #### Test Case #1: Wrong Choice
 
 ``` log
-Input: 
+Input:
     0
     123 456
 Output:
@@ -113,7 +113,7 @@ Output:
 #### Test Case #2: Add
 
 ``` log
-Input: 
+Input:
     1
     465 8796
 Output:
@@ -125,7 +125,7 @@ Output:
 #### Test Case #3: Subtract
 
 ``` log
-Input: 
+Input:
     2
     114 514
 Output:
@@ -137,7 +137,7 @@ Output:
 #### Test Case #4: Multiply
 
 ``` log
-Input: 
+Input:
     3
     1919 810
 Output:
@@ -149,7 +149,7 @@ Output:
 #### Test Case #5: Divide
 
 ``` log
-Input: 
+Input:
     4
     1001 7
 Output:
@@ -161,7 +161,7 @@ Output:
 #### Test Case #6: Modulus
 
 ``` log
-Input: 
+Input:
     5
     1564135 568
 Output:
@@ -172,7 +172,7 @@ Output:
 #### Test Case #7: Big Choice
 
 ``` log
-Input: 
+Input:
     6
     911 027
 Output:
@@ -185,7 +185,7 @@ Output:
 #### Test Case #8: continue
 
 ``` log
-Input: 
+Input:
     0
     114 514
     y
@@ -264,7 +264,7 @@ void Display(const box &box_in) {
 #### Test Case #1:
 
 ``` log
-Input: 
+Input:
 Output:
     Before setting valume by value
     Maker: ShanDong University
@@ -361,7 +361,7 @@ void Reverse_array(double *arr, int32_t size) {
 #### Test Case #1: size is 1
 
 ``` log
-Input: 
+Input:
     1
     100
 Output:
@@ -374,7 +374,7 @@ Output:
 #### Test Case #2: size is 2
 
 ``` log
-Input: 
+Input:
     2
     100 200
 Output:
@@ -388,7 +388,7 @@ Output:
 #### Test Case #3: size is 3
 
 ``` log
-Input: 
+Input:
     3
     1234 56 789
 Output:
@@ -402,7 +402,7 @@ Output:
 #### Test Case #4: size is 4
 
 ``` log
-Input: 
+Input:
     4
     114 5145 1919 810
 Output:
@@ -415,21 +415,21 @@ Output:
 #### Test Case #5: size is 5
 
 ``` log
-Input: 
+Input:
     5
     11 41 19 81 0
 Output:
     11 41 19 19 81 
     81 19 19 41 11 
     81 41 19 19 11
-``` 
+```
 
 ![picture_14](./lab07_14.png)
 
 #### Test Case #6: size is 6
 
 ``` log
-Input: 
+Input:
     6
     43 99 71 71 37 21
 Output:
@@ -443,7 +443,7 @@ Output:
 #### Test Case #7: size is 7
 
 ``` log
-Input: 
+Input:
     7
     1.5 9 7.4 6 3.0 0 7
 Output:
@@ -451,22 +451,24 @@ Output:
     7 0 3 6 7.4 9 1.5 
     7 9 7.4 6 3 0 1.5 
 ```
+
 ![picture_16](./lab07_16.png)
 
 #### Test Case #8: size is 8
 
 ``` log
-Input: 
+Input:
     8
     3 7 3 5 9.2 8.5 5 9
 Output:
 ```
+
 ![picture_17](./lab07_17.png)
 
 #### Test Case #9: size is 16
 
 ``` log
-Input: 
+Input:
     16
     17 65 129 513 7 255 255 255
     286 331 151 31 82 1122 408 255
@@ -481,7 +483,7 @@ Output:
 #### Test Case #10: input error
 
 ``` log
-Input: 
+Input:
     8
     11 22 408 4 11 14 abc
 Output:

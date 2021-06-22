@@ -15,21 +15,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    name: cpp-test
+  windows:
+    name: windows-no-opencv
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code
         uses: actions/checkout@v2
-
-      # ensure the path and files of project
-      - name: ensure the path and files of project
-        run: sudo apt install tree; tree
 
       - name: ensure the cmake
         run: cmake --version
@@ -41,7 +39,44 @@ jobs:
         working-directory: ./CMAKE_DEBUG_PATH
         run: cmake .. -DCMAKE_BUILD_TYPE=DEBUG
 
+      - name: cmake compile
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: cmake --build . --config DEBUG --parallel
+
+      - name: cmake test
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: ctest
+
+  unix-like:
+    name: unix-with-opencv
+    # The type of runner that the job will run on
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-latest]
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: prepare libopencv
+        run: |
+          sudo apt update
+          sudo apt install libopencv-dev
+
+      - name: ensure the cmake
+        run: cmake --version
+
+      - name: prepare folder
+        run: cmake -E make_directory ./CMAKE_DEBUG_PATH
+
       - name: cmake prepare for compile
         working-directory: ./CMAKE_DEBUG_PATH
-        run: cmake --build . --config DEBUG --parallel $(nproc)
+        run: cmake .. -DCMAKE_BUILD_TYPE=DEBUG
 
+      - name: cmake compile
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: cmake --build . --config DEBUG --parallel
+
+      - name: cmake test
+        working-directory: ./CMAKE_DEBUG_PATH
+        run: ctest

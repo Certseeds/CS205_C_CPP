@@ -1,9 +1,9 @@
 add_library(${PROJECT_NAME}_Complex
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/Complex.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/Complex.h)
 add_library(${PROJECT_NAME}_Number
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/Number.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/Number.h)
 

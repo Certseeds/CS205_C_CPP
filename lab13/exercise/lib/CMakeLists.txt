@@ -1,13 +1,13 @@
 add_library(${PROJECT_NAME}_CStereoShape
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/CStereoShape_lab13_01.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/CStereoShape_lab13_01.h)
 add_library(${PROJECT_NAME}_CCube
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/CCube_lab13_02.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/CCube_lab13_02.h)
 add_library(${PROJECT_NAME}_CSphere
-        SHARED
+        ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/CSphere_lab13_03.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/CSphere_lab13_03.h)
 
