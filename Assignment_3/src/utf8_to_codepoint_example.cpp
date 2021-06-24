@@ -8,7 +8,7 @@
  */
 #include <cstdio>
 
-#include "../rusrc/ques03/utf8.hpp"
+#include "utf8.hpp"
 
 int main(int argc, char **argv) {
     unsigned char *p;
