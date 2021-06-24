@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-06-22 16:21:51
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-06-24 20:32:44
+ */
 pub mod lab07_03 {
     pub fn fill_array(arr: &mut Vec<f64>) -> usize {
         for order in 0..arr.len() {
@@ -13,7 +21,6 @@ pub mod lab07_03 {
             };
         }
         return 0;
-        //TODO
     }
 
     pub fn show_array(arr: &Vec<f64>) {
