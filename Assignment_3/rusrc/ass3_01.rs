@@ -26,7 +26,7 @@ mod ass3_01 {
         type Err = std::io::Error;
         fn from_str(s: &str) -> Result<Self, Self::Err> {
             let coords: Vec<&str> = s.trim()
-                .split(' ')
+                .split_whitespace()
                 .collect();
             let x = coords[0].parse::<i64>().expect("1st error");
             let y = coords[1].parse::<i64>().expect("2nd error");
