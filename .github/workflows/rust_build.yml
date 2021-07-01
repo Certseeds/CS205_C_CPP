@@ -46,15 +46,9 @@ jobs:
         with:
           toolchain: stable
 
-      # ensure the path and files of project
-      - name: ensure the path and files of project
-        run: sudo apt install tree; tree
-
       - name: rust build
         run: cargo build --all --release --all-features -j2
 
       - name: rust test
         run: cargo test --all -j2
 
-      - name: tree
-        run: tree
