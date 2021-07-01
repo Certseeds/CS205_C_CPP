@@ -1614,7 +1614,7 @@ namespace Catch {
 
     } // namespace Detail
 
-    // If we decide for C++14, change these to enable_if_ts
+    // If we decide for C++17, change these to enable_if_ts
     template <typename T, typename = void>
     struct StringMaker {
         template <typename Fake = T>

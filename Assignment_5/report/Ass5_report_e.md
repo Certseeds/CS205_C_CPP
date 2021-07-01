@@ -9,7 +9,7 @@
  -->
 # CS205 C/C++ Assignment5
 
-**environment**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++14,Catch v2.12.1.
+**environment**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++17,Catch v2.12.1.
 
 ## Part 1-Analysis
 1. The function stores a string as a whole, other methods are completed by the method of string with utf8.h, so the internal string must be set to private.

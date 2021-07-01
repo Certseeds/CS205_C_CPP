@@ -9,7 +9,7 @@
  -->
 # CS205 C/C++ Assignment5
 
-**环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++14,Catch v2.12.1.
+**环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++17,Catch v2.12.1.
 
 ## Part 1 - Analysis
 1. 函数整体存储的就是一个string,其他的方法都由string的方法配合utf8.h去完成,所以要把内部的string设置为private.

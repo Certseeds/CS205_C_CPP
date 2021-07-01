@@ -10,7 +10,7 @@
 
 # CS205 C/C++ Assignment4
 
-**环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04).C++14.
+**环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04).C++17.
 
 ## Question 1
 ### Part 1 - Analysis
