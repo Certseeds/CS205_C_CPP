@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-06-09 09:03:21
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 09:06:16
+ * @LastEditTime: 2021-07-01 13:57:29
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 ## CS205_C_CPP_Lab14
@@ -66,6 +66,7 @@ The max of donkey and apple is donkey
 ```
 
 ### Exercise 2 - Class Template
+
 Complete the Matrix template types and Make the following program run correctly.
 
 ``` cpp
