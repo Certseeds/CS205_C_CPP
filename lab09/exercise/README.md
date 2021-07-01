@@ -8,7 +8,7 @@
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 
-**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++14, Make 4.1.   
+**Environment**: WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04),C++17, Make 4.1.   
 
 # Lab09 Exercise: 2020_0416
 
