@@ -21,6 +21,7 @@
  * @Date: 2020-04-19 22:37:16
  * @LastEditors  : nanoseeds
  */
+#include <string>
 #include <vector>
 #include <numeric>
 #include <fstream>

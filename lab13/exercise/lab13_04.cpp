@@ -21,8 +21,8 @@
  * @Date: 2020-05-17 11:31:19
  * @LastEditors  : nanoseeds
  */
-#include "CCube_lab13_02.h"
-#include "CSphere_lab13_03.h"
+#include "c_cube_lab13_02.h"
+#include "c_sphere_lab13_03.h"
 #include <iostream>
 
 int main() {

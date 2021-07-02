@@ -88,8 +88,7 @@ int32_t sub_main_assignment_3_03() {
         file_content.append(temp);
     }
     // read form stdin
-    int32_t bytes_in_char;
-    for (int i = 0; i < static_cast<int32_t>(file_content.size()); i += bytes_in_char) {
+    for (int32_t i{0}, bytes_in_char{0}; i < static_cast<int32_t>(file_content.size()); i += bytes_in_char) {
         int32_t code_point =
                 utf8_to_codepoint(reinterpret_cast<const unsigned char *>(&file_content[i]), &bytes_in_char);
         chars_count[find_alphabeta(blocks, block_count, code_point)]++;

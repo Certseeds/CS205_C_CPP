@@ -3,8 +3,10 @@
 #include <cctype>
 
 #include "utf8.hpp"
-
-extern unsigned char *codepoint_to_utf8(const unsigned int cp,
+#ifdef __cplusplus
+extern "C" {
+#endif
+unsigned char *codepoint_to_utf8(const unsigned int cp,
                                         unsigned char *val) {
 
     if (cp <= 0x7f) {
@@ -33,7 +35,7 @@ extern unsigned char *codepoint_to_utf8(const unsigned int cp,
     return val;
 }
 
-extern int isutf8(const unsigned char *u) {
+int isutf8(const unsigned char *u) {
     // Validate utf8 character.
     // Returns the length, 0 if invalid.
     int len = 0;
@@ -67,7 +69,7 @@ extern int isutf8(const unsigned char *u) {
     return len;
 }
 
-extern unsigned char *decimal_to_utf8(const unsigned int d,
+unsigned char *decimal_to_utf8(const unsigned int d,
                                       unsigned char *val) {
     // Works like chr() in Oracle: convert to hex, then convert hex to
     // character. Returns nullptr if invalid UTF-8 character.
@@ -94,7 +96,7 @@ extern unsigned char *decimal_to_utf8(const unsigned int d,
     return val;
 }
 
-extern unsigned int utf8_to_codepoint(const unsigned char *u,
+unsigned int utf8_to_codepoint(const unsigned char *u,
                                       int *lenptr) {
     // Returns 0 if something goes wrong
     // Passes back the length
@@ -132,7 +134,7 @@ extern unsigned int utf8_to_codepoint(const unsigned char *u,
 //
 //  Returns the length of s in CHARACTERS, not bytes
 //
-extern int utf8_charlen(unsigned char *s) {
+int utf8_charlen(unsigned char *s) {
     int len = 0;
     unsigned char *p = s;
 
@@ -144,7 +146,7 @@ extern int utf8_charlen(unsigned char *s) {
     return len;
 }
 
-extern int utf8_bytes_to_charpos(unsigned char *s, int pos) {
+int utf8_bytes_to_charpos(unsigned char *s, int pos) {
     unsigned char *p = s;
     int charcnt = 0;
 
@@ -155,7 +157,7 @@ extern int utf8_bytes_to_charpos(unsigned char *s, int pos) {
     return charcnt;
 }
 
-extern int utf8_charpos_to_bytes(unsigned char *s, int pos) {
+int utf8_charpos_to_bytes(unsigned char *s, int pos) {
     int bytecnt = 0;
     int charcnt = 0;
     int len;
@@ -173,7 +175,7 @@ extern int utf8_charpos_to_bytes(unsigned char *s, int pos) {
 
 // strchr-like function for utf8 characters. Returns nullptr if
 // "needle" is an invalid utf8 character.
-extern unsigned char *utf8_search(const unsigned char *haystack,
+unsigned char *utf8_search(const unsigned char *haystack,
                                   const unsigned char *needle) {
     auto *p = (unsigned char *) nullptr;
 
@@ -184,3 +186,6 @@ extern unsigned char *utf8_search(const unsigned char *haystack,
     }
     return p;
 }
+#ifdef __cplusplus
+}
+#endif

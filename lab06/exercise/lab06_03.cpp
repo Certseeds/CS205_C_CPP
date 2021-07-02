@@ -1,3 +1,11 @@
+/*
+ * @Github: https://github.com/Certseeds/CS205_C_CPP
+ * @Organization: SUSTech
+ * @Author: nanoseeds
+ * @Date: 2021-01-05 18:49:03
+ * @LastEditors: nanoseeds
+ * @LastEditTime: 2021-06-22 13:33:24
+ */
 /* CS205_C_CPP 
     Copyright (C) 2020  nanoseeds
 
@@ -39,7 +47,7 @@ int main() {
     cout << "Input mid_term Score : ";
     cin >> mid_term;
     while ((getchar()) != '\n');
-    cout << "Input mid_term Score : ";
+    cout << "Input final term Score : ";
     cin >> scores;
     while ((getchar()) != '\n');
     average = (quiz + mid_term + scores) / 3;

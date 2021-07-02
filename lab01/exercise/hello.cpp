@@ -27,7 +27,7 @@
 using std::cout;
 using std::endl;
 
-int main(){
+int main() {
     cout << "Hello world" << endl;
     cout << "hello world" << endl;
     return 0;

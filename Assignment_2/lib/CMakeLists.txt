@@ -1,6 +1,6 @@
 set(target_name_city ${PROJECT_NAME}_lib_city)
 
-add_library(${target_name_city} SHARED
+add_library(${target_name_city} ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/city.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/city.hpp)
 
@@ -10,7 +10,7 @@ target_include_directories(${target_name_city}
 
 set(target_name ${PROJECT_NAME}_lib)
 
-add_library(${target_name} SHARED
+add_library(${target_name} ${LIB_WAY}
         ${CMAKE_CURRENT_SOURCE_DIR}/Assignment_2.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/Assignment_2.hpp)
 

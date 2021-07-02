@@ -7,7 +7,9 @@
  * @LastEditTime: 2020-06-09 20:56:38
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-CS205_C_CPP
+
+# CS205_C_CPP_2020Spring
+
 1. All code(in this project,include *.c,*.cpp,*.h,*.hpp,CMakeLists.txt,etc) based on AGPL3.0(or any later version).
 
 2. All *.md files are based on CC-BY-NC-SA-4.0(or any later version).

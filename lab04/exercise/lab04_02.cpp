@@ -39,7 +39,7 @@ int sub_main_04_02() {
     char *name = new char[lab04_02_maxrange];
     double weight = 0;
     int32_t calories = 0;
-    CandyBar *cb_array = new CandyBar[3];
+    CandyBar *cb_array = new CandyBar[4];
     for (int i = 0; i < 3; i++) {
         memset(name, '\0', lab04_02_maxrange);
         cout << "Input name of the CandyBar : ";
@@ -49,7 +49,8 @@ int sub_main_04_02() {
         cout << "Input the calories of CandyBar : ";
         cin >> calories;
         cin.get();
-        memcpy(cb_array[i].name, name, strlen(name) * sizeof(char));
+        strncpy(cb_array[i].name, name, strlen(name) * sizeof(char));
+        cb_array[i].name[strlen(name) * sizeof(char)] = '\0';
         (*cb_array[i].weight) = weight;
         (*cb_array[i].calories) = calories;
     }

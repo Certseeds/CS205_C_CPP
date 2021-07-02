@@ -12,7 +12,7 @@ int main() // function header
     using namespace std; // make definitions visible
     cout << "Come up and C++ me some time."; // message
     cout << endl; // start a new line
-    cout << "You won¡¯t regret it!" << endl; // more output
+    cout << "You wonÂ¡Â¯t regret it!" << endl; // more output
     return 0; // terminate main()
 }
 

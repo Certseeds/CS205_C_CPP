@@ -59,6 +59,7 @@ You mustn't derive the class from the string class (which wasn't designed as a b
 You'll have to mix C (char *) strings with the C++ std::string type. It's fairly easy to switch between both; there is a constructor that constructs a string from achar * C string passed as parameter; and the method `c_str()` applied to a C++ std::string returns a pointer to a '\0' terminated sequence of C chars.
 
 ## Part 2
+
 We'll extend the UTF8string class by adding overloaded operators. You are asked to redefine:  
 
  + `<<` i.e. support `std::cout << ustr << std::endl;`

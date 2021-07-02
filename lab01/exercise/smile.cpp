@@ -23,16 +23,21 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
     */
 #include <iostream>
+
 using std::cout;
 using std::endl;
+
 void smile();
-int main(){
-    for(int i = 0;i<3;i++){
-        for(int j = 3;j>i;j--){
+
+int main() {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 3; j > i; j--) {
             smile();
-        }cout<<endl;
-    }   
+        }
+        cout << endl;
+    }
 }
-void smile(){
+
+void smile() {
     cout << "Smile!";
 }

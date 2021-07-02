@@ -4,10 +4,12 @@
  * @Author: nanoseeds
  * @Date: 2020-06-09 08:41:57
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-06-09 08:46:41
+ * @LastEditTime: 2021-06-30 23:06:48
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-## CS205_C_CPP_Lab11
+
+# CS205_C_CPP_Lab11
+
 1. Design a class named **CandyBar** to represent candybars,The class contains:
   + three data member variables.The first member holds the brand **name** of a candy bar.The second member holds the **weight** (which may have a fractional part) of the candy bar, and the third member holds **the number of calories** (an integer value) in the candy bar.
   + A method named `setCandyBar()` that should prompt the user to enter each of the items to set the corresponding member variables of the CandyBay . 

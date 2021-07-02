@@ -46,14 +46,14 @@ double count_distance(vector<double> &dous) {
     dous[0] = 90 - dous[0];
     dous[2] = 90 - dous[2];
     // data is la,lo ,la,lo
-    double distance_1 =
+    const double distance_1 =
             std::sin(std::abs(dous[0]) * PI / 180) *
             std::sin(std::abs(dous[2]) * PI / 180) *
             std::cos(std::abs(dous[1] - dous[3]) * PI / 180);
-    double distance_2 =
+    const double distance_2 =
             std::cos(std::abs(dous[0]) * PI / 180) *
             std::cos(std::abs(dous[2]) * PI / 180);
-    double distance = radius_earth * std::acos(distance_1 + distance_2);
+    const double distance = radius_earth * std::acos(distance_1 + distance_2);
     return distance;
 }
 

@@ -238,7 +238,7 @@ int main()
     while (name[i] != '\0') // process to end of string
     {
         cout << name[i] << ": " << int(name[i]) << endl;
-        i++; // don¡¯t forget this step
+        i++; // donÂ¡Â¯t forget this step
     }
     
     return 0;

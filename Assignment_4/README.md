@@ -7,9 +7,11 @@
  * @LastEditTime: 2020-06-07 09:35:11
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
-## Assignment 4_V2_2.
 
-### Description 1
+# Assignment 4_V2_2.
+
+## Description 1
+
 We plan to establish a score system for lab class, and now invite you to join its development.
 
 It is assumed that there are 14 lab classes in a semester, each lab has 5 exercises and 1 point for one .That is to say, the total score of each lab class is 5 points. Students are required to complete these exercises and we check and mark them in class. If students don’t check the results of exercise in one lab , this lab will get 0 point, and he is considered absent from the lab class. 
@@ -26,9 +28,11 @@ Remember the following information as you write your program:
   1. The scores of students can only be integers between 0 and 5, including 5.
 
 Input:
+
 > The Number of students
 
 Ooutput:
+
 The scores of all the students in the lab class,the print format is as follows:
 > SID1：lab1’s score, lab2’s score,...,lab14’s score  
 > SID2：lab1’s score, lab2’s score,...,lab14’s score  
@@ -36,9 +40,11 @@ The scores of all the students in the lab class,the print format is as follows:
 > SIDn：lab1’s score, lab2’s score,...,lab14’s score  
 
 Hint:
+
 We can consider using a one-dimensional array to store student’s ID, and a two-dimensional array to store students’ score for each lab class.
 
 ### Q2: With these information, we can easily find student’s ID whose absent time are equal to or greater than twice and send them an email to remind them.
+
 Input:
 > none
 
@@ -46,10 +52,12 @@ Ooutput:
 > the SID of the students whose absent time equal or exceed 2  
 
 ### Q3: Export this information to a file named lab_records.csv
+
 Input:
 > none
 
-Ooutput:
+Output:
+
 > A file named lab_records.csv，the format is as follows:
 
 > SID1：lab1’s score, lab2’s score,...,lab14’s score  
@@ -58,10 +66,13 @@ Ooutput:
 > SIDn：lab1’s score, lab2’s score,...,lab14’s score  
 
 ### Q4: Read lab_records.csv , calculate the average score of each lab and the average score of the course, and print out the lab ID of the average score of the lab is less than the average score of the course
+
 Input:
+
 > A file named lab_records.csv  
 
 Output:
+
 > The lab ID of the average score of the lab is less than the average score of the course
 
 Note that you can do Q1,Q2,Q3 in one program, but you have to write one function for each one.
@@ -78,10 +89,12 @@ It must also say "Invalid command" if the command isn't recognized. You are aske
 
 For this, you'll have an array of strings containing the commands, you'll search it, and if you find the command you'll return its index in the array. The index is an integer and can be used for "switch". For legibility, you'll associate a symbol to each index. For instance if you have
 `char *commands[] = {"start", "stop", ... };`
+
 You can have
 
 `#define START_CMD 0`  
 `#define STOP_CMD 1`  
 
 and use in the switch:
+
 `case START_CMD: ..`

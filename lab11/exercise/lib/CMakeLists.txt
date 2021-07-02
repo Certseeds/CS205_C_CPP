@@ -1,11 +1,11 @@
 add_library(${PROJECT_NAME}_CandyBar
-        SHARED
-        ${CMAKE_CURRENT_SOURCE_DIR}/CandyBar.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/CandyBar.h)
+        ${LIB_WAY}
+        ${CMAKE_CURRENT_SOURCE_DIR}/candy_bar.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/candy_bar.h)
 add_library(${PROJECT_NAME}_Rectangle
-        SHARED
-        ${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.h)
+        ${LIB_WAY}
+        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/rectangle.h)
 
 target_include_directories(${PROJECT_NAME}_CandyBar
         INTERFACE
