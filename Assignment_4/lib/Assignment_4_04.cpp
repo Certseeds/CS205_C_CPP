@@ -25,7 +25,7 @@
 
 int32_t question4() {
     // file path
-    std::fstream file("./lab_records.csv");
+    std::fstream file("./../../../Assignment_4/lab_records.csv");
     // read
     if (!file.is_open()) {
         cout << "open file fail " << endl;
