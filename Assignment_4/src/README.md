@@ -13,12 +13,15 @@
 **环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04).C++17.
 
 ## Question 1
+
 ### Part 1 - Analysis
+
 1. SID要随机在[2000,2020],所以用一对std::pair来存储begin和end
 2. scores在0-5处随机,所以使用c++11中的random库生成SID与scores的随机数.
 3. 读入一个数,使用unordered_map存储SID与scores之间的对应关系.
 
 ### Part 2 - Code
+
 ``` cpp
 #include <vector>
 #include <iostream>
@@ -80,7 +83,9 @@ int32_t question1() {
 ```
 
 ### Part 3 - Result & Verification
+
 #### Test Case #1:
+
 ``` log
 Input:
     10
@@ -96,10 +101,12 @@ Output:
     20100838: 5, 5, 0, 3, 2, 3, 4, 5, 3, 5, 4, 1, 3, 4
     20098492: 3, 0, 2, 2, 4, 3, 4, 3, 3, 1, 0, 4, 0, 2 
 ```
+
 ![picture_01](./Ass4_picture_01.png)
 
 
 #### Test Case #2:
+
 ``` log
 Input:
     18
@@ -123,9 +130,11 @@ Output:
     20098662: 5, 5, 5, 0, 5, 4, 0, 3, 2, 1, 1, 1, 5, 4
     20183859: 2, 3, 0, 0, 1, 4, 3, 1, 1, 4, 5, 3, 0, 3
 ```
+
 ![picture_02](./Ass4_picture_02.png)
 
 ### Part 4 - Difficulties & Solutions  
+
 #### Difficulties
 rand(),srand()比较难用.
 
@@ -134,10 +143,12 @@ rand(),srand()比较难用.
 
 
 ## Question 2:
+
 ### Part 1 - Analysis
 1. 在1的基础上,遍历每个sid对应的vector,有两个及两个以上为零的输出.
 
 ### Part 2 - Code
+
 ``` cpp
 #include <random>
 #include <vector>
@@ -214,7 +225,9 @@ int32_t question2() {
 ```
 
 ### Part 3 - Result & Verification
+
 #### Test Case #1:
+
 ``` log
 Input:
     10
@@ -240,20 +253,27 @@ Output:
     20018928
     20014234
 ```
+
 ![picture_03](./Ass4_picture_03.png)
 
 ### Part 4 - Difficulties & Solutions  
+
 #### Difficulties
+
 1. umap不能放在question1内
 
 #### Solutions
+
 2. 放在外面
 
 ## Question 3:Count Unicode Langauge
+
 ### Part 1 - Analysis
+
 1. 使用ofstream,将umap中的内容写入.
 
 ### Part 2 - Code
+
 ``` cpp
 #include <random>
 #include <vector>
@@ -351,7 +371,9 @@ int32_t question3() {
 ```
 
 ### Part 3 - Result & Verification
+
 #### Test Case #1: script output
+
 ``` log
 Input:
     12
@@ -377,7 +399,9 @@ Output:
     20090929
     20028419
 ```
+
 `cat ./lab_records.csv`
+
 ``` csv
 20191951,5,1,5,4,0,4,1,4,4,5,5,5,0,5
 20133657,3,2,0,4,4,0,4,5,5,0,0,3,1,2
@@ -393,21 +417,28 @@ Output:
 20204560,0,2,3,5,2,5,1,4,5,2,1,4,4,3
 
 ```
+
 ![picture_04](./Ass4_picture_04.png)
 
 ### Part 4 - Difficulties & Solutions  
+
 #### Difficulties
+
 1. 使用ide时,lab_records.csv会在输出目录出现.
 
 #### Solutions
+
 2. 使用命令行.
 
 ## Question 4
+
 ### Part 1 - Analysis
+
 1. 使用fstream读取文件,一行一行读取后,使用atoi等解析其中的内容.
 2. 最后计算总分,计算不到平均分的lab ID,输出.
 
 ### Part 2 - Code
+
 ``` cpp
 #include <vector>
 #include <numeric>
@@ -475,7 +506,9 @@ std::pair<int32_t, vector<int32_t>> str_to_scores(const std::string &str_in) {
 ```
 
 ### Part 3 - Result & Verification
+
 #### Test Case #1:
+
 ``` log
 Input:
     No input.
@@ -490,9 +523,11 @@ Output:
     13
     14
 ```
+
 ![picture_05](./Ass4_picture_05.png)
 
 data in lab_records.csv
+
 ``` log
 20195943,4,5,4,0,3,0,2,3,1,2,4,4,0,4
 20183025,3,2,3,3,1,5,0,3,0,4,5,1,1,3
@@ -510,23 +545,30 @@ data in lab_records.csv
 20074839,1,3,0,4,4,5,4,1,1,0,3,5,4,4
 20005744,3,3,3,2,0,2,0,0,0,5,2,5,3,0
 ```
+
 ![picture_06](./Ass4_picture_06.png)
 
 ### Part 4 - Difficulties & Solutions  
+
 #### Difficulties
+
 csv格式中,不能忽略空格
 
 #### Solutions
+
 不在csv格式中使用非必要的空格.
 
 ## Question 5
+
 ### Part 1 - Analysis
+
 1. 使用一个循环,等待读入,并将读入转化的字符switch到对应的输出.
 2. 使用recieve_input,对读入进行转换,转换成int32_t.
 3. 使用trim将字符串前后的空白抹去.
 4. 使用str_lower将字符串转换为小写.
 
 ### Part 2 - Code
+
 ``` cpp
 #include <string>
 #include <vector>
@@ -598,6 +640,7 @@ std::string trim(std::string str) {
 ### Part 3 - Result & Verification
 
 #### Test Case #1:
+
 ``` log
 Input:
     start
@@ -616,9 +659,11 @@ Output:
     Invalid command
     exit
 ```
+
 ![picture_07](./Ass4_picture_07.png)
 
 #### Test Case #2:
+
 ``` log
 Input:
     START
@@ -637,12 +682,16 @@ Output:
     command status recognized
     exit
 ```
+
 ![picture_08](./Ass4_picture_08.png)
 
 
 ### Part 4 - Difficulties & Solutions  
+
 #### Difficulties
+
 循环判断相等不够优雅
 
 #### Solutions
+
 使用algorithm库中的find函数.
