@@ -12,6 +12,7 @@
 **environment**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++17,Catch v2.12.1.
 
 ## Part 1-Analysis
+
 1. The function stores a string as a whole, other methods are completed by the method of string with utf8.h, so the internal string must be set to private.
 2. Because it involves implicit conversion using `replace (const char * c1, const char * c2)`-> `repkace (const UTF8string & s1, const UTF8string & s2)`, you cannot add `explicit` before the constructor.
 3. Because copy constructors and move assignments are not involved, their use is explicitly prohibited.
