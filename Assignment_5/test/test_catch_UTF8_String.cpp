@@ -119,10 +119,10 @@ TEST_CASE("test 12") {
 }
 
 TEST_CASE("test 13") {
-    auto lamb = [](UTF8string u) -> void {
+    const auto lamb = [](UTF8string u) -> void {
         cout << "Testing operator !: " << u << " -> " << !u << endl;
     };
-    UTF8string test13("reinterpret_cast<const unsigned char *>");
+    const UTF8string test13("reinterpret_cast<const unsigned char *>");
     lamb(test13);
     CHECK_THAT(test13.get_str(),
                Equals("reinterpret_cast<const unsigned char *>"));

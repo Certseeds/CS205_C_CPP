@@ -4,7 +4,7 @@
  * @Author: nanoseeds
  * @Date: 2020-04-27 23:07:31
  * @LastEditors: nanoseeds
- * @LastEditTime: 2020-04-30 22:05:59
+ * @LastEditTime: 2021-07-02 20:54:12
  * @License: CC-BY-NC-SA_V4_0 or any later version 
  -->
 # CS205 C/C++ Assignment5
@@ -12,8 +12,9 @@
 **环境**:WSL_1,gcc version 7.5.0 (Ubuntu 7.5.0-3,ubuntu1~18.04),C++17,Catch v2.12.1.
 
 ## Part 1 - Analysis
+
 1. 函数整体存储的就是一个string,其他的方法都由string的方法配合utf8.h去完成,所以要把内部的string设置为private.
-2. 因为涉及到使用`replace(const char* c1,const char* c2)`->`repkace(const UTF8string& s1,const UTF8string& s2)`的隐式转换,所以不能在构造函数前加`explicit`.
+2. 因为涉及到使用`replace(const char* c1,const char* c2)`->`replace(const UTF8string& s1,const UTF8string& s2)`的隐式转换,所以不能在构造函数前加`explicit`.
 3. 因为不涉及到复制构造函数和移动赋值符,所以显式禁止使用.
 4. 重载`<<`要返回ostream.
 5. 重载-/要添加足够的const,同时不能返回&.
@@ -260,7 +261,9 @@ TEST_CASE("test 12") {
 ```
 
 ## Part 3 - Result & Verification
+
 ### Test Case #1: examples
+
 ``` log
 Input:
     No input
@@ -277,20 +280,27 @@ Output:
     Testing operator *: hip hip hip hurray
     Testing operator !: Никола́й Васи́льевич Го́голь -> ьлоѓоГ чивеьл́исаВ й́алокиН
 ```
+
 ![picture_01](./Ass5_picture_01.png)
 
 
 ### Test Case #2: Catch2 tests.
+
 ``` log
 Input:
     No input
 Output:
     All tests passed (22 assertions in 12 test cases)
 ```
+
 ![picture_02](./Ass5_picture_02.png)
 
 ## Part 4 - Difficulties & Solutions  
+
 ### Difficulties
+
 `explicit`会禁止隐式类型转换
+
 ### Solutions
+
 不使用`explicit`

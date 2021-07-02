@@ -2,7 +2,9 @@
 #define UTF8_H
 
 // --- UTF-8 ---
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 // Macro copied from the sqlite code
 // Kind of utf8-aware p++
 #define _utf8_incr(zIn) {                        \
@@ -64,4 +66,9 @@ extern unsigned char *decimal_to_utf8(unsigned int d,
 extern unsigned char *codepoint_to_utf8(unsigned int cp,
                                         unsigned char *utf8);
 
+#ifdef __cplusplus
+}
 #endif
+
+#endif
+
