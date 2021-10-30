@@ -2,7 +2,7 @@
 name = "CS205_C_CPP_2020Spring_RUST"
 version = "0.0.1"
 authors = ["Certseeds <Certseeds <51754303+Certseeds@users.noreply.github.com>"]
-edition = "2018"
+edition = "2021"
 members = ["*/rusrc"]
 
 [source.crates-io]
